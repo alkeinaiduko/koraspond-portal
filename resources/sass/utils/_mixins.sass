@@ -1,0 +1,14 @@
+@mixin flexbox($direction: initial, $align: initial, $justify: initial)
+  display: flex
+  flex-direction: $direction
+  align-items: $align
+  justify-content: $justify
+
+@mixin flexBoxCenter
+  display: flex
+  align-content: center
+  justify-content: center
+  align-self: center
+  justify-self: center
+@mixin box-sizing($type)
+  box-sizing: $type
