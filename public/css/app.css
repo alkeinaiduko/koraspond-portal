@@ -1,4 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Lato);@charset "UTF-8";
+
+@font-face {
+  font-family: "Graphik-Bold";
+  src: url("/fonts/graphik/Graphik-Bold.ttf");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Graphik-Regular";
+  src: url("/fonts/graphik/Graphik-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -10914,6 +10928,7 @@ body {
 
 .koraspond__primary-btn {
   font-size: 12px;
+  font-family: "Lato";
   width: 15rem;
   padding: 15px;
   background-color: #1c9989;
@@ -10925,5 +10940,39 @@ body {
 .koraspond__primary-btn:hover {
   background-color: #19887a;
   color: #fff;
+}
+
+.card__container {
+  height: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 1px 0 #DCE4F2;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-self: center;
+  justify-self: center;
+  align-items: center;
+}
+
+.card__content {
+  text-align: center;
+}
+
+.card__content .person__avatar img {
+  border-radius: 50%;
+}
+
+.card__content .person--name {
+  margin-top: 1em;
+  margin-bottom: 0;
+  font-family: Graphik-Bold;
+  font-size: 22px;
+}
+
+.card__content .person--job {
+  font-family: Graphik-Regular;
+  font-size: 15px;
+  color: #807A7A;
 }
 

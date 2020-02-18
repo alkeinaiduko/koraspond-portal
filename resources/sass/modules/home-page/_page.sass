@@ -1,0 +1,30 @@
+.b-hero
+  &__container
+    @include flexbox(row, center, space-between)
+  &--left
+    h1
+      font-family: Graphik-Bold
+      font-size: 54px
+    p
+      font-family: Graphik-Regular
+      font-size: 20px
+      margin: 2em 0
+    button
+      margin-top: 2em
+
+.partners
+  &__container
+    @include flexbox(row, center, initial)
+    img
+      width: 100%
+
+
+.lead-collaborators
+  &__header
+    width: 60%
+    margin: 0 auto
+    h1
+      font-family: Graphik-Bold
+    p
+      font-size: $font-size-subtitle
+      margin: 1.5em 0

@@ -3,7 +3,12 @@
         <a
             class="navbar-brand"
             href="#"
-        >Navbar w/ text</a>
+        >
+            <img
+                src="/images/site-logo.png"
+                alt="site-logo"
+            >
+        </a>
         <button
             class="navbar-toggler"
             type="button"
@@ -62,12 +67,21 @@
                 </li>
             </ul>
             <div class="site-btns">
-                <button class="btn btn-outline-dark">
+                <!-- <button class="btn btn-outline-dark">
                     Signup
                 </button>
                 <button class="btn btn-warning">
                     Login
-                </button>
+                </button> -->
+                <el-button
+                    type="info"
+                    plain
+                >
+                    Signup
+                </el-button>
+                <el-button type="warning">
+                    Login
+                </el-button>
             </div>
         </div>
     </nav>

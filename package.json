@@ -11,6 +11,7 @@
     },
     "devDependencies": {
         "axios": "^0.19",
+        "babel-plugin-component": "^1.1.1",
         "bootstrap": "^4.1.0",
         "browser-sync": "^2.26.7",
         "browser-sync-webpack-plugin": "^2.0.1",
@@ -27,5 +28,13 @@
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.11"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.27",
+        "@fortawesome/free-brands-svg-icons": "^5.12.1",
+        "@fortawesome/free-solid-svg-icons": "^5.12.1",
+        "@fortawesome/vue-fontawesome": "^0.1.9",
+        "element-ui": "^2.13.0",
+        "vueperslides": "^2.8.2"
     }
 }

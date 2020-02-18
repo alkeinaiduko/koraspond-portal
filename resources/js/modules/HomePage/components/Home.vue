@@ -11,52 +11,48 @@
                     Create your meeting room
                 </button>
             </div>
-            <div class="b-hero--right" />
+            <div class="b-hero--right">
+                <img
+                    src="/images/b-hero.png"
+                    alt="b-hero-image"
+                >
+            </div>
         </section>
         <section class="partners__container">
-            <div class="row">
-                <div class="col-md-2 offset-md-1">
-                    <img
-                        src="https://source.unsplash.com/random/100x100"
-                        alt=""
-                    >
-                </div>
-                <div class="col-md-2">
-                    <img
-                        src="https://source.unsplash.com/random/100x100"
-                        alt=""
-                    >
-                </div>
-                <div class="col-md-2">
-                    <img
-                        src="https://source.unsplash.com/random/100x100"
-                        alt=""
-                    >
-                </div>
-                <div class="col-md-2">
-                    <img
-                        src="https://source.unsplash.com/random/100x100"
-                        alt=""
-                    >
-                </div>
-                <div class="col-md-2">
-                    <img
-                        src="https://source.unsplash.com/random/100x100"
-                        alt=""
-                    >
-                </div>
+            <img
+                src="/images/partners.png"
+                alt="partners"
+            >
+        </section>
+        <section class="lead-collaborators__container">
+            <div class="lead-collaborators__header text-center">
+                <h1>Our Lead Collaborators</h1>
+                <p>Advanced in-house optimization technology and over 11 years' ad tech experience provide your business with digital advertising tools that deliver results.</p>
             </div>
+            <image-carousel />
+        </section>
+        <section class="user-types__container">
+            <div class="user-types__header">
+                <h1>One room for great Ideas to take place</h1>
+            </div>
+            <user-types />
+            <vue-fontawesome icon="arrow-right" />
+            <vue-fontawesome :icon="['fab', 'skype']" />
         </section>
     </div>
 </template>
 
 <script>
     import NavBar from './partials/NavBar'
+    import ImageCarousel from './partials/ImageCarousel'
+    import UserTypes from './partials/UserTypes'
 
     export default {
         name: 'HomePage',
         components: {
-            NavBar
+            NavBar,
+            ImageCarousel,
+            UserTypes
         }
     }
 </script>

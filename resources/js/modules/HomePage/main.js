@@ -5,6 +5,8 @@
  */
 
 require( '~/bootstrap' );
+// require ( '~/element-ui')
+require( '~/fontawesome' )
 
 window.Vue = require('vue');
 
