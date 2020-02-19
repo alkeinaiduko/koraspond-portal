@@ -76,6 +76,7 @@
                 <el-button
                     type="info"
                     plain
+                    @click="showModal()"
                 >
                     Signup
                 </el-button>
@@ -83,13 +84,33 @@
                     Login
                 </el-button>
             </div>
+            <sign-up 
+                :show="showSignUp" 
+                @closeModal="closeModal()" 
+            />
         </div>
     </nav>
 </template>
-
+    
 <script>
+    import signUp from './ModalSignUp'
     export default {
-
+        components: { signUp },
+        data() {
+            return {
+                showSignUp: false
+            }
+        },
+        mounted() {
+        },
+        methods: {
+            showModal() {
+                this.showSignUp = true
+            },
+            closeModal(value) {
+                this.showSignUp = value
+            }
+        }
     }
 </script>
 
