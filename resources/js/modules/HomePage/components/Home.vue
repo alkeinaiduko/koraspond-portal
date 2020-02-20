@@ -3,7 +3,7 @@
         <header class="site__header">
             <nav-bar />
         </header>
-        <section class="b-hero__container">
+        <section class="b-hero__container text-center">
             <div class="b-hero--left">
                 <h1>Let's collaborate and succeed</h1>
                 <p>Accelerate teamwork and create more meaningfull and futuristing products</p>
@@ -13,6 +13,7 @@
             </div>
             <div class="b-hero--right">
                 <img
+                    width="100%"
                     src="/images/b-hero.png"
                     alt="b-hero-image"
                 >
@@ -32,12 +33,68 @@
             <image-carousel />
         </section>
         <section class="user-types__container">
-            <div class="user-types__header">
+            <div class="user-types__header text-center">
                 <h1>One room for great Ideas to take place</h1>
             </div>
             <user-types />
-            <vue-fontawesome icon="arrow-right" />
-            <vue-fontawesome :icon="['fab', 'skype']" />
+            <!-- <vue-fontawesome icon="arrow-right" /> -->
+            <!-- <vue-fontawesome :icon="['fab', 'skype']" /> -->
+        </section>
+        <section class="banner-ad__container">
+            <div class="banner-ad__content">
+                <h1>Accelerate teamwork and create more meaningful and futuristic products</h1>
+                <el-button type="warning">
+                    Create your meeting room
+                </el-button>
+            </div>
+        </section>
+        <section class="project-steps__container text-center">
+            <h1>Your next project is just few steps ahead</h1>
+            <p>A fine spot to meet the right people and engage in right project</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <img
+                        src="/images/complete.svg"
+                        alt=""
+                    >
+                    <h3>Complete your Profile</h3>
+                    <p>Fill in your details and domain interest</p>
+                </div>
+                <div class="col-md-4">
+                    <img
+                        src="/images/organize.svg"
+                        alt=""
+                    >
+                    <h3>Organize meetings</h3>
+                    <p>Meet people of same area of interests to collaborate</p>
+                </div>
+                <div class="col-md-4">
+                    <img
+                        src="/images/build.svg"
+                        alt=""
+                    >
+                    <h3>Build a project</h3>
+                    <p>With the right team and right effort success Is not far away </p>
+                </div>
+            </div>
+        </section>
+        <section class="statistics__container">
+            <img
+                src="/images/grid.png"
+                alt=""
+            >
+            <div class="statistics__info">
+                <h1>100+</h1>
+                <p>Successful Projects</p>
+                <h1>1000+</h1>
+                <p>Investors</p>
+                <h1>3000+</h1>
+                <p>Applicants</p>
+            </div>
+            <img
+                src="/images/statistics.png"
+                alt=""
+            >
         </section>
     </div>
 </template>
