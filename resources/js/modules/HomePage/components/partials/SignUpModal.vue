@@ -16,7 +16,7 @@
                 >
                     <el-col :span="20">
                         <el-form-item label="Account Type">
-                            <el-radio-group v-model="radio">
+                            <el-radio-group v-model="form.accountType">
                                 <el-radio :label="1">
                                     Applicant
                                 </el-radio>
@@ -40,12 +40,12 @@
                 >
                     <el-col :span="10">
                         <el-form-item label="First Name">
-                            <el-input />
+                            <el-input v-model="form.firstName" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="10">
                         <el-form-item label="Last Name">
-                            <el-input />
+                            <el-input v-model="form.LastName" />
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -56,12 +56,12 @@
                 >
                     <el-col :span="10">
                         <el-form-item label="Country">
-                            <el-input />
+                            <el-input v-model="form.country" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="10">
                         <el-form-item label="City">
-                            <el-input />
+                            <el-input v-model="form.city" />
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -71,7 +71,7 @@
                 >
                     <el-col :span="20">
                         <el-form-item label="Address">
-                            <el-input />
+                            <el-input v-model="form.address" />
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -90,12 +90,35 @@
                 >
                     <el-col :span="10">
                         <el-form-item label="Email">
-                            <el-input />
+                            <el-input v-model="form.email" />
                         </el-form-item>
                     </el-col>
                     <el-col :span="10">
                         <el-form-item label="Phone">
-                            <el-input />
+                            <el-input 
+                                v-model="form.phone" 
+                            >
+                                <el-select 
+                                    slot="prepend" 
+                                    v-model="selects" 
+                                    placeholder="Select"
+                                    value-key="selects"
+                                >
+                                    <div slot="prefix">
+                                        <flag 
+                                            :iso="selects"
+                                            class="mt-10"
+                                        />
+                                    </div>
+                                    <el-option 
+                                        v-for="(flag,index) in flags"
+                                        :key="index"
+                                        :value="flag.value"
+                                    >
+                                        <flag :iso="flag.value" />
+                                    </el-option>
+                                </el-select>
+                            </el-input>
                         </el-form-item>
                     </el-col>
                 </el-row>
@@ -106,7 +129,7 @@
                 >
                     <el-col :span="20">
                         <el-checkbox 
-                            v-model="checked"
+                            v-model="termsAndConditions"
                         >
                             <span>I accept the terms & conditions</span>
                         </el-checkbox>
@@ -119,7 +142,7 @@
                 >
                     <el-col :span="20">
                         <el-checkbox 
-                            v-model="checked"
+                            v-model="newsLetter"
                         >
                             <span>I would like to subscribe to newsletter</span>
                         </el-checkbox>
@@ -172,8 +195,29 @@ export default {
             labelPosition: 'top',
             checked: true,
             form: {
-                accountType: ''
-            }
+                accountType: '',
+                firstName: '',
+                lastName: '',
+                country: '',
+                city: '',
+                address: '',
+                email: '',
+                phone: '',
+                termsAndConditions: false,
+                newsLetter: false
+            },
+            flags: [
+                {
+                    value: 'AE'
+                },
+                {
+                    value: 'SA'
+                },
+                {
+                    value: 'PH'
+                }
+            ],
+            selects: 'AE'
         }
     },
     computed: {
