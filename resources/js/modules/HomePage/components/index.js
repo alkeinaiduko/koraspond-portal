@@ -8,6 +8,11 @@ import {
     Submenu,
     MenuItem,
     MenuItemGroup,
+    Dialog,
+    Input,
+    Form,
+    FormItem,
+    Link
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -40,6 +45,11 @@ library.add(
     Submenu,
     MenuItem,
     MenuItemGroup,
+    Dialog,
+    Input,
+    Form,
+    FormItem,
+    Link
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 })
