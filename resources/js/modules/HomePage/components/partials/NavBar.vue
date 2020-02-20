@@ -79,17 +79,45 @@
                 >
                     Signup
                 </el-button>
-                <el-button type="warning">
+                <el-button 
+                    type="warning"
+                    @click="showModal"
+                >
                     Login
                 </el-button>
+            </div>
+
+            <div 
+                v-if="dialogVisible"
+            >
+                <modal
+                    :show="dialogVisible"
+                    @close="closeModal"
+                />
             </div>
         </div>
     </nav>
 </template>
 
 <script>
+    import Modal from "./LoginModal"
     export default {
-
+        components : {
+            Modal
+        },
+        data(){
+            return {
+                dialogVisible: false
+            }
+        },
+        methods : {
+            showModal(){
+                this.dialogVisible = true
+            },
+            closeModal(){
+                this.dialogVisible = false
+            }
+        }
     }
 </script>
 
