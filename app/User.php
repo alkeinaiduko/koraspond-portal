@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Eager load relationship by default
+     */
+    protected $with = [ 
+        'role'
+    ];
+
+    /**
+     * User Role
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
 }

@@ -14,6 +14,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Graphik-Semibold";
+  src: url("/fonts/graphik/Graphik-Semibold.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors
@@ -10938,6 +10945,23 @@ body {
 }
 
 .koraspond__primary-btn:hover {
+  background-color: #19887a;
+  color: #fff;
+}
+
+.koraspond__primary-btn--round {
+  font-size: 12px;
+  border-radius: 25px;
+  font-family: "Lato";
+  width: 100%;
+  padding: 10px;
+  background-color: #1c9989;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.koraspond__primary-btn--round:hover {
   background-color: #19887a;
   color: #fff;
 }

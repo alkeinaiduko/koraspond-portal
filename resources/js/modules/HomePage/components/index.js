@@ -17,6 +17,7 @@ import {
     RadioButton,
     Row,
     Col
+    Link
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -57,7 +58,8 @@ library.add(
     RadioGroup,
     RadioButton,
     Row,
-    Col
+    Col,
+    Link
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 })

@@ -80,7 +80,10 @@
                 >
                     Signup
                 </el-button>
-                <el-button type="warning">
+                <el-button 
+                    type="warning"
+                    @click="showModal"
+                >
                     Login
                 </el-button>
             </div>
@@ -94,11 +97,13 @@
     
 <script>
     import signUp from './ModalSignUp'
+    import Modal from "./LoginModal"
     export default {
-        components: { signUp },
+        components: { signUp, Modal },
         data() {
             return {
-                showSignUp: false
+                showSignUp: false,
+                dialogVisible: false
             }
         },
         mounted() {
@@ -109,6 +114,12 @@
             },
             closeModal(value) {
                 this.showSignUp = value
+            },
+            showModal(){
+                this.dialogVisible = true
+            },
+            closeModal(){
+                this.dialogVisible = false
             }
         }
     }
