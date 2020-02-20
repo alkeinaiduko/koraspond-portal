@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="kora-carousel">
         <vueper-slides
             class="no-shadow"
             :visible-slides="4"
             slide-multiple
             :gap="4"
-            :slide-ratio="1 / 4"
+            :slide-ratio="1/4"
             :dragging-distance="200"
             :breakpoints="{ 800: { visibleSlides: 2, slideMultiple: 2 } }"
         >

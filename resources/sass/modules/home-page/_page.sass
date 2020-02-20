@@ -1,30 +1,183 @@
 .b-hero
   &__container
     @include flexbox(row, center, space-between)
+    @include breakpoint($maxWidth: 574px)
+      flex-direction: column-reverse
+      height: 52vh
+      justify-content: space-between
   &--left
+    flex: 1
     h1
       font-family: Graphik-Bold
       font-size: 54px
+      @include breakpoint(md)
+        font-size: 32px
+      @include breakpoint($maxWidth: 320px)
+        font-size: 25px
     p
       font-family: Graphik-Regular
       font-size: 20px
       margin: 2em 0
+      @include breakpoint(320px)
+        margin: 0
+        font-size: 15px
     button
       margin-top: 2em
 
+  &--right
+    img
+      width: 100%
+      @include breakpoint($maxWidth: 574px)
+        width: 75%
 .partners
   &__container
     @include flexbox(row, center, initial)
+    padding: 7rem 0
     img
       width: 100%
+    @include breakpoint($maxWidth: 425px)
+      display: none
 
 
 .lead-collaborators
   &__header
     width: 60%
     margin: 0 auto
+    @include breakpoint($maxWidth: 320px)
+      font-size: 98%
+    @include breakpoint($maxWidth: 425px)
+      width: 92%
+      margin-top: 2rem
     h1
       font-family: Graphik-Bold
+      @include breakpoint(md)
+        font-size: 32px
+      @include breakpoint($maxWidth: 320px)
+        font-size: 25px
     p
       font-size: $font-size-subtitle
       margin: 1.5em 0
+      @include breakpoint($maxWidth: 320px)
+        font-size: 15px
+
+  &__container
+    .kora-carousel
+      @include breakpoint($maxWidth: 425px)
+        height: 200px
+        margin: 2rem
+        .vueperslides
+          height: 100%
+          .vueperslides__bullets
+            display: none
+          .vueperslides__inner
+            height: 100%
+            .vueperslides__parallax-wrapper
+              height: 100%
+              .person--name
+                font-size: 14px
+              .person--job
+                font-size: 12px
+
+      .person__avatar
+        img
+          @include breakpoint($maxWidth: 768px)
+            width: 35%
+        @include breakpoint($maxWidth: 1024px)
+          h3
+            font-size: 17px
+          p
+            font-size: 14px
+
+
+.user-types
+  &__header
+    h1
+      font-family: Graphik-Bold
+
+  &__container
+    .user-types
+      &__block
+        display: flex
+        width: 100%
+
+      &--left
+        padding: 0 4rem
+        img
+          width: 100%
+      &--right
+        width: 50%
+        @include flexbox(column, intial, center)
+        img
+          width: 70px
+        h2
+          margin: 1em 0
+          font-family: Graphik-Semibold
+        p
+          font-size: 17px
+        a
+          margin-right: 10px
+          color: #000
+          +bold
+
+    .el-menu-demo
+      width: 50%
+      margin: 0 auto
+
+.banner-ad
+  &__container
+    background: url('/images/banner.png')
+    margin-bottom: 10px
+    background-size: contain
+    height: 400px
+    text-align: center
+    +flexBoxCenter
+
+    h1
+      font-family: Graphik-Semibold
+      color: #fff
+      margin-bottom: 1rem
+      font-size: 30px
+    button
+      font-weight: bold
+      text-transform: uppercase
+      font-size: 12px
+
+  &__content
+    width: 80%
+
+.project-steps
+  &__container
+    margin-top: 5em
+    h1
+      font-family: Graphik-Semibold
+    p
+      font-size: $font-size-subtitle
+
+.project-steps
+  &__container
+    height: 50vh
+
+    h3
+      font-family: Graphik-Semibold
+      font-size: 20px
+    p
+      font-size: 16px
+      width: 70%
+      margin: 0 auto
+    .row
+      margin-top: 2rem
+      &> div:first-child
+        margin-top: 5px
+        h3
+          margin-top: 1.9rem
+
+.statistics
+  &__container
+    @include flexbox(row, center, space-between)
+
+    h1
+      font-family: Graphik-Semibold
+      margin-top: 5rem
+    p
+      font-size: 17px
+      color: #A0A3A7
