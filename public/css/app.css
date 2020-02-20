@@ -10942,6 +10942,23 @@ body {
   color: #fff;
 }
 
+.koraspond__primary-btn--round {
+  font-size: 12px;
+  border-radius: 25px;
+  font-family: "Lato";
+  width: 100%;
+  padding: 10px;
+  background-color: #1c9989;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.koraspond__primary-btn--round:hover {
+  background-color: #19887a;
+  color: #fff;
+}
+
 .card__container {
   height: 100%;
   border-radius: 12px;

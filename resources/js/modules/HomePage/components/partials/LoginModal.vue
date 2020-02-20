@@ -6,8 +6,8 @@
         :before-close="close"
         center
     >
-        <el-form 
-            :label-position="labelPosition" 
+        <el-form
+            :label-position="labelPosition"
             label-width="100px"
             :model="form"
         >
@@ -17,27 +17,27 @@
                 />
             </el-form-item>
             <el-form-item label="Password">
-                <el-input 
+                <el-input
                     v-model="form.password"
                     show-password
                 />
             </el-form-item>
         </el-form>
-        <el-link 
+        <el-link
             type="primary"
             style="float: right"
         >
             Forgot Password?
         </el-link>
-        <span 
+        <span
             slot="footer"
         >
-            <button class="btn koraspond__primary-btn-rounded">
+            <button class="btn koraspond__primary-btn--round">
                 LOGIN
             </button>
             <div>
-                Do you have an account? 
-                <el-link 
+                Do you have an account?
+                <el-link
                     type="primary"
                 >
                     Signup
