@@ -3,7 +3,6 @@
     @include flexbox(row, center, space-between)
     @include breakpoint($maxWidth: 574px)
       flex-direction: column-reverse
-      height: 52vh
       justify-content: space-between
   &--left
     flex: 1
@@ -96,19 +95,39 @@
 
   &__container
     .user-types
+      &__header
+        h1
+          @include breakpoint($maxWidth: 320px)
+          @include breakpoint($maxWidth: 375px)
+          @include breakpoint($maxWidth: 425px)
+            font-size: 25px
       &__block
         display: flex
         width: 100%
 
+        @include breakpoint($maxWidth: 320px)
+        @include breakpoint($maxWidth: 375px)
+        @include breakpoint($maxWidth: 425px)
+          flex-direction: column
+          margin-bottom: 2rem
       &--left
         padding: 0 4rem
         img
           width: 100%
       &--right
         width: 50%
+        @include breakpoint($maxWidth: 320px)
+        @include breakpoint($maxWidth: 375px)
+        @include breakpoint($maxWidth: 425px)
+          width: unset
+          +content-center
         @include flexbox(column, intial, center)
         img
           width: 70px
+          @include breakpoint($maxWidth: 320px)
+          @include breakpoint($maxWidth: 375px)
+          @include breakpoint($maxWidth: 425px)
+            margin: 0 auto
         h2
           margin: 1em 0
           font-family: Graphik-Semibold
@@ -137,6 +156,9 @@
       color: #fff
       margin-bottom: 1rem
       font-size: 30px
+      @include breakpoint($maxWidth: 320px)
+      @include breakpoint($maxWidth: 375px)
+        font-size: 25px
     button
       font-weight: bold
       text-transform: uppercase
@@ -150,12 +172,20 @@
     margin-top: 5em
     h1
       font-family: Graphik-Semibold
+      @include breakpoint($maxWidth: 320px)
+      @include breakpoint($maxWidth: 375px)
+      @include breakpoint($maxWidth: 425px)
+        font-size: 25px
     p
       font-size: $font-size-subtitle
 
 .project-steps
   &__container
     height: 50vh
+    @include breakpoint($maxWidth: 320px)
+    @include breakpoint($maxWidth: 375px)
+    @include breakpoint($maxWidth: 425px)
+      height: unset
 
     h3
       font-family: Graphik-Semibold
@@ -174,6 +204,14 @@
 .statistics
   &__container
     @include flexbox(row, center, space-between)
+    @include breakpoint($maxWidth: 320px)
+    @include breakpoint($maxWidth: 375px)
+    @include breakpoint($maxWidth: 425px)
+      display: block
+      +content-center
+      margin-bottom: 2rem
+      img
+        display: none
 
     h1
       font-family: Graphik-Semibold
@@ -181,3 +219,39 @@
     p
       font-size: 17px
       color: #A0A3A7
+
+.site-footer
+  &__container
+    padding: 3rem 7rem
+    background-color: #F6F6F6
+    @include breakpoint($maxWidth: 320px)
+    @include breakpoint($maxWidth: 375px)
+    @include breakpoint($maxWidth: 425px)
+      padding: 3rem 1rem
+
+    img
+      margin-bottom: 2rem
+
+    h4
+      font-family: Graphik-Semibold
+      margin-bottom: 2rem
+      @include breakpoint($maxWidth: 320px)
+      @include breakpoint($maxWidth: 375px)
+      @include breakpoint($maxWidth: 425px)
+        margin-top: 2rem
+
+    ul
+      padding: 0
+      margin: 0
+      list-style-type: none
+      &:first-child
+        column-count: 2
+        @include breakpoint($maxWidth: 320px)
+        @include breakpoint($maxWidth: 375px)
+        @include breakpoint($maxWidth: 425px)
+        column-count: unset
+      li
+        margin-bottom: 2rem
+        svg
+          color: #BCBCBC
+          margin-right: 10px
