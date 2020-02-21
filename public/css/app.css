@@ -10953,7 +10953,7 @@ body {
   font-size: 12px;
   border-radius: 25px;
   font-family: "Lato";
-  width: 100%;
+  width: 95%;
   padding: 10px;
   background-color: #1c9989;
   color: #fff;
@@ -10998,5 +10998,11 @@ body {
   font-family: Graphik-Regular;
   font-size: 15px;
   color: #807A7A;
+}
+
+.portal-card__container {
+  border-radius: 5px;
+  background-color: #FFF;
+  padding: 1.2em;
 }
 

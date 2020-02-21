@@ -18,7 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return "You are logged in as user";
+        return view('portal.applicant.index');
     }
 
     /**

@@ -1,0 +1,21 @@
+*
+  @include box-sizing(border-box)
+
+body
+  background-color: #F1F1F1
+  height: unset
+
+.portal
+  &__container
+    padding-top: 90px
+
+  &__content
+    @include flexbox(row, initial, initial)
+    &>div
+
+    &--left
+      margin: 0 10px
+
+    &--right
+      margin: 0 10px
+      width: 100%
