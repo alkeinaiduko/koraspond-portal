@@ -7,19 +7,30 @@
         center
     >
         <el-form
+            id="login-form"
             :label-position="labelPosition"
             label-width="100px"
             :model="form"
+            method="POST"
+            action="/login"
         >
             <el-form-item label="User Name">
                 <el-input
                     v-model="form.username"
+                    name="email"
+                />
+
+                <el-input
+                    type="hidden"
+                    :value="csrf"
+                    name="_token"
                 />
             </el-form-item>
             <el-form-item label="Password">
                 <el-input
                     v-model="form.password"
                     show-password
+                    name="password"
                 />
             </el-form-item>
         </el-form>
@@ -32,7 +43,10 @@
         <span
             slot="footer"
         >
-            <button class="btn koraspond__primary-btn--round">
+            <button
+                class="btn koraspond__primary-btn--round"
+                @click="formSubmit" 
+            >
                 LOGIN
             </button>
             <div>
@@ -58,6 +72,7 @@ export default {
         return{
             dialogVisible: this.show,
             labelPosition: "top",
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
                 username: "",
                 password: ""
@@ -67,6 +82,9 @@ export default {
     methods : {
         close(){
             this.$emit('close');
+        },
+        formSubmit(){
+            document.getElementById("login-form").submit();
         }
     }
 }
