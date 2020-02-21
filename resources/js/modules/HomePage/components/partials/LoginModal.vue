@@ -37,6 +37,7 @@
                 class="modal-footer__right"
             >
                 <el-link 
+
                     type="primary"
                 >
                     Forgot Password?
@@ -84,6 +85,7 @@ export default {
     data(){
         return{
             labelPosition: "top",
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
                 username: "",
                 password: ""
@@ -93,6 +95,9 @@ export default {
     methods : {
         close(){
             this.$emit('close');
+        },
+        formSubmit(){
+            document.getElementById("login-form").submit();
         }
     }
 }
