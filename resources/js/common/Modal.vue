@@ -11,30 +11,6 @@
         </div>
     </transition>
 </template>
-
-<script>
-export default {
-    props : {
-        show: {
-            type: Boolean
-        }
-    },
-    data(){
-        return{
-            form: {
-                username: "",
-                password: ""
-            }
-        }
-    },
-    methods : {
-        close(){
-            this.$emit('close');
-        }
-    }
-}
-</script>
-
 <style lang="sass">
     @import "~/../sass/modules/home-page/_all"
 </style>
