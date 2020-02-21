@@ -38,7 +38,7 @@
                     <div class="modal-footer__center">
                         <slot name="footer">
                             <button
-                                class="btn koraspond__primary-btn-round" 
+                                class="btn koraspond__primary-btn--round" 
                                 @click="$emit('close')"
                             >
                                 LOGIN
