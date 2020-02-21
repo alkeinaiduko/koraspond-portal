@@ -86,15 +86,10 @@
                     Login
                 </el-button>
             </div>
-
-            <div 
+            <modal
                 v-if="dialogVisible"
-            >
-                <modal
-                    :show="dialogVisible"
-                    @close="closeModal"
-                />
-            </div>
+                @close="closeModal"
+            />
         </div>
     </nav>
 </template>
