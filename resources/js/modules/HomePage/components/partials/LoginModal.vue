@@ -1,68 +1,82 @@
 <template>
-    <el-dialog
-        width="33%"
-        title="LOGIN"
-        :visible.sync="dialogVisible"
-        :before-close="close"
-        center
-    >
-        <el-form
-            id="login-form"
-            :label-position="labelPosition"
-            label-width="100px"
-            :model="form"
-            method="POST"
-            action="/login"
-        >
-            <el-form-item label="User Name">
-                <el-input
-                    v-model="form.username"
-                    name="email"
-                />
-
-                <el-input
-                    type="hidden"
-                    :value="csrf"
-                    name="_token"
-                />
-            </el-form-item>
-            <el-form-item label="Password">
-                <el-input
-                    v-model="form.password"
-                    show-password
-                    name="password"
-                />
-            </el-form-item>
-        </el-form>
-        <el-link
-            type="primary"
-            style="float: right"
-        >
-            Forgot Password?
-        </el-link>
-        <span
-            slot="footer"
-        >
-            <button
-                class="btn koraspond__primary-btn--round"
-                @click="formSubmit" 
+    <div>
+        <modal>
+            <!-- HEADER -->
+            <div 
+                slot="header"
+                class="modal-header__container"
             >
-                LOGIN
-            </button>
-            <div>
-                Do you have an account?
-                <el-link
+                <h4>Login</h4>
+            </div>
+            <!-- BODY -->
+            <div 
+                slot="body"
+                class="modal-body" 
+            >
+                <el-form 
+                    :label-position="labelPosition" 
+                    label-width="100px"
+                    :model="form"
+                >
+                    <el-form-item label="User Name">
+                        <el-input
+                            v-model="form.username"
+                        />
+                    </el-form-item>
+                    <el-form-item label="Password">
+                        <el-input 
+                            v-model="form.password"
+                            show-password
+                        />
+                    </el-form-item>
+                </el-form>
+            </div>
+            <!-- FOOTER -->
+            <div
+                slot="footer"
+                class="modal-footer__right"
+            >
+                <el-link 
+
                     type="primary"
                 >
-                    Signup
+                    Forgot Password?
                 </el-link>
             </div>
-        </span>
-    </el-dialog>
+            <div 
+                slot="footer"
+                class="modal-footer__center"
+            >
+                <button
+                    class="btn koraspond__primary-btn--round" 
+                    @click="$emit('close')"
+                >
+                    LOGIN
+                </button>
+            </div>
+            <div 
+                slot="footer"
+                class="modal-footer__center"
+            >
+                <div>
+                    Do you have an account? 
+                    <el-link 
+                        type="primary"
+                    >
+                        Signup
+                    </el-link>
+                </div>
+            </div>
+        </modal>
+    </div>
 </template>
 
 <script>
+import Modal from "../../../../common/Modal"
 export default {
+    components: {
+        Modal
+    },
     props : {
         show: {
             type: Boolean
@@ -70,7 +84,6 @@ export default {
     },
     data(){
         return{
-            dialogVisible: this.show,
             labelPosition: "top",
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
