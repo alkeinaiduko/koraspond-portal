@@ -1,71 +1,81 @@
 <template>
-    <transition name="modal">
-        <div class="modal-mask">
-            <div class="modal-wrapper">
-                <div class="modal-container">
-                    <!-- HEADER -->
-                    <div class="modal-header__container">
-                        <h4>Login</h4>
-                    </div>
-                    <!-- BODY -->
-                    <div class="modal-body">
-                        <el-form 
-                            :label-position="labelPosition" 
-                            label-width="100px"
-                            :model="form"
-                        >
-                            <el-form-item label="User Name">
-                                <el-input
-                                    v-model="form.username"
-                                />
-                            </el-form-item>
-                            <el-form-item label="Password">
-                                <el-input 
-                                    v-model="form.password"
-                                    show-password
-                                />
-                            </el-form-item>
-                        </el-form>
-                    </div>
-                    <!-- FOOTER -->
-                    <div class="modal-footer__right">
-                        <el-link 
-                            type="primary"
-                        >
-                            Forgot Password?
-                        </el-link>
-                    </div>
-                    <div class="modal-footer__center">
-                        <slot name="footer">
-                            <button
-                                class="btn koraspond__primary-btn--round" 
-                                @click="$emit('close')"
-                            >
-                                LOGIN
-                            </button>
-                        </slot>
-                    </div>
-                    <div class="modal-footer__center">
-                        <slot name="footer">
-                            <div>
-                                Do you have an account? 
-                                <el-link 
-                                    type="primary"
-                                >
-                                    Signup
-                                </el-link>
-                            </div>
-                        </slot>
-                    </div>
+    <div>
+        <modal>
+            <!-- HEADER -->
+            <div 
+                slot="header"
+                class="modal-header__container"
+            >
+                <h4>Login</h4>
+            </div>
+            <!-- BODY -->
+            <div 
+                slot="body"
+                class="modal-body" 
+            >
+                <el-form 
+                    :label-position="labelPosition" 
+                    label-width="100px"
+                    :model="form"
+                >
+                    <el-form-item label="User Name">
+                        <el-input
+                            v-model="form.username"
+                        />
+                    </el-form-item>
+                    <el-form-item label="Password">
+                        <el-input 
+                            v-model="form.password"
+                            show-password
+                        />
+                    </el-form-item>
+                </el-form>
+            </div>
+            <!-- FOOTER -->
+            <div
+                slot="footer"
+                class="modal-footer__right"
+            >
+                <el-link 
+                    type="primary"
+                >
+                    Forgot Password?
+                </el-link>
+            </div>
+            <div 
+                slot="footer"
+                class="modal-footer__center"
+            >
+                <button
+                    class="btn koraspond__primary-btn--round" 
+                    @click="$emit('close')"
+                >
+                    LOGIN
+                </button>
+            </div>
+            <div 
+                slot="footer"
+                class="modal-footer__center"
+            >
+                <div>
+                    Do you have an account? 
+                    <el-link 
+                        type="primary"
+                    >
+                        Signup
+                    </el-link>
                 </div>
             </div>
-        </div>
-    </transition>
+        </modal>
+    </div>
 </template>
 
 <script>
+import Modal from "../../../../common/Modal"
 export default {
-    name: "Modal",
+    components: {
+        Modal
+    },
     props : {
         show: {
             type: Boolean
@@ -73,7 +83,6 @@ export default {
     },
     data(){
         return{
-            dialogVisible: this.show,
             labelPosition: "top",
             form: {
                 username: "",
