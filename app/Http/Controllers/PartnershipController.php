@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Partnership;
+use App\Eloquent\Partnership;
 use Illuminate\Http\Request;
 
 class PartnershipController extends Controller
@@ -41,7 +41,7 @@ class PartnershipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Partnership  $partnership
+     * @param  \App\Eloquent\Partnership  $partnership
      * @return \Illuminate\Http\Response
      */
     public function show(Partnership $partnership)
@@ -52,7 +52,7 @@ class PartnershipController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Partnership  $partnership
+     * @param  \App\Eloquent\Partnership  $partnership
      * @return \Illuminate\Http\Response
      */
     public function edit(Partnership $partnership)
@@ -64,7 +64,7 @@ class PartnershipController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Partnership  $partnership
+     * @param  \App\Eloquent\Partnership  $partnership
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Partnership $partnership)
@@ -75,7 +75,7 @@ class PartnershipController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Partnership  $partnership
+     * @param  \App\Eloquent\Partnership  $partnership
      * @return \Illuminate\Http\Response
      */
     public function destroy(Partnership $partnership)

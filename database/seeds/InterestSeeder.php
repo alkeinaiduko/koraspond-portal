@@ -1,6 +1,6 @@
 <?php
 
-use App\Interest;
+use App\Eloquent\Interest;
 use Illuminate\Database\Seeder;
 
 class InterestSeeder extends Seeder

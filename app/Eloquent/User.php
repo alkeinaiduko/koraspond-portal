@@ -16,7 +16,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
+        'country', 'city', 'address', 'phone',
+        'interest_id', 'partnership_id', 'role_id'
     ];
 
     /**
@@ -40,7 +42,7 @@ class User extends Authenticatable
     /**
      * Eager load relationship by default
      */
-    protected $with = [ 
+    protected $with = [
         'role'
     ];
 

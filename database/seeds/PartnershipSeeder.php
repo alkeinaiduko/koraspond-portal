@@ -1,6 +1,6 @@
 <?php
 
-use App\Partnership;
+use App\Eloquent\Partnership;
 use Illuminate\Database\Seeder;
 
 class PartnershipSeeder extends Seeder
