@@ -19,7 +19,7 @@ class RoleSeeder extends Seeder
             'Attendant/Observer',
             'ISDB President Secretariat',
             'Govt. Minister',
-            'Invistor'
+            'Investor'
         ];
 
         foreach ($roles as $key => $role) {
