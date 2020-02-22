@@ -4,6 +4,7 @@ import Home from "./Home";
 import {
     Button,
     Select,
+    Option,
     Menu,
     Submenu,
     MenuItem,
@@ -12,6 +13,12 @@ import {
     Input,
     Form,
     FormItem,
+    Radio,
+    RadioGroup,
+    RadioButton,
+    Row,
+    Col,
+    Checkbox,
     Link
 } from 'element-ui';
 
@@ -20,6 +27,10 @@ import 'element-ui/lib/theme-chalk/index.css';
 import 'vueperslides/dist/vueperslides.css'
 
 import { library } from '@fortawesome/fontawesome-svg-core';
+
+import FlagIcon from 'vue-flag-icon'
+
+Vue.use(FlagIcon);
 
 import {
     faArrowRight,
@@ -43,6 +54,7 @@ library.add(
     Home,
     Button,
     Select,
+    Option,
     Menu,
     Submenu,
     MenuItem,
@@ -51,6 +63,12 @@ library.add(
     Input,
     Form,
     FormItem,
+    Radio,
+    RadioGroup,
+    RadioButton,
+    Row,
+    Col,
+    Checkbox,
     Link
 ].forEach(Component => {
     Vue.component(Component.name, Component)

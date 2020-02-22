@@ -76,6 +76,7 @@
                 <el-button
                     type="info"
                     plain
+                    @click="showModalSignUp()"
                 >
                     Signup
                 </el-button>
@@ -86,6 +87,10 @@
                     Login
                 </el-button>
             </div>
+            <sign-up 
+                :show="showSignUp" 
+                @closeModal="closeModalSignUp()"
+            />
             <modal
                 v-if="dialogVisible"
                 @close="closeModal"
@@ -93,19 +98,27 @@
         </div>
     </nav>
 </template>
-
+    
 <script>
+    import signUp from './SignUpModal'
     import Modal from "./LoginModal"
     export default {
-        components : {
-            Modal
-        },
-        data(){
+        components: { signUp, Modal },
+        data() {
             return {
+                showSignUp: false,
                 dialogVisible: false
             }
         },
-        methods : {
+        mounted() {
+        },
+        methods: {
+            showModalSignUp() {
+                this.showSignUp = true
+            },
+            closeModalSignUp(value) {
+                this.showSignUp = value
+            },
             showModal(){
                 this.dialogVisible = true
             },
