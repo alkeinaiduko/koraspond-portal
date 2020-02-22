@@ -28,3 +28,4 @@ Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
 Route::resource('signup', 'SignupController')->only(['store']);
 Route::resource('user-types', 'UserTypeController');
+Route::resource('meeting-profiles', 'MeetingProfileController');

@@ -43,7 +43,7 @@ class User extends Authenticatable
      * Eager load relationship by default
      */
     protected $with = [
-        'userType'
+        'userType', 'basicInfo', 'arrivalDetail', 'businessRegistration'
     ];
 
     /**
@@ -54,4 +54,27 @@ class User extends Authenticatable
         return $this->belongsTo(UserType::class);
     }
 
+    /**
+     * User Basic Information
+     */
+    public function basicInfo()
+    {
+        return $this->hasOne(UserBasicInfo::class);
+    }
+
+    /**
+     * User Arrival Details
+     */
+    public function arrivalDetail()
+    {
+        return $this->hasOne(UserArrivalDetail::class);
+    }
+
+    /**
+     * User Business Registration
+     */
+    public function businessRegistration()
+    {
+        return $this->hasOne(UserBusinessRegistration::class);
+    }
 }
