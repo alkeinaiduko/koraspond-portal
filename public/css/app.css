@@ -10961,21 +10961,21 @@ body {
   font-weight: bold;
 }
 
-.primary--plain {
+.el-button.primary--plain {
   font-size: 12px;
   font-family: "Lato";
-  width: 95%;
-  padding: 10px;
-  background: #fff;
+  background-color: #fff;
   border: 1px solid #006A55;
   color: #006A55;
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
-.primary--plain:hover {
+.el-button.primary--plain:hover {
   background-color: #19887a;
   color: #fff;
+}
+
+.el-button.primary--plain svg {
+  margin-left: 5px;
 }
 
 .card__container {

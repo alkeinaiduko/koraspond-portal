@@ -22,9 +22,12 @@
                     <nav-menu />
                 </card-container>
                 <ul class="content-list">
-                    <li>
+                    <li
+                        v-for="(project, key) in projects"
+                        :key="key"
+                    >
                         <card-container>
-                            <project-list-item />
+                            <project-list-item :data="project" />
                         </card-container>
                     </li>
                 </ul>
@@ -56,8 +59,53 @@
         props: {
             user: Object
         },
-        created() {
-            console.log('@user', this.user)
+        data() {
+            return {
+                projects: [
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Rejected',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Pending',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Accepted',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Rejected',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Pending',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Accepted',
+                        views: 177
+                    },
+                ]
+            }
         }
     }
 </script>

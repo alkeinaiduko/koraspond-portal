@@ -34,17 +34,18 @@
   +allcaps
   +bold
 
-.primary--plain
-  font-size: $btn-font-size-base
-  font-family: 'Lato'
-  width: 95%
-  padding: 10px
-  background: #fff
-  border: 1px solid #006A55
-  color: #006A55
-  +allcaps
-  +bold
+.e
 
-  &:hover
-    background-color: darken($primary, 4%)
-    color: #fff
+.el-button
+  &.primary--plain
+    font-size: $btn-font-size-base
+    font-family: 'Lato'
+    background-color: #fff
+    border: 1px solid #006A55
+    color: #006A55
+
+    &:hover
+      background-color: darken($primary, 4%)
+      color: #fff
+    svg
+      margin-left: 5px
