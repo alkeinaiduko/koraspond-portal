@@ -25,8 +25,6 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->text('address');
             $table->string('phone');
-            $table->bigInteger('interest_id')->nullable();
-            $table->bigInteger('partnership_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
