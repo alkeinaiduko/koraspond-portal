@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->text('address');
             $table->string('phone');
+            $table->boolean('newsletter')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
