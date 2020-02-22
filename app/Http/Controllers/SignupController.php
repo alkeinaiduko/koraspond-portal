@@ -32,7 +32,7 @@ class SignupController extends Controller
         ]);
 
         if($validator->fails()) {
-            return response($validator->errors());
+            return response()->json(['errors'=>$validator->errors()],422)
         }
 
         $data = $request->all();
