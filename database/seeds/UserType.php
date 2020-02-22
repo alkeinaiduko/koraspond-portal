@@ -1,9 +1,9 @@
 <?php
 
-use App\Eloquent\Role;
+use App\Eloquent\UserType;
 use Illuminate\Database\Seeder;
 
-class RoleSeeder extends Seeder
+class UserTypeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +12,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
+        $userTypes = [
             'Admin',
             'Applicant',
             'CEO',
@@ -22,8 +22,8 @@ class RoleSeeder extends Seeder
             'Investor'
         ];
 
-        foreach ($roles as $key => $role) {
-            Role::create(['name' => $role]);
+        foreach ($userTypes as $type) {
+            UserType::create(['name' => $type]);
         }
     }
 }

@@ -20,8 +20,15 @@ class SignupController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'first_name' => 'required'
-            // other validators here
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'user_type_id' => 'required',
+            'email' => 'required|unique:users',
+            'password' =>'required',
+            'country' => 'required',
+            'city' => 'required',
+            'address' => 'required',
+            'phone' => 'required'
         ]);
 
         if($validator->fails()) {
@@ -34,7 +41,7 @@ class SignupController extends Controller
         $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
-            'role_id' => $data['role_id'], // Admin
+            'user_type_id' => $data['user_type_id'],
             'email' => $data['email'],
             'password' => Hash ::make($data['password']),
             'country' => $data['country'],

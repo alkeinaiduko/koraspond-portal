@@ -17,7 +17,8 @@ class UserSeeder extends Seeder
         User::create([
             'first_name' => 'Admin',
             'last_name' => 'Admin',
-            'role_id' => 1, // Admin
+            'user_type_id' => 1, // Admin
+            'meeting_profile_id' => null,
             'email' => 'admin@admin.com',
             'password' => Hash::make('password'),
             'country' => 'Saudi Arabia',
