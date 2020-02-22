@@ -26,4 +26,4 @@ Route::post('login', 'Auth\LoginController@login')->name('user.login');
 
 Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
-Route::resource('signup', 'SignupController');
+Route::resource('signup', 'SignupController')->only(['store']);
