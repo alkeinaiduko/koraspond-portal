@@ -32,7 +32,7 @@ class SignupController extends Controller
         ]);
 
         if($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()],422);
+            return response()->json(['errors'=>$validator->errors()],422)
         }
 
         $data = $request->all();
@@ -48,9 +48,9 @@ class SignupController extends Controller
             'city' => $data['city'],
             'address' => $data['address'],
             'phone' => $data['phone'],
+            'country_code' => $data['country_code'],
             'newsletter' => $data['newsletter'] ?? false
         ]);
-
 
         $credentials = $request->only('email', 'password');
 
@@ -58,6 +58,11 @@ class SignupController extends Controller
         if(!Auth::attempt($credentials)) {
             return response()->json(['message' => 'User created but failed to login.']);
         }
+
+        // create registration steps
+        $user->basicInfo()->create();
+        $user->arrivalDetail()->create();
+        $user->businessRegistration()->create();
 
         return response()->json($user);
     }

@@ -14,7 +14,9 @@ class MeetingProfileController extends Controller
      */
     public function index()
     {
-        //
+        $meetingProfiles = MeetingProfile::all();
+
+        return response()->json($meetingProfiles);
     }
 
     /**

@@ -16,7 +16,6 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_type_id');
-            $table->bigInteger('meeting_profile_id')->nullable();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
@@ -26,7 +25,10 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->text('address');
             $table->string('phone');
+            $table->string('country_code');
             $table->boolean('newsletter')->default(false);
+            $table->boolean('drafted')->default(true); // false = done/completed
+            $table->string('drafted_step')->nullable(); // drafted step
             $table->rememberToken();
             $table->timestamps();
         });
