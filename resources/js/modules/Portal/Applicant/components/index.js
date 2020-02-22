@@ -17,7 +17,9 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
     faStar,
-    faMapMarkerAlt
+    faMapMarkerAlt,
+    faEye,
+    faArrowRight
   } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -33,7 +35,9 @@ library.add(
     faTwitter,
     faInstagram,
     faMapMarkerAlt,
-    faLinkedin
+    faLinkedin,
+    faEye,
+    faArrowRight
 );
 
 // Components that are registered globally

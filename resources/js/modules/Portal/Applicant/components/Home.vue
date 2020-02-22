@@ -23,61 +23,9 @@
                 </card-container>
                 <ul class="content-list">
                     <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
+                        <card-container>
+                            <project-list-item />
+                        </card-container>
                     </li>
                 </ul>
             </div>
@@ -92,6 +40,7 @@
     import UserEducation from './partials/UserEducation'
     import UserInterest from './partials/UserInterest'
     import NavMenu from './partials/NavMenu'
+    import ProjectListItem from './partials/ProjectListItem'
 
     export default {
         name: 'PortalHome',
@@ -101,7 +50,8 @@
             UserAbout,
             UserEducation,
             UserInterest,
-            NavMenu
+            NavMenu,
+            ProjectListItem
         },
         props: {
             user: Object

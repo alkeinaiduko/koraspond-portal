@@ -10961,7 +10961,19 @@ body {
   font-weight: bold;
 }
 
-.koraspond__primary-btn--round:hover {
+.primary--plain {
+  font-size: 12px;
+  font-family: "Lato";
+  width: 95%;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #006A55;
+  color: #006A55;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.primary--plain:hover {
   background-color: #19887a;
   color: #fff;
 }
