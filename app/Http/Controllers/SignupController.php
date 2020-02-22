@@ -47,7 +47,8 @@ class SignupController extends Controller
             'country' => $data['country'],
             'city' => $data['city'],
             'address' => $data['address'],
-            'phone' => $data['phone']
+            'phone' => $data['phone'],
+            'newsletter' => $data['newsletter'] ?? false
         ]);
 
 
