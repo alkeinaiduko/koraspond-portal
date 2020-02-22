@@ -42,15 +42,12 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = array(
-            'email' => $request->email,
-            'password' => $request->password
-        );
+        $credentials = $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)) {
-            return redirect()->route('user.index');
+            return response()->json(['status' => 'success'], 200);
         }
 
-        return "Username or password incorrect!";
+        return response()->json(['error' => 'Username or password incorrect!'], 422);
     }
 }

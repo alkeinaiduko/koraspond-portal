@@ -26,11 +26,6 @@
                             v-model="form.username"
                             name="email"
                         />
-                        <el-input
-                            type="hidden"
-                            :value="csrf"
-                            name="_token"
-                        />
                     </el-form-item>
                     <el-form-item label="Password">
                         <el-input
@@ -95,19 +90,30 @@ export default {
     data(){
         return{
             labelPosition: "top",
-            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
                 username: "",
                 password: ""
-            }
+            },
+            error: "",
         }
     },
     methods : {
         close(){
             this.$emit('close');
         },
-        formSubmit(){
-            document.getElementById("login-form").submit();
+        async formSubmit(){
+            // document.getElementById("login-form").submit();
+            let params = {
+                'email': this.form.username,
+                'password': this.form.password
+            }
+
+            try {
+                let res = await axios.post('/login', params);
+                location.replace('/home');
+            } catch (err) {
+                this.error = err.response.data.error
+            }
         }
     }
 }

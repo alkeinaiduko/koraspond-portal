@@ -6,7 +6,7 @@ use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AdminsLoginController extends Controller
+class AdminLoginController extends Controller
 {
     public function __construct()
     {

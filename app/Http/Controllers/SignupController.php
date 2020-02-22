@@ -6,6 +6,7 @@ use App\Eloquent\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Resources\UserResource;
 use Illuminate\Support\Facades\Validator;
 
 class SignupController extends Controller
@@ -64,6 +65,6 @@ class SignupController extends Controller
         $user->arrivalDetail()->create();
         $user->businessRegistration()->create();
 
-        return response()->json($user);
+        return new UserResource($user);
     }
 }
