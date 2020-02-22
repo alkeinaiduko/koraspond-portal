@@ -22,62 +22,13 @@
                     <nav-menu />
                 </card-container>
                 <ul class="content-list">
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
-                    </li>
-                    <li>
-                        <card-container>card</card-container>
+                    <li
+                        v-for="(project, key) in projects"
+                        :key="key"
+                    >
+                        <card-container>
+                            <project-list-item :data="project" />
+                        </card-container>
                     </li>
                 </ul>
             </div>
@@ -92,6 +43,7 @@
     import UserEducation from './partials/UserEducation'
     import UserInterest from './partials/UserInterest'
     import NavMenu from './partials/NavMenu'
+    import ProjectListItem from './partials/ProjectListItem'
 
     export default {
         name: 'PortalHome',
@@ -101,13 +53,59 @@
             UserAbout,
             UserEducation,
             UserInterest,
-            NavMenu
+            NavMenu,
+            ProjectListItem
         },
         props: {
             user: Object
         },
-        created() {
-            console.log('@user', this.user)
+        data() {
+            return {
+                projects: [
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Rejected',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Pending',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Accepted',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Rejected',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Pending',
+                        views: 177
+                    },
+                    {
+                        title: 'There are many variations of passages',
+                        industry: 'Artificial Intelligence',
+                        date_submitted: '17/10/2019',
+                        status: 'Accepted',
+                        views: 177
+                    },
+                ]
+            }
         }
     }
 </script>

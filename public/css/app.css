@@ -10961,9 +10961,21 @@ body {
   font-weight: bold;
 }
 
-.koraspond__primary-btn--round:hover {
+.el-button.primary--plain {
+  font-size: 12px;
+  font-family: "Lato";
+  background-color: #fff;
+  border: 1px solid #006A55;
+  color: #006A55;
+}
+
+.el-button.primary--plain:hover {
   background-color: #19887a;
   color: #fff;
+}
+
+.el-button.primary--plain svg {
+  margin-left: 5px;
 }
 
 .card__container {

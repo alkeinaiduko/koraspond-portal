@@ -25,6 +25,7 @@
                         <el-input
                             v-model="form.username"
                             name="email"
+                            @keyup.enter.native="formSubmit"
                         />
                     </el-form-item>
                     <el-form-item label="Password">
@@ -32,6 +33,7 @@
                             v-model="form.password"
                             show-password
                             name="password"
+                            @keyup.enter.native="formSubmit"
                         />
                     </el-form-item>
                 </el-form>
@@ -53,6 +55,7 @@
                 class="modal-footer__center"
             >
                 <button
+                    v-loading="isLoggingIn"
                     class="btn koraspond__primary-btn--round"
                     @click="formSubmit"
                 >
@@ -90,6 +93,7 @@ export default {
     data(){
         return{
             labelPosition: "top",
+            isLoggingIn: false,
             form: {
                 username: "",
                 password: ""
@@ -103,6 +107,7 @@ export default {
         },
         async formSubmit(){
             // document.getElementById("login-form").submit();
+            this.isLoggingIn = true
             let params = {
                 'email': this.form.username,
                 'password': this.form.password
@@ -110,9 +115,11 @@ export default {
 
             try {
                 let res = await axios.post('/login', params);
+                this.isLoggingIn = false
                 location.replace('/home');
             } catch (err) {
                 this.error = err.response.data.error
+                this.isLoggingIn = false
             }
         }
     }
