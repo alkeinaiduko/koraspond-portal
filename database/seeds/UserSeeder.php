@@ -15,10 +15,10 @@ class UserSeeder extends Seeder
     {
         // admin user
         User::create([
-            'first_name' => 'Admin',
-            'last_name' => 'Admin',
+            'first_name' => 'Alkein',
+            'last_name' => 'Villajos',
             'user_type_id' => 1, // Admin
-            'email' => 'admin@admin.com',
+            'email' => 'user@user.com',
             'password' => Hash::make('password'),
             'country' => 'Saudi Arabia',
             'city' => 'Riyadh',
