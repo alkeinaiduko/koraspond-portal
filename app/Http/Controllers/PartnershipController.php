@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Eloquent\Partnership;
 use Illuminate\Http\Request;
+use App\Eloquent\Partnership;
 
 class PartnershipController extends Controller
 {

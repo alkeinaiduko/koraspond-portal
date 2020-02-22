@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome')->middleware('guest');
 
-Route::get('/admin/login', 'Admin\AdminsLoginController@showLoginForm')->name('admin.login');
-Route::post('/admin/login', 'Admin\AdminsLoginController@login')->name('admin.login.submit');
+Route::get('/admin/login', 'Admin\AdminLoginController@showLoginForm')->name('admin.login');
+Route::post('/admin/login', 'Admin\AdminLoginController@login')->name('admin.login.submit');
 
-Route::get('/home', 'UsersController@index')->name('user.index');
+Route::get('/home', 'UserController@index')->name('user.index');
 
-Route::get('/admin/home', 'Admin\AdminsController@index')->name('admin.index');
+Route::get('/admin/home', 'Admin\AdminController@index')->name('admin.index');
 
-Route::post('login', 'Auth\LoginController@login')->name('user.login');
+Route::post('/login', 'Auth\LoginController@login')->name('user.login');
 
 Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 

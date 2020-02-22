@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Eloquent\MeetingProfile;
 use Illuminate\Http\Request;
+use App\Eloquent\MeetingProfile;
 
 class MeetingProfileController extends Controller
 {
