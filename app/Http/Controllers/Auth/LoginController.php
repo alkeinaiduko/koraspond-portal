@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use App\Eloquent\User;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -34,6 +37,20 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except(['login', 'logout']);
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = array(
+            'email' => $request->email,
+            'password' => $request->password
+        );
+
+        if(Auth::attempt($credentials)) {
+            return redirect()->route('user.index');
+        }
+
+        return "Username or password incorrect!";
     }
 }

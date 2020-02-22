@@ -1,0 +1,30 @@
+
+.portal
+  &__header
+    background-color: #FFF
+    box-shadow: 1px 2px 4px 0px #d6d6d6
+    position: fixed
+    z-index: 999
+    width: 100%
+    .el-input
+      width: auto
+      input
+        border: none
+    .nav-item
+      padding: 0 .7rem
+      a.nav-link
+        @include flexbox(row, center, initial)
+        &>svg
+          margin-right: 10px
+
+.image
+  &--round
+    border-radius: 50%
+
+.header
+  &__avatar
+    cursor: pointer
+
+.site-btns
+  .el-dropdown-link
+    @include flexbox(row, center, initial)

@@ -1,9 +1,9 @@
 <template>
-    <div class="container">
-        <header class="site__header">
+    <div>
+        <header class="site__header container">
             <nav-bar />
         </header>
-        <section class="b-hero__container text-center">
+        <section class="b-hero__container text-center container">
             <div class="b-hero--left">
                 <h1>Let's collaborate and succeed</h1>
                 <p>Accelerate teamwork and create more meaningfull and futuristing products</p>
@@ -19,20 +19,20 @@
                 >
             </div>
         </section>
-        <section class="partners__container">
+        <section class="partners__container container">
             <img
                 src="/images/partners.png"
                 alt="partners"
             >
         </section>
-        <section class="lead-collaborators__container">
+        <section class="lead-collaborators__container container">
             <div class="lead-collaborators__header text-center">
                 <h1>Our Lead Collaborators</h1>
                 <p>Advanced in-house optimization technology and over 11 years' ad tech experience provide your business with digital advertising tools that deliver results.</p>
             </div>
             <image-carousel />
         </section>
-        <section class="user-types__container">
+        <section class="user-types__container container">
             <div class="user-types__header text-center">
                 <h1>One room for great Ideas to take place</h1>
             </div>
@@ -48,7 +48,7 @@
                 </el-button>
             </div>
         </section>
-        <section class="project-steps__container text-center">
+        <section class="project-steps__container text-center container">
             <h1>Your next project is just few steps ahead</h1>
             <p>A fine spot to meet the right people and engage in right project</p>
             <div class="row">
@@ -96,6 +96,44 @@
                 alt=""
             >
         </section>
+        <footer class="site-footer__container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img
+                        src="/images/site-logo.png"
+                        alt=""
+                    >
+                    <p>© Copyright 2020 portal.</p>
+                    <p>All rights reserved</p>
+                </div>
+                <div class="col-md-4">
+                    <h4>Quick Links</h4>
+                    <div>
+                        <ul>
+                            <li>FAQ</li>
+                            <li>Terms and Condition</li>
+                            <li>Privacy Policy</li>
+                            <li>Support</li>
+                            <li>Imprint</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>Follow Us</h4>
+                    <ul>
+                        <li>
+                            <vue-fontawesome :icon="['fab', 'facebook']" /> Facebook
+                        </li>
+                        <li>
+                            <vue-fontawesome :icon="['fab', 'twitter']" /> Twitter
+                        </li>
+                        <li>
+                            <vue-fontawesome :icon="['fab', 'instagram']" /> Instagram
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
     </div>
 </template>
 

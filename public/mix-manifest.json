@@ -1,4 +1,6 @@
 {
+    "/js/modules/default/main.js": "/js/modules/default/main.js",
+    "/css/app.css": "/css/app.css",
     "/js/modules/homepage/main.js": "/js/modules/homepage/main.js",
-    "/css/app.css": "/css/app.css"
+    "/js/modules/portal/main.js": "/js/modules/portal/main.js"
 }

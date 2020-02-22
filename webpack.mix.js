@@ -19,7 +19,30 @@ mix.webpackConfig(config);
  |
  */
 
+ /*
+ |--------------------------------------------------------------------------
+ | This is the default module and is used when the section does not need to create a Vue module.
+ | We need to include this file into .blade so that Buefy markup works correctly
+ |--------------------------------------------------------------------------
+ */
+mix.js('resources/js/modules/Default/main.js', 'public/js/modules/default/main.js');
+
+/*
+ |--------------------------------------------------------------------------
+ | Homepage modules
+ |--------------------------------------------------------------------------
+ */
 mix.js('resources/js/modules/HomePage/main.js', 'public/js/modules/homepage')
+
+/*
+ |--------------------------------------------------------------------------
+ | Portal modules
+ |--------------------------------------------------------------------------
+ */
+// Applicant Portal Page
+mix.js('resources/js/modules/Portal/Applicant/main.js', 'public/js/modules/portal')
+
+
 
 mix.sass('resources/sass/app.sass', 'public/css');
 

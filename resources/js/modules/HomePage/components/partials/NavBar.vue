@@ -87,17 +87,13 @@
                     Login
                 </el-button>
             </div>
-            <div 
-                v-if="dialogVisible"
-            >
-                <modal
-                    :show="dialogVisible"
-                    @close="closeModal"
-                />
-            </div>
             <sign-up 
                 :show="showSignUp" 
-                @closeModal="closeModalSignUp()" 
+                @closeModal="closeModalSignUp()"
+            />
+            <modal
+                v-if="dialogVisible"
+                @close="closeModal"
             />
         </div>
     </nav>

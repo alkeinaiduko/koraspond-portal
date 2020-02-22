@@ -37,14 +37,16 @@ import {
   } from "@fortawesome/free-solid-svg-icons";
 
 import {
-    faSkype,
-    faTwitter
+    faFacebook,
+    faTwitter,
+    faInstagram
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
     faArrowRight,
-    faSkype,
-    faTwitter
+    faFacebook,
+    faTwitter,
+    faInstagram
 );
 
 // Components that are registered globally
