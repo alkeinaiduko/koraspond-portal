@@ -25,3 +25,5 @@ Route::get('/admin/home', 'Admin\AdminsController@index')->name('admin.index');
 Route::post('login', 'Auth\LoginController@login')->name('user.login');
 
 Route::get('/portal/applicant', 'Portal\ApplicantController@index');
+
+Route::resource('signup', 'SignupController');
