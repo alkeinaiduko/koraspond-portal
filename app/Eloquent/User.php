@@ -18,7 +18,7 @@ class User extends Authenticatable
     protected $fillable = [
         'first_name', 'last_name', 'email', 'password',
         'country', 'city', 'address', 'phone',
-        'interest_id', 'partnership_id', 'role_id'
+        'user_type_id', 'meeting_profile_id'
     ];
 
     /**
@@ -43,15 +43,15 @@ class User extends Authenticatable
      * Eager load relationship by default
      */
     protected $with = [
-        'role'
+        'userType'
     ];
 
     /**
-     * User Role
+     * User UserType
      */
-    public function role()
+    public function userType()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(UserType::class);
     }
 
 }
