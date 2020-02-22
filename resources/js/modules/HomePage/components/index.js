@@ -18,8 +18,8 @@ import {
     RadioButton,
     Row,
     Col,
-    Link,
-    Checkbox
+    Checkbox,
+    Link
 } from 'element-ui';
 
 import 'element-ui/lib/theme-chalk/index.css';
@@ -66,8 +66,8 @@ library.add(
     RadioButton,
     Row,
     Col,
-    Link,
-    Checkbox
+    Checkbox,
+    Link
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 })
