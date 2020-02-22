@@ -3,7 +3,7 @@
         <header class="site__header container">
             <nav-bar />
         </header>
-        <section class="b-hero__container text-center container">
+        <section class="b-hero__container container">
             <div class="b-hero--left">
                 <h1>Let's collaborate and succeed</h1>
                 <p>Accelerate teamwork and create more meaningfull and futuristing products</p>

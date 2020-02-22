@@ -292,6 +292,7 @@ export default {
                 city: this.form.city,
                 address: this.form.address,
                 phone: this.form.phone,
+                country_code: this.selectCountry
             }
             this.$refs[name].validate((valid) => {
                 if (valid) {
