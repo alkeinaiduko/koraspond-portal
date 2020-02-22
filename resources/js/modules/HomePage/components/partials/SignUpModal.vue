@@ -1,173 +1,179 @@
 <template>
     <div>
-        <el-dialog
-            :visible.sync="showModal"
-            width="35%"
-            :show-close="false"
-            :label-position="labelPosition"
-            top="10vh"
-            center
-        > 
-            <span slot="title">Sign Up</span>
-            <el-form>
-                <el-row
-                    type="flex"
-                    justify="center"
+        <modal v-if="showModal">
+            <!-- HEADER -->
+            <div
+                slot="header"
+                class="modal-header__container"
+            >
+                <h4>Sign Up</h4>
+            </div>
+            <!-- BODY -->
+            <div
+                slot="body"
+                class="modal-body"
+            >
+                <el-form 
+                    ref="signup"
+                    label-position="top"
+                    hide-required-asterisk
+                    :model="form"
+                    :rules="rules"
                 >
-                    <el-col :span="20">
-                        <el-form-item label="Account Type">
-                            <el-radio-group v-model="form.accountType">
-                                <el-radio :label="1">
+                    <div class="row">
+                        <el-form-item 
+                            label="Account Type" 
+                            class="signup-label"
+                            required
+                        >
+                            <div class="col-lg-4 d-inline">
+                                <el-radio 
+                                    v-model="form.accountType" 
+                                    label="1"
+                                >
                                     Applicant
                                 </el-radio>
-                                <el-radio :label="2">
+                            </div>
+                            <div class="col-lg-4 d-inline">
+                                <el-radio 
+                                    v-model="form.accountType" 
+                                    label="2"
+                                >
                                     Investor
                                 </el-radio>
-                                <el-radio :label="3">
+                            </div>
+                            <div class="col-lg-4 d-inline">
+                                <el-radio 
+                                    v-model="form.accountType" 
+                                    label="3"
+                                >
                                     ISDB Secretariat
                                 </el-radio>
-                                <el-radio :label="4">
+                            </div>
+                            <div class="col-lg-4 d-inline">
+                                <el-radio 
+                                    v-model="form.accountType" 
+                                    label="4"
+                                >
                                     Govt Official
                                 </el-radio>
-                            </el-radio-group>
+                            </div>
                         </el-form-item>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                    :gutter="20"
-                >
-                    <el-col :span="10">
-                        <el-form-item label="First Name">
-                            <el-input v-model="form.firstName" />
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="10">
-                        <el-form-item label="Last Name">
-                            <el-input v-model="form.LastName" />
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                    :gutter="20"
-                >
-                    <el-col :span="10">
-                        <el-form-item label="Country">
-                            <el-input v-model="form.country" />
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="10">
-                        <el-form-item label="City">
-                            <el-input v-model="form.city" />
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                >
-                    <el-col :span="20">
-                        <el-form-item label="Address">
-                            <el-input v-model="form.address" />
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                >
-                    <el-col :span="20">
-                        <h4>Contact Information</h4>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                    :gutter="20"
-                >
-                    <el-col :span="10">
-                        <el-form-item label="Email">
-                            <el-input v-model="form.email" />
-                        </el-form-item>
-                    </el-col>
-                    <el-col :span="10">
-                        <el-form-item label="Phone">
-                            <el-input 
-                                v-model="form.phone" 
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="First Name"
+                                prop="firstName"
                             >
-                                <el-select 
-                                    slot="prepend" 
-                                    v-model="selects" 
-                                    placeholder="Select"
-                                    value-key="selects"
+                                <el-input v-model="form.firstName" />
+                            </el-form-item>
+                        </div>
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="Last Name"
+                                prop="lastName"
+                            >
+                                <el-input v-model="form.lastName" />
+                            </el-form-item>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="Country"
+                                prop="country"
+                            >
+                                <el-input v-model="form.country" />
+                            </el-form-item>
+                        </div>
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="City"
+                                prop="city"
+                            >
+                                <el-input v-model="form.city" />
+                            </el-form-item>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <el-form-item 
+                                label="Address"
+                                prop="address"
+                            >
+                                <el-input v-model="form.address" />
+                            </el-form-item>
+                        </div>
+                    </div>
+                    <h3>Contact Information</h3>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="Email"
+                                prop="email"
+                            >
+                                <el-input v-model="form.email" />
+                            </el-form-item>
+                        </div>
+                        <div class="col-lg-6">
+                            <el-form-item 
+                                label="Phone"
+                                required
+                            >
+                                <el-input 
+                                    v-model="form.phone"
                                 >
-                                    <div slot="prefix">
-                                        <flag 
-                                            :iso="selects"
-                                            class="mt-10"
-                                        />
-                                    </div>
-                                    <el-option 
-                                        v-for="(flag,index) in flags"
-                                        :key="index"
-                                        :value="flag.value"
+                                    <el-select 
+                                        slot="prepend" 
+                                        v-model="selectCountry" 
+                                        value-key="selectCountry"
                                     >
-                                        <flag :iso="flag.value" />
-                                    </el-option>
-                                </el-select>
-                            </el-input>
-                        </el-form-item>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                    :gutter="20"
-                >
-                    <el-col :span="20">
-                        <el-checkbox 
-                            v-model="termsAndConditions"
-                        >
-                            <span>I accept the terms & conditions</span>
-                        </el-checkbox>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="center"
-                    :gutter="20"
-                >
-                    <el-col :span="20">
-                        <el-checkbox 
-                            v-model="newsLetter"
-                        >
-                            <span>I would like to subscribe to newsletter</span>
-                        </el-checkbox>
-                    </el-col>
-                </el-row>
-                <el-row 
-                    type="flex" 
-                    justify="space-between"
-                    :gutter="20"
-                    align="middle"
-                    class="mt-10"
-                >
-                    <el-col 
-                        :span="6" 
-                        :push="2"
-                    >
-                        <button class="btn koraspond__primary-btn--round">
-                            SIGNUP
-                        </button>
-                    </el-col>
-                    <el-col 
-                        :span="12"
-                        :push="1"
-                    >
-                        <div>
+                                        <div 
+                                            slot="prefix" 
+                                            class="p-2 mt-1"
+                                        >
+                                            <flag 
+                                                :iso="selectCountry"
+                                            />
+                                        </div>
+                                        <el-option 
+                                            v-for="(flag,index) in flags"
+                                            :key="index"
+                                            :value="flag.value"
+                                        >
+                                            <flag :iso="flag.value" />
+                                        </el-option>
+                                    </el-select>
+                                </el-input>
+                            </el-form-item>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <el-checkbox v-model="form.termsAndConditions">
+                                <span>I accept the terms & conditions</span>
+                            </el-checkbox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <el-checkbox v-model="form.newsLetter">
+                                <span>I would like to subscribe to newsletter</span>
+                            </el-checkbox>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-4">
+                            <button 
+                                type="button"
+                                class="btn koraspond__primary-btn--round"
+                                @click="formSubmit('signup')"
+                            >
+                                SIGNUP
+                            </button>
+                        </div>
+                        <div class="col-lg-5 offset-lg-3 align-self-center">
                             Already have an account?
                             <el-link
                                 type="primary"
@@ -175,14 +181,18 @@
                                 Signin
                             </el-link>
                         </div>
-                    </el-col>
-                </el-row>
-            </el-form>
-        </el-dialog>
+                    </div>
+                </el-form>
+            </div>
+        </modal>
     </div>
 </template>
 <script>
+import Modal from "~/common/Modal"
 export default {
+    components: {
+        Modal
+    },
     props: {
         show: {
             type: Boolean,
@@ -191,11 +201,11 @@ export default {
     },
     data() {
         return {
-            radio: 3,
             labelPosition: 'top',
             checked: true,
+            csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
-                accountType: '',
+                accountType: '1',
                 firstName: '',
                 lastName: '',
                 country: '',
@@ -217,7 +227,28 @@ export default {
                     value: 'PH'
                 }
             ],
-            selects: 'AE'
+            selectCountry: 'AE',
+            rules: {
+                firstName: [
+                    { required: true, message: 'Please input First Name', trigger: 'blur' }
+                ],
+                lastName: [
+                    { required: true, message: 'Please input Last Name', trigger: 'blur' }
+                ],
+                country: [
+                    { required: true, message: 'Please input Country', trigger: 'blur' }
+                ],
+                city: [
+                    { required: true, message: 'Please input City', trigger: 'blur' }
+                ],
+                address: [
+                    { required: true, message: 'Please input Address', trigger: 'blur' }
+                ],
+                email: [
+                    { required: true, message: 'Please input Email Address', trigger: 'blur' },
+                    { type: 'email', message: 'Please input correct Email Address', trigger: ['blur', 'change'] }
+                ]
+            }
         }
     },
     computed: {
@@ -233,6 +264,16 @@ export default {
     mounted() {
     },
     methods: {
+        formSubmit(name) {
+            this.$refs[name].validate((valid) => {
+                if (valid) {
+                    alert('submit!');
+                } else {
+                    console.log('error submit!!');
+                    return false;
+                }
+            })
+        }
     }
 }
 </script>
