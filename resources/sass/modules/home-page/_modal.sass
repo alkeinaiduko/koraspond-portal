@@ -1,69 +1,31 @@
 .el-dialog
   border-radius: $card-radius
 
-.modal-mask
-  position: fixed
-  z-index: 9998
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  background-color: rgba(0, 0, 0, 0.5)
-  display: table
-  transition: opacity 0.3s ease
-
-  .modal-wrapper
-    display: table-cell
-    vertical-align: middle
-
+.login-modal
   .modal-container
-    width: 40%
-    margin: 0px auto
-    padding: 20px 30px
-    background-color: #fff
-    border-radius: 6px
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33)
-    transition: all 0.3s ease
-    font-family: Helvetica, Arial, sans-serif
-    max-height: 85%
-    overflow: hidden
-    overflow-y: auto
-    @include breakpoint($maxWidth: 320px)
-    @include breakpoint($maxWidth: 375px)
-    @include breakpoint($maxWidth: 425px)
-      width: 90%
-    .modal-header
-      &__container
-        display: flex
-        align-items: center
-        justify-content: center
-        border-bottom: 0px
-      &__right
-        p
-          justify-content: flex-start
-          flex-direction: row-reverse
+    max-width: 30%
 
-    .modal-body
-      margin: 20px 0
+  .login-btn__container
+    margin-top: 1.5em
+    button
+      margin-bottom: 1.5em
 
-    .modal-default-button
-      float: right
+.signup-modal
+  .modal-wrapper
+    vertical-align: unset
+    top: 5rem
+    position: relative
 
-    .modal-footer
-      border-top: 0px
-      &__right
-        display: flex
-        align-items: flex-start
-        justify-content: flex-end
-      &__center
-        display: flex
-        align-items: center
-        justify-content: center
-        button
-          margin-top: 10px
-          margin-bottom: 10px
+    .modal-container
+      max-height: 80%
+      max-width: 40%
+      overflow: hidden
+      overflow-y: auto
 
-
-
-
-
+.custom-modal-header
+  position: relative
+  i
+    position: absolute
+    right: 0
+    font-size: 1.3rem
+    cursor: pointer

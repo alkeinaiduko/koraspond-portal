@@ -92,6 +92,7 @@
                 <p>Applicants</p>
             </div>
             <img
+                class="statistics__people"
                 src="/images/statistics.png"
                 alt=""
             >
