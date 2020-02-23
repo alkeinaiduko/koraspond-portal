@@ -45,7 +45,7 @@ class LoginController extends Controller
         $credentials = $credentials = $request->only('email', 'password');
 
         if(Auth::attempt($credentials)) {
-            return response()->json(['status' => 'success'], 200);
+            return view('portal.dashboard.index');
         }
 
         return response()->json(['error' => 'Username or password incorrect!'], 422);

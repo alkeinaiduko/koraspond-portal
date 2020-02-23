@@ -39,8 +39,8 @@ mix.js('resources/js/modules/HomePage/main.js', 'public/js/modules/homepage')
  | Portal modules
  |--------------------------------------------------------------------------
  */
-// Applicant Portal Page
-mix.js('resources/js/modules/Portal/Applicant/main.js', 'public/js/modules/portal')
+// Dashboard Portal Page
+mix.js('resources/js/modules/Portal/Dashboard/main.js', 'public/js/modules/dashboard')
 
 
 
