@@ -46,9 +46,16 @@ mix.js('resources/js/modules/Portal/FinalRegistration/main.js', 'public/js/modul
  | Portal modules
  |--------------------------------------------------------------------------
  */
-// Applicant Portal Page
-mix.js('resources/js/modules/Portal/Applicant/main.js', 'public/js/modules/portal')
+// Dashboard Portal Page
+mix.js('resources/js/modules/Portal/Dashboard/main.js', 'public/js/modules/dashboard')
 
+
+/*
+ |--------------------------------------------------------------------------
+ | Admin Dashboard modules
+ |--------------------------------------------------------------------------
+ */
+mix.js('resources/js/modules/Admin/Dashboard/main.js', 'public/js/modules/admin-dashboard')
 
 
 mix.sass('resources/sass/app.sass', 'public/css');

@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('portal.applicant.index');
+        return view('portal.dashboard.index');
     }
 
     /**
