@@ -82,3 +82,80 @@
       margin-top: 1em
       .project
         padding: 1.2em
+
+.final-register
+  &__container
+    padding-top: 90px
+
+  &__content
+    @include flexbox(column, center, center)
+
+  &__greetings
+    p
+      font-size: 23px
+      font-family: Graphik
+      margin-top: 10px
+      span
+        font-family: Graphik-bold
+
+  &__progress
+    @include flexbox(row, center, center)
+    margin-top: 15px
+  &__label
+    @include flexbox(row, center, space-around)
+    h6
+      margin-left: 30px
+      margin-top: 25px
+      padding: 0px 30px
+      text-align: center
+
+.register__fields
+  border-top: 1px solid #E8E8E8
+  padding-top: 25px
+  margin-top: 25px
+  label
+    font-size: 18px
+    font-family: Graphik
+  .row
+    padding: 10px 0px
+  .register__announcement
+    @include flexbox(row, center, center)
+    h2
+      font-family: Graphik-bold
+    h5
+      text-align: center
+      line-height: 40px
+
+.register__footer
+  @include flexbox(row, center, space-between)
+  border-top: 1px solid #E8E8E8
+  padding-top: 25px
+  margin: 25px 0px
+
+.BI
+  .el-select
+    display: block
+  .el-date-editor
+    width: 100%
+  .el-radio__input.is-checked .el-radio__inner
+    border-color: #F4BA58
+    background: #F3B142
+
+.AD
+  .el-select
+    display: block
+  .el-date-editor
+    width: 100%
+
+.BR
+  .el-upload
+    display: block
+
+.BRF
+  .el-select
+    display: block
+  .el-upload
+    display: block
+  .el-radio__input.is-checked .el-radio__inner
+    border-color: #F4BA58
+    background: #F3B142

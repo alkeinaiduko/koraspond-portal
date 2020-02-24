@@ -77,4 +77,20 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserBusinessRegistration::class);
     }
+
+    /**
+     * Meeting Request Registration
+     */
+    public function meetingRequestFrom()
+    {
+        return $this->hasMany(MeetingRequest::class, 'request_from');
+    }
+
+    /**
+     * Meeting Request Registration
+     */
+    public function meetingRequestTo()
+    {
+        return $this->hasMany(MeetingRequest::class, 'request_to');
+    }
 }

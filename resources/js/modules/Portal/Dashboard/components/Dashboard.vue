@@ -19,8 +19,32 @@
             </div>
             <div class="portal__content--right">
                 <card-container class="nav-menu">
-                    <nav-menu />
+                    <div>
+                        <el-menu
+                            :default-active="activeIndex"
+                            class="el-menu-demo"
+                            mode="horizontal"
+                            active-text-color="#F7B85B"
+                        >
+                            <el-menu-item
+                                v-for="(tab, key) in tabs"
+                                :key="key"
+                                :index="tab.id"
+                                @click="currentTab = tab.component"
+                            >
+                                {{ tab.title }}
+                            </el-menu-item>
+                        </el-menu>
+                        <el-button
+                            type="primary"
+                            plain
+                            icon="el-icon-plus"
+                        >
+                            Create Project
+                        </el-button>
+                    </div>
                 </card-container>
+                <<<<<<< HEAD
                 <ul class="content-list">
                     <li
                         v-for="(project, key) in projects"
@@ -39,6 +63,14 @@
                     :data="projectDetail"
                     @close="openProjectDetails = false"
                 />
+                =======
+                <section class="content">
+                    <component
+                        :is="currentTabComponent"
+                        class="tab"
+                    />
+                </section>
+                >>>>>>> 4756aeac7a0a44d833ac2044020601ade9ce4569
             </div>
         </div>
     </div>
@@ -53,6 +85,8 @@
     import NavMenu from './partials/NavMenu'
     import ProjectListItem from './partials/ProjectListItem'
     import ProjectDetails from './partials/ProjectDetails'
+    import MeetingRequest from './partials/MeetingRequest'
+    import ProjectList from './partials/ProjectList'
 
     export default {
         name: 'Dashboard',
@@ -64,7 +98,9 @@
             UserInterest,
             NavMenu,
             ProjectListItem,
-            ProjectDetails
+            ProjectDetails,
+            MeetingRequest,
+            ProjectList
         },
         props: {
             user: Object
@@ -122,7 +158,19 @@
                         views: 177,
                         description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
                     },
+                ],
+                activeIndex: '1',
+                activeIndex2: '1',
+                currentTab: "project-list",
+                tabs: [
+                    { id:"1", component: "project-list", title: "Projects" },
+                    { id:"2", component: "meeting-request", title: "Meeting Request" }
                 ]
+            }
+        },
+        computed: {
+            currentTabComponent: function(){
+                return this.currentTab.toLowerCase();
             }
         },
         methods: {
@@ -130,7 +178,7 @@
                 this.projectDetail = data
                 this.openProjectDetails = true
             }
-        }
+        },
     }
 </script>
 

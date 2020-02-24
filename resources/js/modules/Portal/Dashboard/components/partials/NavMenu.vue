@@ -7,10 +7,14 @@
             active-text-color="#F7B85B"
             @select="handleSelect"
         >
-            <el-menu-item index="1">
+            <el-menu-item 
+                index="1"
+            >
                 Projects
             </el-menu-item>
-            <el-menu-item index="2">
+            <el-menu-item 
+                index="2"
+            >
                 Meeting Requests
             </el-menu-item>
         </el-menu>
@@ -34,7 +38,7 @@
         },
         methods: {
         handleSelect(key, keyPath) {
-            console.log(key, keyPath);
+            this.$emit('selectTab', key);
         }
         }
     }
