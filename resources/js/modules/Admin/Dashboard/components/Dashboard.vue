@@ -65,7 +65,7 @@
     import ProjectList from './partials/ProjectList'
 
     export default {
-        name: 'Dashboard',
+        name: 'admin-dashboard',
         components: {
             CardContainer,
             UserInfo,
