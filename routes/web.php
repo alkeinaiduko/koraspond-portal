@@ -27,6 +27,11 @@ Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
+Route::get('/portal/finalregistration', function(){
+    return view('finalregistration.index');
+});
+
 Route::resource('signup', 'SignupController')->only(['store']);
 Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
+
