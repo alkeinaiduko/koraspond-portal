@@ -36,6 +36,13 @@ mix.js('resources/js/modules/HomePage/main.js', 'public/js/modules/homepage')
 
 /*
  |--------------------------------------------------------------------------
+ | Final Registration modules
+ |--------------------------------------------------------------------------
+ */
+mix.js('resources/js/modules/Portal/FinalRegistration/main.js', 'public/js/modules/finalregistration')
+
+/*
+ |--------------------------------------------------------------------------
  | Portal modules
  |--------------------------------------------------------------------------
  */
