@@ -52,7 +52,7 @@
             <div>
                 <el-button>Save in Draft</el-button>
                 <el-button
-                    v-if="step != 4" 
+                    v-if="step != 4"
                     class="primary--plain--reverse"
                     @click="next()"
                 >
@@ -142,5 +142,5 @@
 </script>
 
 <style lang="sass">
-    @import "~/../sass/modules/portal/home/_all"
+    @import "~/../sass/modules/portal/dashboard/_all"
 </style>

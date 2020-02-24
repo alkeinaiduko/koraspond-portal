@@ -46,7 +46,7 @@
   --secondary: #6c757d;
   --success: #28a745;
   --info: #17a2b8;
-  --warning: #ffc107;
+  --warning: #f2bc6b;
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
@@ -1969,23 +1969,23 @@ pre code {
 .table-warning,
 .table-warning > th,
 .table-warning > td {
-  background-color: #ffeeba;
+  background-color: #fbecd6;
 }
 
 .table-warning th,
 .table-warning td,
 .table-warning thead th,
 .table-warning tbody + tbody {
-  border-color: #ffdf7e;
+  border-color: #f8dcb2;
 }
 
 .table-hover .table-warning:hover {
-  background-color: #ffe8a1;
+  background-color: #f9e1bf;
 }
 
 .table-hover .table-warning:hover > td,
 .table-hover .table-warning:hover > th {
-  background-color: #ffe8a1;
+  background-color: #f9e1bf;
 }
 
 .table-danger,
@@ -2881,43 +2881,43 @@ fieldset:disabled a.btn {
 
 .btn-warning {
   color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  background-color: #f2bc6b;
+  border-color: #f2bc6b;
 }
 
 .btn-warning:hover {
   color: #212529;
-  background-color: #e0a800;
-  border-color: #d39e00;
+  background-color: #efac48;
+  border-color: #eea73c;
 }
 
 .btn-warning:focus,
 .btn-warning.focus {
   color: #212529;
-  background-color: #e0a800;
-  border-color: #d39e00;
-  box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+  background-color: #efac48;
+  border-color: #eea73c;
+  box-shadow: 0 0 0 0.2rem rgba(211, 165, 97, 0.5);
 }
 
 .btn-warning.disabled,
 .btn-warning:disabled {
   color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  background-color: #f2bc6b;
+  border-color: #f2bc6b;
 }
 
 .btn-warning:not(:disabled):not(.disabled):active,
 .btn-warning:not(:disabled):not(.disabled).active,
 .show > .btn-warning.dropdown-toggle {
   color: #212529;
-  background-color: #d39e00;
-  border-color: #c69500;
+  background-color: #eea73c;
+  border-color: #eda130;
 }
 
 .btn-warning:not(:disabled):not(.disabled):active:focus,
 .btn-warning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-warning.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(222, 170, 12, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(211, 165, 97, 0.5);
 }
 
 .btn-danger {
@@ -3188,24 +3188,24 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-warning {
-  color: #ffc107;
-  border-color: #ffc107;
+  color: #f2bc6b;
+  border-color: #f2bc6b;
 }
 
 .btn-outline-warning:hover {
   color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  background-color: #f2bc6b;
+  border-color: #f2bc6b;
 }
 
 .btn-outline-warning:focus,
 .btn-outline-warning.focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(242, 188, 107, 0.5);
 }
 
 .btn-outline-warning.disabled,
 .btn-outline-warning:disabled {
-  color: #ffc107;
+  color: #f2bc6b;
   background-color: transparent;
 }
 
@@ -3213,14 +3213,14 @@ fieldset:disabled a.btn {
 .btn-outline-warning:not(:disabled):not(.disabled).active,
 .show > .btn-outline-warning.dropdown-toggle {
   color: #212529;
-  background-color: #ffc107;
-  border-color: #ffc107;
+  background-color: #f2bc6b;
+  border-color: #f2bc6b;
 }
 
 .btn-outline-warning:not(:disabled):not(.disabled):active:focus,
 .btn-outline-warning:not(:disabled):not(.disabled).active:focus,
 .show > .btn-outline-warning.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(242, 188, 107, 0.5);
 }
 
 .btn-outline-danger {
@@ -5441,19 +5441,19 @@ a.badge-info.focus {
 
 .badge-warning {
   color: #212529;
-  background-color: #ffc107;
+  background-color: #f2bc6b;
 }
 
 a.badge-warning:hover,
 a.badge-warning:focus {
   color: #212529;
-  background-color: #d39e00;
+  background-color: #eea73c;
 }
 
 a.badge-warning:focus,
 a.badge-warning.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(242, 188, 107, 0.5);
 }
 
 .badge-danger {
@@ -5611,17 +5611,17 @@ a.badge-dark.focus {
 }
 
 .alert-warning {
-  color: #856404;
-  background-color: #fff3cd;
-  border-color: #ffeeba;
+  color: #7e6238;
+  background-color: #fcf2e1;
+  border-color: #fbecd6;
 }
 
 .alert-warning hr {
-  border-top-color: #ffe8a1;
+  border-top-color: #f9e1bf;
 }
 
 .alert-warning .alert-link {
-  color: #533f03;
+  color: #5b4728;
 }
 
 .alert-danger {
@@ -6037,20 +6037,20 @@ a.badge-dark.focus {
 }
 
 .list-group-item-warning {
-  color: #856404;
-  background-color: #ffeeba;
+  color: #7e6238;
+  background-color: #fbecd6;
 }
 
 .list-group-item-warning.list-group-item-action:hover,
 .list-group-item-warning.list-group-item-action:focus {
-  color: #856404;
-  background-color: #ffe8a1;
+  color: #7e6238;
+  background-color: #f9e1bf;
 }
 
 .list-group-item-warning.list-group-item-action.active {
   color: #fff;
-  background-color: #856404;
-  border-color: #856404;
+  background-color: #7e6238;
+  border-color: #7e6238;
 }
 
 .list-group-item-danger {
@@ -7022,14 +7022,14 @@ button.bg-info:focus {
 }
 
 .bg-warning {
-  background-color: #ffc107 !important;
+  background-color: #f2bc6b !important;
 }
 
 a.bg-warning:hover,
 a.bg-warning:focus,
 button.bg-warning:hover,
 button.bg-warning:focus {
-  background-color: #d39e00 !important;
+  background-color: #eea73c !important;
 }
 
 .bg-danger {
@@ -7130,7 +7130,7 @@ button.bg-dark:focus {
 }
 
 .border-warning {
-  border-color: #ffc107 !important;
+  border-color: #f2bc6b !important;
 }
 
 .border-danger {
@@ -10727,12 +10727,12 @@ a.text-info:focus {
 }
 
 .text-warning {
-  color: #ffc107 !important;
+  color: #f2bc6b !important;
 }
 
 a.text-warning:hover,
 a.text-warning:focus {
-  color: #ba8b00 !important;
+  color: #ec9c25 !important;
 }
 
 .text-danger {
@@ -10978,6 +10978,45 @@ body {
   margin-left: 5px;
 }
 
+.el-button.primary--plain--reverse {
+  font-size: 12px;
+  font-family: "Lato";
+  background-color: #1C9989;
+  color: #FFF;
+}
+
+.el-button.primary--plain--reverse:hover {
+  background-color: #19887a;
+  color: #fff;
+}
+
+.el-button.warning--plain {
+  font-size: 12px;
+  font-family: "Lato";
+  background-color: #fff;
+  border: 1px solid #f2bc6b;
+  color: #c27606;
+}
+
+.el-button.warning--plain:hover {
+  background-color: #f0b458;
+  color: #fff;
+}
+
+.el-button.warning--plain svg {
+  margin-left: 5px;
+}
+
+.el-button.btn--pink {
+  background-color: #EE6480;
+  color: #fff;
+}
+
+.el-button.btn--pink:hover {
+  background-color: #ec5271;
+  color: #fff;
+}
+
 .card__container {
   height: 100%;
   border-radius: 12px;
@@ -11015,6 +11054,72 @@ body {
 .portal-card__container {
   border-radius: 5px;
   background-color: #FFF;
-  padding: 1.2em;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 1500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s eas;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  max-width: 50%;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal__header {
+  margin-top: 0;
+  text-align: center;
+  font-family: Graphik-Bold;
+  font-weight: bold;
+}
+
+.modal__body {
+  margin: 20px 0;
+}
+
+/* * The following styles are auto-applied to elements with
+ * * transition="modal" when their visibility is toggled
+ * * by Vue.js.
+ * *
+ * * You can easily play with the modal transition by editing
+ * * these styles.
+ * */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  transform: scale(1.1);
+}
+
+.navbar-light .navbar-nav .show > .nav-link,
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .nav-link.active {
+  color: #006A55;
 }
 

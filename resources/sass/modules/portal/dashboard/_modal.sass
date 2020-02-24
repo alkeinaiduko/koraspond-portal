@@ -1,0 +1,45 @@
+.project-modal
+  .modal-container
+    padding: 0
+    border-radius: $radius
+    .modal__header
+      padding: .8em
+      text-align: left
+      background-color: #006A55
+      color: white
+      @include flexbox(row, center, initial)
+      .custom-modal-header
+        width: 100%
+
+    .modal__body
+      padding: 0 1.8em
+      .project-title
+        font-size: 18px
+        font-weight: bold
+      .detail__container
+        @include flexbox(row, center, space-between)
+        &--left, &--right
+          height: 100%
+          @include flexbox(column, initial, space-between)
+
+        &--left
+          .el-tag
+            span
+              color: #000
+          p
+            margin-top: 1.2rem
+            margin-bottom: 0
+
+      .project
+        &__tags
+          padding: 1em 0
+          border-top: 1px solid #EBEBEB
+          border-bottom: 1px solid #EBEBEB
+          margin-top: 1em
+          .el-tag
+            margin-right: 10px
+        &__description
+          padding: 1em 0
+          border-bottom: 1px solid #EBEBEB
+  .project__attachments
+    padding: 1em

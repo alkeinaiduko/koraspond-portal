@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Dashboard from "./Dashboard";
-
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
@@ -32,7 +31,7 @@ library.add(
 
 // Components that are registered globally
 [
-    Dashboard,
+    Dashboard
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 })

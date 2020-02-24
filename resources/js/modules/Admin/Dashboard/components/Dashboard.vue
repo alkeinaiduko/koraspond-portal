@@ -2,7 +2,7 @@
     <div class="portal__container wrapper">
         <div class="portal__content">
             <div class="portal__content--left">
-                <card-container>
+                <card-container style="padding: 1.2em">
                     <el-button
                         class="edit-btn"
                         type="info"
@@ -45,9 +45,9 @@
                     </div>
                 </card-container>
                 <section class="content">
-                    <component 
+                    <component
                         :is="currentTabComponent"
-                        class="tab" 
+                        class="tab"
                     />
                 </section>
             </div>
@@ -65,7 +65,7 @@
     import ProjectList from './partials/ProjectList'
 
     export default {
-        name: 'admin-dashboard',
+        name: 'AdminDashboard',
         components: {
             CardContainer,
             UserInfo,
@@ -98,5 +98,5 @@
 </script>
 
 <style lang="sass">
-    @import "~/../sass/modules/portal/home/_all"
+    @import "~/../sass/modules/portal/dashboard/_all"
 </style>

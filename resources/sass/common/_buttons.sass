@@ -34,8 +34,6 @@
   +allcaps
   +bold
 
-.e
-
 .el-button
   &.primary--plain
     font-size: $btn-font-size-base
@@ -49,13 +47,16 @@
       color: #fff
     svg
       margin-left: 5px
-      
+
   &.primary--plain--reverse
     font-size: $btn-font-size-base
     font-family: 'Lato'
     background-color: #1C9989
     color: #FFF
-  
+    &:hover
+      background-color: darken(#1C9989, 4%)
+      color: #fff
+
   &.warning--plain
     font-size: $btn-font-size-base
     font-family: 'Lato'
@@ -68,3 +69,9 @@
       color: #fff
     svg
       margin-left: 5px
+  &.btn--pink
+    background-color: #EE6480
+    color: #fff
+    &:hover
+      background-color: darken(#EE6480, 4%)
+      color: #fff

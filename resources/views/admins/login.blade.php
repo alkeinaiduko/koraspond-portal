@@ -1,6 +1,6 @@
-<form action="{{ route('admin.login.submit') }}" method="POST">
-    @csrf
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <input type="submit" >
-</form>
+@extends('layouts.app')
+@section('page_title', 'Login')
+
+@section('content')
+    <admin-login />
+@stop

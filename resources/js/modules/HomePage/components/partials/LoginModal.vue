@@ -1,12 +1,16 @@
 <template>
     <div>
-        <modal>
+        <modal custom-class="login-modal">
             <!-- HEADER -->
             <div
                 slot="header"
-                class="modal-header__container"
+                class="custom-modal-header"
             >
-                <h4>Login</h4>
+                <i
+                    class="el-icon-close"
+                    @click="$emit('close')"
+                />
+                <h3>Login</h3>
             </div>
             <!-- BODY -->
             <div
@@ -41,38 +45,30 @@
             <!-- FOOTER -->
             <div
                 slot="footer"
-                class="modal-footer__right"
             >
-                <el-link
-
-                    type="primary"
-                >
-                    Forgot Password?
-                </el-link>
-            </div>
-            <div
-                slot="footer"
-                class="modal-footer__center"
-            >
-                <button
-                    v-loading="isLoggingIn"
-                    class="btn koraspond__primary-btn--round"
-                    @click="formSubmit"
-                >
-                    LOGIN
-                </button>
-            </div>
-            <div
-                slot="footer"
-                class="modal-footer__center"
-            >
-                <div>
-                    Do you have an account?
+                <div class="text-right">
                     <el-link
                         type="primary"
                     >
-                        Signup
+                        Forgot Password?
                     </el-link>
+                </div>
+                <div class="login-btn__container text-center">
+                    <button
+                        v-loading="isLoggingIn"
+                        class="btn koraspond__primary-btn--round"
+                        @click="formSubmit"
+                    >
+                        LOGIN
+                    </button>
+                    <div>
+                        Do you have an account?
+                        <el-link
+                            type="primary"
+                        >
+                            Signup
+                        </el-link>
+                    </div>
                 </div>
             </div>
         </modal>
