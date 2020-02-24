@@ -46,13 +46,6 @@
             <div
                 slot="footer"
             >
-                <div class="text-right">
-                    <el-link
-                        type="primary"
-                    >
-                        Forgot Password?
-                    </el-link>
-                </div>
                 <div class="login-btn__container text-center">
                     <button
                         v-loading="isLoggingIn"
@@ -61,14 +54,6 @@
                     >
                         LOGIN
                     </button>
-                    <div>
-                        Do you have an account?
-                        <el-link
-                            type="primary"
-                        >
-                            Signup
-                        </el-link>
-                    </div>
                 </div>
             </div>
         </modal>
