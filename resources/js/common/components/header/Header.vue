@@ -80,15 +80,9 @@
                         <i class="el-icon-arrow-down el-icon--right" />
                     </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item>Action 1</el-dropdown-item>
-                        <el-dropdown-item>Action 2</el-dropdown-item>
-                        <el-dropdown-item>Action 3</el-dropdown-item>
-                        <el-dropdown-item disabled>
-                            Action 4
-                        </el-dropdown-item>
-                        <el-dropdown-item divided>
-                            <a 
-                                href="#" 
+                        <el-dropdown-item>
+                            <a
+                                href="#"
                                 @click="logout"
                             >Logout</a>
                         </el-dropdown-item>
@@ -111,6 +105,7 @@
                 axios.post('/logout').then((res) => {
                     location.replace('/');
                 }).catch((err) => {
+
                 });
             }
         }
