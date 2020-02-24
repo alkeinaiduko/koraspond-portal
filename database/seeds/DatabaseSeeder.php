@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             UserTypeSeeder::class,
             MeetingProfileSeeder::class,
             InterestSeeder::class,
-            PartnershipSeeder::class
+            PartnershipSeeder::class,
+            MeetingRequestSeeder::class
         ]);
     }
 }
