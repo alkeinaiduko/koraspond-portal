@@ -1,0 +1,84 @@
+.portal__content--left
+  >div
+    position: relative
+    >button
+      position: absolute
+      right: 20px
+  .user-information
+    padding: 1.2em
+.user-info
+  &__container
+    border-bottom: 1px solid #E2E2E2
+    margin-top: 25px
+  &__details
+    div
+      @include flexbox(row, center, center)
+
+    p
+      margin: 15px
+  &__name
+    font-size: 23px
+    font-family: Graphik-Semibold
+    margin-top: 10px
+
+  &__ratings
+    margin-top: 9px
+    margin-left: 5px
+    svg
+      margin-top: -1px
+      margin: -1px 0 0 3px
+      color: #FFAE53
+  &__email, &__address, &__socials
+    color: #9498A2
+    font-size: 14px
+  &__socials
+    font-size: 18px
+    svg
+      margin: 0 8px
+
+.user-about
+  &__container
+    padding: 1rem .5rem
+    border-bottom: 1px solid #E2E2E2
+    h1
+      font-weight: bold
+    p
+      width: 15rem
+
+.user-education
+  &__container
+    padding: 1rem .5rem
+    border-bottom: 1px solid #E2E2E2
+    div
+      border: 1px solid #E2E2E2
+      padding: 1rem .7rem
+      border-radius: $radius
+      p
+        color: #9C9C9C
+        margin: 0
+
+.user-interest
+  &__container
+    padding: 1rem .5rem
+    width: 250px
+    word-wrap: break-word
+    span.el-tag--info
+      margin: .5em
+      color: #000
+
+.portal__content--right
+  .nav-menu
+    padding: 0 1.2em
+    &>div
+      @include flexbox(row, center, space-between)
+    .el-menu-item.is-active
+      color: #000 !important
+
+  .content-list
+    list-style-type: none
+    padding: 0
+    margin: 0
+    li
+      margin-top: 1em
+      .project
+        padding: 1.2em
