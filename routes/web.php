@@ -34,4 +34,5 @@ Route::get('/portal/finalregistration', function(){
 Route::resource('signup', 'SignupController')->only(['store']);
 Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
+Route::resource('meeting-request', 'MeetingRequestController');
 
