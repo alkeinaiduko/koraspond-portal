@@ -44,8 +44,7 @@
                         </el-button>
                     </div>
                 </card-container>
-                <<<<<<< HEAD
-                <ul class="content-list">
+                <!-- <ul class="content-list">
                     <li
                         v-for="(project, key) in projects"
                         :key="key"
@@ -57,20 +56,18 @@
                             />
                         </card-container>
                     </li>
-                </ul>
+                </!-->
                 <project-details
                     v-if="openProjectDetails"
                     :data="projectDetail"
                     @close="openProjectDetails = false"
                 />
-                =======
                 <section class="content">
                     <component
                         :is="currentTabComponent"
                         class="tab"
                     />
                 </section>
-                >>>>>>> 4756aeac7a0a44d833ac2044020601ade9ce4569
             </div>
         </div>
     </div>

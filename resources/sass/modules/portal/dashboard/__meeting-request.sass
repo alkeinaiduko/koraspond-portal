@@ -1,19 +1,21 @@
 .meeting-request
-    display: flex
-    &__container
-        @include flexbox(row, center, space-between)
-    &__image
-        position: relative
-        .status
-            position: absolute
-            margin-left: -15px
-            margin-top: 25px
-    &__details
-        flex: 1
-        margin-left: 20px
-        padding-top: 10px
-        strong
-            font-weight: 20px
-    &__actions
-        flex: 1
-        text-align: right
+  display: flex
+  &__container
+    @include flexbox(row, center, space-between)
+    padding: 1.2em
+
+  &__image
+    position: relative
+    .status
+      position: absolute
+      margin-left: -15px
+      margin-top: 25px
+  &__details
+    flex: 1
+    margin-left: 20px
+    padding-top: 10px
+    strong
+      font-weight: 20px
+  &__actions
+    flex: 1
+    text-align: right

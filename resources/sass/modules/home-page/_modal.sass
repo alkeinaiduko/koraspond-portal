@@ -4,7 +4,12 @@
 .login-modal
   .modal-container
     max-width: 30%
-
+    @include breakpoint($maxWidth: 425px)
+      max-width: 100%
+    @include breakpoint($minWidth: 768px)
+      max-width: 70%
+    @include breakpoint($minWidth: 1024px)
+      max-width: 30%
   .login-btn__container
     margin-top: 1.5em
     button
@@ -21,6 +26,12 @@
       max-width: 40%
       overflow: hidden
       overflow-y: auto
+      @include breakpoint($maxWidth: 425px)
+        max-width: 100%
+      @include breakpoint($minWidth: 768px)
+        max-width: 70%
+      @include breakpoint($minWidth: 1024px)
+        max-width: 40%
 
 .custom-modal-header
   position: relative
