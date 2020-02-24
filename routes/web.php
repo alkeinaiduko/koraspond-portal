@@ -23,6 +23,7 @@ Route::get('/home', 'UserController@index')->name('user.index');
 Route::get('/admin/home', 'Admin\AdminController@index')->name('admin.index');
 
 Route::post('/login', 'Auth\LoginController@login')->name('user.login');
+Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
 
 Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
