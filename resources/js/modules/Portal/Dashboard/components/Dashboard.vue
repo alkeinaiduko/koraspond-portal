@@ -39,6 +39,7 @@
                             type="primary"
                             plain
                             icon="el-icon-plus"
+                            @click="createProject"
                         >
                             Create Project
                         </el-button>
@@ -70,6 +71,10 @@
                 </section>
             </div>
         </div>
+        <create-project 
+            :show="showProjectForm" 
+            @closeModal="closeModalSignUp()"
+        />
     </div>
 </template>
 
@@ -84,6 +89,7 @@
     import ProjectDetails from './partials/ProjectDetails'
     import MeetingRequest from './partials/MeetingRequest'
     import ProjectList from './partials/ProjectList'
+    import CreateProject from './partials/CreateProject'
 
     export default {
         name: 'Dashboard',
@@ -97,7 +103,8 @@
             ProjectListItem,
             ProjectDetails,
             MeetingRequest,
-            ProjectList
+            ProjectList,
+            CreateProject
         },
         props: {
             user: Object
@@ -162,7 +169,8 @@
                 tabs: [
                     { id:"1", component: "project-list", title: "Projects" },
                     { id:"2", component: "meeting-request", title: "Meeting Request" }
-                ]
+                ],
+                showProjectForm: false,
             }
         },
         computed: {
@@ -171,6 +179,12 @@
             }
         },
         methods: {
+            createProject() {
+                this.showProjectForm = true
+            },
+            closeModalSignUp(value) {
+                this.showSignUp = value
+            },
             openDetails(data) {
                 this.projectDetail = data
                 this.openProjectDetails = true

@@ -5,7 +5,42 @@
   .modal-container
     max-width: 30%
     @include breakpoint($maxWidth: 425px)
-      max-width: 100%
+      width: 90%
+    .modal-header
+      &__container
+        display: flex
+        align-items: center
+        justify-content: center
+        border-bottom: 0px
+      &__right
+        p
+          justify-content: flex-start
+          flex-direction: row-reverse
+
+    .modal-body
+      margin: 20px 0
+
+    .modal-default-button
+      float: right
+
+    .modal-footer
+      border-top: 0px
+      &__right
+        display: flex
+        align-items: flex-start
+        justify-content: flex-end
+      &__center
+        display: flex
+        align-items: center
+        justify-content: center
+        button
+          margin-top: 10px
+          margin-bottom: 10px
+    
+    .remove-float
+        .el-form-item__label
+          float: none
+ max-width: 100%
     @include breakpoint($minWidth: 768px)
       max-width: 70%
     @include breakpoint($minWidth: 1024px)
