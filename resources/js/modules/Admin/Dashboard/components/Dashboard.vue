@@ -2,7 +2,7 @@
     <div class="portal__container wrapper">
         <div class="portal__content">
             <div class="portal__content--left">
-                <card-container>
+                <card-container style="padding: 1.2em">
                     <el-button
                         class="edit-btn"
                         type="info"

@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome')->middleware('guest');
 
-// Auth::routes(['verify' => true]);
-
 Route::get('/admin/login', 'Admin\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Admin\AdminLoginController@login')->name('admin.login.submit');
 
@@ -29,6 +27,7 @@ Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
 
+Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/home', 'UserController@index')->name('user.index');
@@ -42,3 +41,4 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
         return view('finalregistration.index');
     });
 });
+

@@ -10,6 +10,9 @@ window.Vue = require('vue');
 
 // Common resources
 import '~/common/components'
+import '~/element-ui'
+
+Vue.component('admin-login', require('~/modules/Portal/Dashboard/components/AdminLogin.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
