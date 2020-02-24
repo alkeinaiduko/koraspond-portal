@@ -31,4 +31,10 @@ class AdminLoginController extends Controller
 
         return "Username or password incorrect!";
     }
+
+    public function logout()
+    {
+        Auth::guard('admin')->logout();
+        return redirect('/');
+    }
 }

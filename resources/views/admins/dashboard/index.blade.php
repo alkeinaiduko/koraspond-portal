@@ -1,4 +1,4 @@
-@extends('layouts.portal', ['vueModulePath' => 'js/modules/admin-dashboard/main.js'])
+@extends('layouts.admin', ['vueModulePath' => 'js/modules/admin-dashboard/main.js'])
 @section('page_title', 'Admin Dashboard')
 
 @section('content')

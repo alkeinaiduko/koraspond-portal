@@ -46,13 +46,6 @@
             <div
                 slot="footer"
             >
-                <div class="text-right">
-                    <el-link
-                        type="primary"
-                    >
-                        Forgot Password?
-                    </el-link>
-                </div>
                 <div class="login-btn__container text-center">
                     <button
                         v-loading="isLoggingIn"
@@ -61,14 +54,6 @@
                     >
                         LOGIN
                     </button>
-                    <div>
-                        Do you have an account?
-                        <el-link
-                            type="primary"
-                        >
-                            Signup
-                        </el-link>
-                    </div>
                 </div>
             </div>
         </modal>
@@ -106,7 +91,7 @@
                 try {
                     let res = await axios.post('/admin/login', params);
                     this.isLoggingIn = false
-                    location.replace('/home');
+                    location.replace('/admin/home');
                 } catch (err) {
                     this.error = err.response.data.error
                     this.isLoggingIn = false

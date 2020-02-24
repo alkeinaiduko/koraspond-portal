@@ -11123,3 +11123,8 @@ body {
   color: #006A55;
 }
 
+.el-form--label-top .el-form-item__label {
+  padding: 0 !important;
+  margin-bottom: 0;
+}
+
