@@ -31,6 +31,12 @@
                             name="email"
                             @keyup.enter.native="formSubmit"
                         />
+                        <div
+                            v-if="error"
+                            class="el-form-item__error"
+                        >
+                            {{ error }}
+                        </div>
                     </el-form-item>
                     <el-form-item label="Password">
                         <el-input
@@ -116,6 +122,8 @@ export default {
             } catch (err) {
                 this.error = err.response.data.error
                 this.isLoggingIn = false
+
+                console.log(this.error)
             }
         }
     }

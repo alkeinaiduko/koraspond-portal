@@ -19,6 +19,7 @@ Route::get('/admin/login', 'Admin\AdminLoginController@showLoginForm')->name('ad
 Route::post('/admin/login', 'Admin\AdminLoginController@login')->name('admin.login.submit');
 
 Route::get('/admin/home', 'Admin\AdminController@index')->name('admin.index');
+Route::post('/admin/logout', 'Admin\AdminLoginController@logout');
 
 
 
@@ -28,12 +29,14 @@ Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
 
 Auth::routes(['verify' => true]);
+Route::post('/login', 'Auth\LoginController@login')->name('user.login');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/home', 'UserController@index')->name('user.index');
 
-    Route::post('/login', 'Auth\LoginController@login')->name('user.login');
+
     Route::post('/logout', 'Auth\LoginController@logout')->name('user.logout');
+
 
     Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
