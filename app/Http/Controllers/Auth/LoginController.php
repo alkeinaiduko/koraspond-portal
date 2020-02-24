@@ -50,4 +50,11 @@ class LoginController extends Controller
 
         return response()->json(['error' => 'Username or password incorrect!'], 422);
     }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return response()->json(['status', 'Success logout'], 200);
+    }
 }

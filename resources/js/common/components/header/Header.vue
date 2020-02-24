@@ -87,7 +87,10 @@
                             Action 4
                         </el-dropdown-item>
                         <el-dropdown-item divided>
-                            Action 5
+                            <a 
+                                href="#" 
+                                @click="logout"
+                            >Logout</a>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -102,6 +105,14 @@
         name: 'MainHeader',
         components: {
             RoundImage
+        },
+        methods: {
+            logout() {
+                axios.post('/logout').then((res) => {
+                    location.replace('/');
+                }).catch((err) => {
+                });
+            }
         }
     }
 </script>

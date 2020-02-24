@@ -19,18 +19,37 @@
             </div>
             <div class="portal__content--right">
                 <card-container class="nav-menu">
-                    <nav-menu />
+                    <div>
+                        <el-menu
+                            :default-active="activeIndex"
+                            class="el-menu-demo"
+                            mode="horizontal"
+                            active-text-color="#F7B85B"
+                        >
+                            <el-menu-item
+                                v-for="(tab, key) in tabs"
+                                :key="key"
+                                :index="tab.id"
+                                @click="currentTab = tab.component"
+                            >
+                                {{ tab.title }}
+                            </el-menu-item>
+                        </el-menu>
+                        <el-button
+                            type="primary"
+                            plain
+                            icon="el-icon-plus"
+                        >
+                            Create Project
+                        </el-button>
+                    </div>
                 </card-container>
-                <ul class="content-list">
-                    <li
-                        v-for="(project, key) in projects"
-                        :key="key"
-                    >
-                        <card-container>
-                            <project-list-item :data="project" />
-                        </card-container>
-                    </li>
-                </ul>
+                <section class="content">
+                    <component 
+                        :is="currentTabComponent"
+                        class="tab" 
+                    />
+                </section>
             </div>
         </div>
     </div>
@@ -42,8 +61,8 @@
     import UserAbout from './partials/UserAbout'
     import UserEducation from './partials/UserEducation'
     import UserInterest from './partials/UserInterest'
-    import NavMenu from './partials/NavMenu'
-    import ProjectListItem from './partials/ProjectListItem'
+    import MeetingRequest from './partials/MeetingRequest'
+    import ProjectList from './partials/ProjectList'
 
     export default {
         name: 'Dashboard',
@@ -53,60 +72,28 @@
             UserAbout,
             UserEducation,
             UserInterest,
-            NavMenu,
-            ProjectListItem
+            MeetingRequest,
+            ProjectList
         },
         props: {
             user: Object
         },
         data() {
             return {
-                projects: [
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Rejected',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Pending',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Accepted',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Rejected',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Pending',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Accepted',
-                        views: 177
-                    },
+                activeIndex: '1',
+                activeIndex2: '1',
+                currentTab: "project-list",
+                tabs: [
+                    { id:"1", component: "project-list", title: "Projects" },
+                    { id:"2", component: "meeting-request", title: "Meeting Request" }
                 ]
             }
-        }
+        },
+        computed: {
+            currentTabComponent: function(){
+                return this.currentTab.toLowerCase();
+            }
+        },
     }
 </script>
 

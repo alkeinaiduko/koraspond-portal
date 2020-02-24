@@ -14,6 +14,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        return "You are logged in as admin";
+        return view('admins.dashboard.index');   
     }
 }
