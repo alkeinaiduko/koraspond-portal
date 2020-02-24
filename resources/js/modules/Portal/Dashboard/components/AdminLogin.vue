@@ -106,7 +106,7 @@
                 try {
                     let res = await axios.post('/admin/login', params);
                     this.isLoggingIn = false
-                    location.replace('/home');
+                    location.replace('/admin/home');
                 } catch (err) {
                     this.error = err.response.data.error
                     this.isLoggingIn = false
