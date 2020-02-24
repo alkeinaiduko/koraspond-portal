@@ -43,6 +43,13 @@ mix.js('resources/js/modules/HomePage/main.js', 'public/js/modules/homepage')
 mix.js('resources/js/modules/Portal/Dashboard/main.js', 'public/js/modules/dashboard')
 
 
+/*
+ |--------------------------------------------------------------------------
+ | Admin Dashboard modules
+ |--------------------------------------------------------------------------
+ */
+mix.js('resources/js/modules/Admin/Dashboard/main.js', 'public/js/modules/admin-dashboard')
+
 
 mix.sass('resources/sass/app.sass', 'public/css');
 
