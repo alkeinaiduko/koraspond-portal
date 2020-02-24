@@ -25,7 +25,6 @@
                             class="el-menu-demo"
                             mode="horizontal"
                             active-text-color="#F7B85B"
-                            @select="handleSelect"
                         >
                             <el-menu-item
                                 v-for="(tab, key) in tabs"
@@ -95,11 +94,6 @@
                 return this.currentTab.toLowerCase();
             }
         },
-        methods: {
-            handleSelect(key){
-                console.log(key)
-            }
-        }
     }
 </script>
 
