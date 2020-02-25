@@ -115,7 +115,7 @@
         methods: {
             logout() {
                 axios.post('/admin/logout').then((res) => {
-                    location.replace('/');
+                    location.replace('/admin/login');
                 }).catch((err) => {
 
                 });
