@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome')->middleware('guest');
 
+Auth::routes(['verify' => true]);
+
 Route::get('/admin/login', 'Admin\AdminLoginController@showLoginForm')->name('admin.login');
 Route::post('/admin/login', 'Admin\AdminLoginController@login')->name('admin.login.submit');
 

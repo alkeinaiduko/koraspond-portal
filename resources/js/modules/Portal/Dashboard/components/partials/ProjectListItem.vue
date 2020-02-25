@@ -74,6 +74,7 @@
                 <el-button
                     class="primary--plain"
                     size="small"
+                    @click="$emit('open-details')"
                 >
                     View Details
                     <vue-fontawesome icon="arrow-right" />
@@ -84,6 +85,7 @@
 </template>
 
 <script>
+
     export default {
         props: {
             data: {

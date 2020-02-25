@@ -76,55 +76,44 @@
                 <el-button
                     type="info"
                     plain
-                    @click="showModalSignUp()"
+                    @click="signUpModal = true"
                 >
                     Signup
                 </el-button>
-                <el-button 
+                <el-button
                     type="warning"
-                    @click="showModal"
+                    @click="loginModal = true"
                 >
                     Login
                 </el-button>
             </div>
-            <sign-up 
-                :show="showSignUp" 
-                @closeModal="closeModalSignUp()"
+            <sign-up
+                v-if="signUpModal"
+                @close="signUpModal = !signUpModal"
             />
-            <modal
-                v-if="dialogVisible"
-                @close="closeModal"
+            <login-modal
+                v-if="loginModal"
+                @close="loginModal = !loginModal"
             />
         </div>
     </nav>
 </template>
-    
+
 <script>
     import signUp from './SignUpModal'
-    import Modal from "./LoginModal"
+    import LoginModal from "./LoginModal"
     export default {
-        components: { signUp, Modal },
+        components: {
+            signUp,
+            LoginModal
+        },
         data() {
             return {
-                showSignUp: false,
-                dialogVisible: false
+                signUpModal: false,
+                loginModal: false
             }
         },
         mounted() {
-        },
-        methods: {
-            showModalSignUp() {
-                this.showSignUp = true
-            },
-            closeModalSignUp(value) {
-                this.showSignUp = value
-            },
-            showModal(){
-                this.dialogVisible = true
-            },
-            closeModal(){
-                this.dialogVisible = false
-            }
         }
     }
 </script>

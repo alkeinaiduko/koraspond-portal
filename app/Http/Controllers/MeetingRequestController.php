@@ -45,7 +45,7 @@ class MeetingRequestController extends Controller
         ]);
 
         return response([
-            'status' => 'Success', 
+            'status' => 'Success',
             'data' => new MeetingRequestResource($meetingRequest)
         ], 200);
     }
@@ -80,7 +80,7 @@ class MeetingRequestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, MeetingRequest $meetingRequest)
-    {   
+    {
         // Only super admin can update/reroute
         if (Auth::guard('admin')->check()) {
             try {
@@ -93,13 +93,13 @@ class MeetingRequestController extends Controller
                 $meetingRequest->save();
 
                 return response([
-                    'status' => 'Successful update', 
+                    'status' => 'Successful update',
                     'data' => new MeetingRequestResource($meetingRequest)
                 ], 200);
             } catch (\Exception $e) {
                 return response(['error' => $e->getMessage()]);
             }
-            
+
         }
     }
 

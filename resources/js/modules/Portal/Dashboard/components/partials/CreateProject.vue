@@ -1,11 +1,18 @@
 <template>
     <div>
-        <modal v-if="showModal">
+        <modal 
+            v-if="showModal"
+            custom-class="create-project-modal"
+        >
             <!-- HEADER -->
             <div
                 slot="header"
-                class="modal-header__container"
+                class="modal-header__container custom-modal-header"
             >
+                <i
+                    class="el-icon-close"
+                    @click="$emit('close')"
+                />
                 <h4>Create New Proposal</h4>
             </div>
             <!-- BODY -->
@@ -91,21 +98,23 @@
                             </el-form-item>
                         </div>
                     </div>
-                    <div class="register__footer">
-                        <el-button>
-                            Cancel
-                        </el-button>
-                        <div>
-                            <el-button>Save in Draft</el-button>
-                            <el-button
-                                class="primary--plain--reverse"
-                                @click="save"
-                            >
-                                Save
-                            </el-button>
-                        </div>
-                    </div>
                 </el-form>
+            </div>
+            <div slot="footer">
+                <div class="register__footer">
+                    <el-button>
+                        Cancel
+                    </el-button>
+                    <div>
+                        <el-button>Save in Draft</el-button>
+                        <el-button
+                            class="primary--plain--reverse"
+                            @click="save"
+                        >
+                            Save
+                        </el-button>
+                    </div>
+                </div>
             </div>
         </modal>
     </div>

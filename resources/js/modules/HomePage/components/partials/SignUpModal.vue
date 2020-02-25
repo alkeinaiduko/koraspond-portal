@@ -1,11 +1,17 @@
 <template>
     <div>
-        <modal v-if="showModal">
+        <modal
+            custom-class="signup-modal"
+        >
             <!-- HEADER -->
             <div
                 slot="header"
-                class="modal-header__container"
+                class="modal-header__container custom-modal-header"
             >
+                <i
+                    class="el-icon-close"
+                    @click="$emit('close')"
+                />
                 <h4>Sign Up</h4>
             </div>
             <!-- BODY -->
@@ -149,52 +155,52 @@
                             </el-form-item>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <el-form-item
-                                label="Password"
-                                prop="password"
-                            >
-                                <el-input
-                                    v-model="form.password"
-                                    show-password
-                                />
-                            </el-form-item>
-                        </div>
-                        <div class="col-lg-12">
-                            <el-checkbox v-model="form.termsAndConditions">
-                                <span>I accept the terms & conditions</span>
-                            </el-checkbox>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <el-checkbox v-model="form.newsLetter">
-                                <span>I would like to subscribe to newsletter</span>
-                            </el-checkbox>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-lg-4">
-                            <button
-                                v-loading="isLoggingIn"
-                                type="button"
-                                class="btn koraspond__primary-btn--round"
-                                @click="formSubmit('signup')"
-                            >
-                                SIGNUP
-                            </button>
-                        </div>
-                        <div class="col-lg-5 offset-lg-3 align-self-center">
-                            Already have an account?
-                            <el-link
-                                type="primary"
-                            >
-                                Signin
-                            </el-link>
-                        </div>
-                    </div>
+                    <el-form-item
+                        label="Password"
+                        prop="password"
+                    >
+                        <el-input
+                            v-model="form.password"
+                            show-password
+                        />
+                    </el-form-item>
                 </el-form>
+            </div>
+            <div slot="footer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <el-checkbox v-model="form.termsAndConditions">
+                            <span>I accept the terms & conditions</span>
+                        </el-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <el-checkbox v-model="form.newsLetter">
+                            <span>I would like to subscribe to newsletter</span>
+                        </el-checkbox>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-4">
+                        <button
+                            v-loading="isLoggingIn"
+                            type="button"
+                            class="btn koraspond__primary-btn--round"
+                            @click="formSubmit('signup')"
+                        >
+                            SIGNUP
+                        </button>
+                    </div>
+                    <div class="col-lg-5 offset-lg-3 align-self-center">
+                        Already have an account?
+                        <el-link
+                            type="primary"
+                        >
+                            Signin
+                        </el-link>
+                    </div>
+                </div>
             </div>
         </modal>
     </div>

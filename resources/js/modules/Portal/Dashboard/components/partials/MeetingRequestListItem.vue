@@ -31,13 +31,13 @@
                 alt=""
             >
         </div>
-        <div 
+        <div
             v-if="data.status == 'received'"
             class="meeting-request__details"
         >
             You {{ data.status }} meeting request from <strong>{{ data.name }}</strong>
         </div>
-        <div 
+        <div
             v-else
             class="meeting-request__details"
         >
@@ -46,7 +46,7 @@
         <div class="meeting-request__actions">
             <el-button
                 v-if="data.status == 'success'"
-                class="primary--plain"
+                class="primary--plain--reverse"
                 size="small"
             >
                 Continue
@@ -62,10 +62,10 @@
 
             <el-button
                 v-if="data.status == 'received'"
-                class="warning--plain"
+                class="btn--pink"
                 size="small"
                 icon="el-icon-date"
-            >   
+            >
                 Schedule
             </el-button>
         </div>
