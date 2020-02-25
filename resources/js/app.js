@@ -1,10 +1,13 @@
 import Vue from 'vue';
+import store from './store'
 
 require('./bootstrap');
 
 // Common resources
 import '~/common/components'
-import '~/element-ui'
+
+// register plugin
+import './plugins'
 
 // plugins
 import FlagIcon from 'vue-flag-icon'
@@ -21,6 +24,9 @@ import AdminLogin from './modules/portal/dashboard/admin-login'
     Vue.component(Component.name, Component)
 })
 
+Vue.config.productionTip = false;
+
 const app = new Vue( {
-    el: '#app'
+    el: '#app',
+    store
 });

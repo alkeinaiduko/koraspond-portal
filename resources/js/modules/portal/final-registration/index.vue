@@ -75,35 +75,6 @@
     import BRegistration from './components/BRegistration'
     import BRegistrationFinal from './components/BRegistrationFinal'
 
-    import { library } from '@fortawesome/fontawesome-svg-core';
-
-    import {
-        faStar,
-        faMapMarkerAlt,
-        faEye,
-        faArrowRight,
-        faEllipsisV
-    } from "@fortawesome/free-solid-svg-icons";
-
-    import {
-        faFacebookF,
-        faTwitter,
-        faInstagram,
-        faLinkedin
-    } from "@fortawesome/free-brands-svg-icons";
-
-    library.add(
-        faStar,
-        faFacebookF,
-        faTwitter,
-        faInstagram,
-        faMapMarkerAlt,
-        faLinkedin,
-        faEye,
-        faArrowRight,
-        faEllipsisV
-    );
-
     export default {
         name: 'FinalRegistration',
         components: {

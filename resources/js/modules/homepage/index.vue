@@ -143,25 +143,6 @@
     import ImageCarousel from './components/ImageCarousel'
     import UserTypes from './components/UserTypes'
 
-    import { library } from '@fortawesome/fontawesome-svg-core';
-
-    import {
-        faArrowRight,
-    } from "@fortawesome/free-solid-svg-icons";
-
-    import {
-        faFacebook,
-        faTwitter,
-        faInstagram
-    } from "@fortawesome/free-brands-svg-icons";
-
-    library.add(
-        faArrowRight,
-        faFacebook,
-        faTwitter,
-        faInstagram
-    );
-
     export default {
         name: 'HomePage',
         components: {
