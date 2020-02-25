@@ -142,7 +142,7 @@ class SignupController extends Controller
         $user->drafted_step = $request->input('drafted_step'); // 1 - basic info, 2 - arrival detail, 3 - b2b/b2g, 4 - b2b/b2g signup
         $user->save();
 
-        // you and redirection here
+        // you add redirection here
 
         return new UserResource($user->refresh());
     }
