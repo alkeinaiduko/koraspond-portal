@@ -56,7 +56,6 @@
                         <div class="col-lg-12">
                             <el-form-item
                                 label="Upload the Proposal Document"
-                                class="remove-float"
                             >
                                 <el-upload
                                     v-model="form.proposalDocument"
