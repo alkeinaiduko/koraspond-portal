@@ -1,9 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/modules/admin-dashboard/main.js": "/js/modules/admin-dashboard/main.js",
-    "/js/modules/dashboard/main.js": "/js/modules/dashboard/main.js",
-    "/js/modules/default/main.js": "/js/modules/default/main.js",
-    "/js/modules/finalregistration/main.js": "/js/modules/finalregistration/main.js",
-    "/js/modules/homepage/main.js": "/js/modules/homepage/main.js"
+    "/css/app.css": "/css/app.css"
 }

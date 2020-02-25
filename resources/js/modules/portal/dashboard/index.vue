@@ -71,8 +71,8 @@
                 </section>
             </div>
         </div>
-        <create-project 
-            :show="showProjectForm" 
+        <create-project
+            :show="showProjectForm"
             @close="showProjectForm = !showProjectForm"
         />
     </div>
@@ -80,16 +80,45 @@
 
 <script>
     import CardContainer from '~/common/CardContainer'
-    import UserInfo from './partials/UserInfo'
-    import UserAbout from './partials/UserAbout'
-    import UserEducation from './partials/UserEducation'
-    import UserInterest from './partials/UserInterest'
-    import NavMenu from './partials/NavMenu'
-    import ProjectListItem from './partials/ProjectListItem'
-    import ProjectDetails from './partials/ProjectDetails'
-    import MeetingRequest from './partials/MeetingRequest'
-    import ProjectList from './partials/ProjectList'
-    import CreateProject from './partials/CreateProject'
+    import UserInfo from './components/UserInfo'
+    import UserAbout from './components/UserAbout'
+    import UserEducation from './components/UserEducation'
+    import UserInterest from './components/UserInterest'
+    import NavMenu from './components/NavMenu'
+    import ProjectListItem from './components/ProjectListItem'
+    import ProjectDetails from './components/ProjectDetails'
+    import MeetingRequest from './components/MeetingRequest'
+    import ProjectList from './components/ProjectList'
+    import CreateProject from './components/CreateProject'
+
+    import { library } from '@fortawesome/fontawesome-svg-core';
+
+    import {
+        faStar,
+        faMapMarkerAlt,
+        faEye,
+        faArrowRight,
+        faEllipsisV
+    } from "@fortawesome/free-solid-svg-icons";
+
+    import {
+        faFacebookF,
+        faTwitter,
+        faInstagram,
+        faLinkedin
+    } from "@fortawesome/free-brands-svg-icons";
+
+    library.add(
+        faStar,
+        faFacebookF,
+        faTwitter,
+        faInstagram,
+        faMapMarkerAlt,
+        faLinkedin,
+        faEye,
+        faArrowRight,
+        faEllipsisV
+    );
 
     export default {
         name: 'Dashboard',
@@ -179,7 +208,7 @@
             }
         },
         methods: {
-             openDetails(data) {
+            openDetails(data) {
                 this.projectDetail = data
                 this.openProjectDetails = true
             }

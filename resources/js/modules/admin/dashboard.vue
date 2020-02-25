@@ -57,12 +57,41 @@
 
 <script>
     import CardContainer from '~/common/CardContainer'
-    import UserInfo from './partials/UserInfo'
-    import UserAbout from './partials/UserAbout'
-    import UserEducation from './partials/UserEducation'
-    import UserInterest from './partials/UserInterest'
-    import MeetingRequest from './partials/MeetingRequest'
-    import ProjectList from './partials/ProjectList'
+    import UserInfo from './components/UserInfo'
+    import UserAbout from './components/UserAbout'
+    import UserEducation from './components/UserEducation'
+    import UserInterest from './components/UserInterest'
+    import MeetingRequest from './components/MeetingRequest'
+    import ProjectList from './components/ProjectList'
+
+    import { library } from '@fortawesome/fontawesome-svg-core';
+
+    import {
+        faStar,
+        faMapMarkerAlt,
+        faEye,
+        faArrowRight,
+        faEllipsisV
+    } from "@fortawesome/free-solid-svg-icons";
+
+    import {
+        faFacebookF,
+        faTwitter,
+        faInstagram,
+        faLinkedin
+    } from "@fortawesome/free-brands-svg-icons";
+
+    library.add(
+        faStar,
+        faFacebookF,
+        faTwitter,
+        faInstagram,
+        faMapMarkerAlt,
+        faLinkedin,
+        faEye,
+        faArrowRight,
+        faEllipsisV
+    );
 
     export default {
         name: 'AdminDashboard',

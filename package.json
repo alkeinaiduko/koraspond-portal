@@ -36,6 +36,7 @@
         "@fortawesome/vue-fontawesome": "^0.1.9",
         "element-ui": "^2.13.0",
         "vue-flag-icon": "^1.0.6",
-        "vueperslides": "^2.8.2"
+        "vueperslides": "^2.8.2",
+        "vuex": "^3.1.2"
     }
 }

@@ -139,9 +139,28 @@
 </template>
 
 <script>
-    import NavBar from './partials/NavBar'
-    import ImageCarousel from './partials/ImageCarousel'
-    import UserTypes from './partials/UserTypes'
+    import NavBar from './components/NavBar'
+    import ImageCarousel from './components/ImageCarousel'
+    import UserTypes from './components/UserTypes'
+
+    import { library } from '@fortawesome/fontawesome-svg-core';
+
+    import {
+        faArrowRight,
+    } from "@fortawesome/free-solid-svg-icons";
+
+    import {
+        faFacebook,
+        faTwitter,
+        faInstagram
+    } from "@fortawesome/free-brands-svg-icons";
+
+    library.add(
+        faArrowRight,
+        faFacebook,
+        faTwitter,
+        faInstagram
+    );
 
     export default {
         name: 'HomePage',

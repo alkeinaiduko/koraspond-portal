@@ -6,10 +6,17 @@ require('./bootstrap');
 import '~/common/components'
 import '~/element-ui'
 
+// plugins
+import FlagIcon from 'vue-flag-icon'
+
+Vue.use(FlagIcon);
+
 // register components
-import Home from './modules/HomePage/components/Home'
+import Home from './modules/homepage'
+import AdminLogin from './modules/portal/dashboard/admin-login'
 [
     Home,
+    AdminLogin
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 })
