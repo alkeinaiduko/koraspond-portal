@@ -121,6 +121,12 @@
                             >
                                 <el-input v-model="form.email" />
                             </el-form-item>
+                            <div
+                                v-if="error"
+                                class="el-form-item__error"
+                            >
+                                {{ error }}
+                            </div>
                         </div>
                         <div class="col-lg-6">
                             <el-form-item
@@ -207,6 +213,21 @@
 </template>
 <script>
 import Modal from "~/common/Modal"
+class RequestErrors {
+    constructor() {
+        this.errors = {};
+    }
+
+    get(field) {
+        if (this.errors[field]) {
+            return this.errors[field][0];
+        }
+    }
+
+    record(errors) {
+        this.errors = errors;
+    }
+}
 export default {
     components: {
         Modal
@@ -219,9 +240,11 @@ export default {
     },
     data() {
         return {
+            errors: new RequestErrors(),
             labelPosition: 'top',
             checked: true,
             isLoggingIn: false,
+            error: null,
             csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             form: {
                 accountType: '1',
@@ -305,8 +328,9 @@ export default {
                     axios.post('/signup', signupData).then(({data}) => {
                         this.isLoggingIn = false
                         location.href = '/home'
-                    }).catch(() => {
-                        this.$message.error('Something went wrong')
+                    }).catch(({response}) => {
+                        this.errors.record(response.data.errors);
+                        this.$message.error(this.errors.get("email"))
                         this.isLoggingIn = false
                     })
                 } else {
