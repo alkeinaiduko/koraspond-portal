@@ -23,7 +23,7 @@ Route::post('/admin/logout', 'Admin\AdminLoginController@logout');
 
 
 
-Route::resource('signup', 'SignupController')->only(['store']);
+Route::resource('signup', 'SignupController');
 Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
