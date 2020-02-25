@@ -39,7 +39,7 @@
                             type="primary"
                             plain
                             icon="el-icon-plus"
-                            @click="createProject"
+                            @click="showProjectForm = true"
                         >
                             Create Project
                         </el-button>
@@ -73,7 +73,7 @@
         </div>
         <create-project 
             :show="showProjectForm" 
-            @closeModal="closeModalSignUp()"
+            @close="showProjectForm = !showProjectForm"
         />
     </div>
 </template>
@@ -179,17 +179,11 @@
             }
         },
         methods: {
-            createProject() {
-                this.showProjectForm = true
-            },
-            closeModalSignUp(value) {
-                this.showSignUp = value
-            },
-            openDetails(data) {
+             openDetails(data) {
                 this.projectDetail = data
                 this.openProjectDetails = true
             }
-        },
+        }
     }
 </script>
 
