@@ -90,10 +90,12 @@
             <sign-up
                 v-if="signUpModal"
                 @close="signUpModal = !signUpModal"
+                @request-open="loginModal = !loginModal"
             />
             <login-modal
                 v-if="loginModal"
                 @close="loginModal = !loginModal"
+                @request-open="signUpModal = !signUpModal"
             />
         </div>
     </nav>

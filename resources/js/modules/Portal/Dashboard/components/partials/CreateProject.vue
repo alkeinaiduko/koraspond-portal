@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal 
+        <modal
             v-if="showModal"
             custom-class="create-project-modal"
         >
@@ -30,7 +30,7 @@
                             <el-form-item
                                 label="Title of your Proposal"
                             >
-                                <el-input 
+                                <el-input
                                     v-model="form.title"
                                     placeholder="EX: Artificial Intelligence for modern lifestyle"
                                 />
@@ -42,7 +42,7 @@
                             <el-form-item
                                 label="Proposal Description"
                             >
-                                <el-input 
+                                <el-input
                                     v-model="form.projectDescription"
                                     placeholder="Add a short description of your project without exceeding 150 characters"
                                     type="textarea"
@@ -63,7 +63,7 @@
                                     :auto-upload="false"
                                 >
                                     <div slot="default">
-                                        <el-button 
+                                        <el-button
                                             :round="true"
                                         >
                                             Upload <i class="el-icon-upload el-icon-right" />
@@ -79,7 +79,7 @@
                                 label="Choose the domain of your Project"
                             >
                                 <el-input
-                                    v-model="form.projectDomain" 
+                                    v-model="form.projectDomain"
                                     placeholder="Your project will be exposed to officials and experts from the domain you chose"
                                 />
                             </el-form-item>
@@ -90,8 +90,8 @@
                             <el-form-item
                                 label="Add Tags to your proposal"
                             >
-                                <el-input 
-                                    v-model="form.proposalTags" 
+                                <el-input
+                                    v-model="form.proposalTags"
                                     placeholder="Add relevant Tags to make it more visible to appropriate audience"
                                 />
                             </el-form-item>
@@ -101,7 +101,7 @@
             </div>
             <div slot="footer">
                 <div class="register__footer">
-                    <el-button>
+                    <el-button @click="$emit('close')">
                         Cancel
                     </el-button>
                     <div>

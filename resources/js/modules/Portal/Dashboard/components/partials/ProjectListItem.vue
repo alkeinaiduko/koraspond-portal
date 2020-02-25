@@ -74,23 +74,36 @@
                 <el-button
                     class="primary--plain"
                     size="small"
-                    @click="$emit('open-details')"
+                    @click.native="projectDetailModal = !projectDetailModal"
                 >
                     View Details
                     <vue-fontawesome icon="arrow-right" />
                 </el-button>
             </div>
         </div>
+        <project-details
+            v-if="projectDetailModal"
+            :data="data"
+            @close="projectDetailModal = false"
+        />
     </div>
 </template>
 
 <script>
-
+    import ProjectDetails from './ProjectDetails'
     export default {
+        components: {
+            ProjectDetails
+        },
         props: {
             data: {
                 type: Object,
                 required: true
+            }
+        },
+        data() {
+            return {
+                projectDetailModal: false
             }
         }
     }

@@ -202,6 +202,7 @@
                         Already have an account?
                         <el-link
                             type="primary"
+                            @click="openLoginModal"
                         >
                             Signin
                         </el-link>
@@ -309,6 +310,10 @@ export default {
     mounted() {
     },
     methods: {
+        openLoginModal() {
+            this.$emit('close')
+            this.$emit('request-open')
+        },
         formSubmit(name) {
             this.isLoggingIn = true
             let signupData = {

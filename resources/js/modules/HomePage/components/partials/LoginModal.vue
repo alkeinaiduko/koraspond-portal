@@ -71,6 +71,7 @@
                         Do you have an account?
                         <el-link
                             type="primary"
+                            @click="openSignupModal"
                         >
                             Signup
                         </el-link>
@@ -106,6 +107,10 @@ export default {
     methods : {
         close(){
             this.$emit('close');
+        },
+        openSignupModal() {
+            this.$emit('close');
+            this.$emit('request-open')
         },
         async formSubmit(){
             // document.getElementById("login-form").submit();

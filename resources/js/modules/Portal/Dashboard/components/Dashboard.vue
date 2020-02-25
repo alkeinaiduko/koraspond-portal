@@ -71,8 +71,8 @@
                 </section>
             </div>
         </div>
-        <create-project 
-            :show="showProjectForm" 
+        <create-project
+            :show="showProjectForm"
             @close="showProjectForm = !showProjectForm"
         />
     </div>
