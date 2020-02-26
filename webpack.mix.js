@@ -7,6 +7,9 @@ const config = require('./webpack.config');
  |--------------------------------------------------------------------------
  */
 mix.webpackConfig(config);
+mix.babelConfig({
+   plugins: ['@babel/plugin-syntax-dynamic-import']
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -26,5 +29,6 @@ mix.webpackConfig(config);
  |--------------------------------------------------------------------------
  */
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.sass', 'public/css')
-    .browserSync('http://koraspond.test');
+    .sass('resources/sass/app.sass', 'public/css');
+
+mix.browserSync('http://koraspond.test');

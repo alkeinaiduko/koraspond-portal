@@ -14,15 +14,17 @@ import FlagIcon from 'vue-flag-icon'
 
 Vue.use(FlagIcon);
 
-// register components
-import Home from './modules/homepage'
-import AdminLogin from './modules/portal/dashboard/admin-login'
+// dynamically import modules
+// this will only import only the component used inside laravel blade pages
+// only import main modules here for blade pages
+const HomePage = () => import('./modules/homepage');
+const AdminLogin = () => import('./modules/portal/dashboard/admin-login');
 [
-    Home,
+    HomePage,
     AdminLogin
 ].forEach(Component => {
     Vue.component(Component.name, Component)
-})
+});
 
 Vue.config.productionTip = false;
 
