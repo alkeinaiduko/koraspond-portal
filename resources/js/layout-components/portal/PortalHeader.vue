@@ -32,16 +32,22 @@
                 />
             </el-input>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
+                <li
+                    class="nav-item"
+                    :class="{ 'active': uri == 'home' }"
+                >
                     <a
                         class="nav-link"
-                        href="#"
+                        href="/home"
                     >
                         <vue-fontawesome icon="tachometer-alt" />
                         Dashboard
                     </a>
                 </li>
-                <li class="nav-item">
+                <li
+                    class="nav-item"
+                    :class="{ 'active': uri == 'meeting-available' }"
+                >
                     <a
                         class="nav-link"
                         href="/meeting-available"
@@ -108,6 +114,9 @@
         name: 'AppHeader',
         components: {
             RoundImage
+        },
+        props: {
+            uri: String
         },
         methods: {
             logout() {

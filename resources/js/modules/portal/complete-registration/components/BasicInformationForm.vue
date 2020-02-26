@@ -4,7 +4,8 @@
             <label for="">1. Choose your profile to attend the meeting</label>
             <div class="row">
                 <div
-                    v-for="profile in profiles"
+                    v-for="(profile, key) in profiles"
+                    :key="key"
                     class="col-lg-2 d-inline BI"
                 >
                     <el-radio
@@ -63,7 +64,8 @@
             <label for="">7. Choose your Passport Type</label>
             <div class="row">
                 <div
-                    v-for="passportType of passportTypes"
+                    v-for="(passportType, key) of passportTypes"
+                    :key="key"
                     class="col-lg-2 d-inline BI"
                 >
                     <el-radio
@@ -152,7 +154,9 @@
                 Cancel
             </el-button>
             <div>
-                <el-button>Save in Draft</el-button>
+                <el-button @click="saveInDraft">
+                    Save in Draft
+                </el-button>
                 <el-button
                     class="primary--plain--reverse"
                     @click="$emit('next', basicInformationForm)"
@@ -202,6 +206,11 @@
                     birth_date: '',
                 },
                 rules: []
+            }
+        },
+        methods: {
+            saveInDraft() {
+                location.href='/home'
             }
         }
     }

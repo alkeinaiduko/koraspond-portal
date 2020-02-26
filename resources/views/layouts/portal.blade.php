@@ -19,7 +19,7 @@
 <body>
 
     <div id="app">
-        <portal-header></portal-header>
+        <portal-header :uri="`{{ Request::path() }}`"></portal-header>
         <div class="container">
             @yield('content')
         </div>

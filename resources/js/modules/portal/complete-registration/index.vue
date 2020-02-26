@@ -5,14 +5,26 @@
                 <p>Hello <span>{{ fullName }},</span> Let's Complete your Registration Process</p>
             </div>
         </div>
-        <el-steps :active="step" finish-status="success">
-            <el-step title="Basic Information"></el-step>
-            <el-step title="Arrival Details"></el-step>
-            <el-step title="B2B/B2G Registration"></el-step>
+        <el-steps
+            :active="step"
+            finish-status="success"
+        >
+            <el-step title="Basic Information" />
+            <el-step title="Arrival Details" />
+            <el-step title="B2B/B2G Registration" />
         </el-steps>
-        <basic-information-form v-if="step === 0" @next="next"/>
-        <arrival-details-form v-if="step === 1" @next="next"/>
-        <business-registration-form v-if="step === 2" @next="next"/>
+        <basic-information-form
+            v-if="step === 0"
+            @next="next"
+        />
+        <arrival-details-form
+            v-if="step === 1"
+            @next="next"
+        />
+        <business-registration-form
+            v-if="step === 2"
+            @next="next"
+        />
         <div v-if="step === 3">
             <div class="register__fields container">
                 SAVE TO SUBMIT APPLICATION
@@ -54,7 +66,7 @@
             BusinessRegistrationForm
         },
         props: {
-            fullName: '',
+            fullName: String,
             user: Object
         },
         data() {

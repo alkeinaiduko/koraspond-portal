@@ -17,10 +17,16 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12 register__announcement">
-                        <el-button class="el-button" @click="handleNotInterested">
+                        <el-button
+                            class="el-button"
+                            @click="handleNotInterested"
+                        >
                             Not Interested
                         </el-button>
-                        <el-button class="el-button primary--plain--reverse" @click="handleInterested">
+                        <el-button
+                            class="el-button primary--plain--reverse"
+                            @click="handleInterested"
+                        >
                             Yes I'm in
                         </el-button>
                     </div>
@@ -133,7 +139,7 @@
                 </div>
                 <!--END EXTRA FORM-->
             </div>
-            <label for="">{{isWantToRegister? '7' : '1'}}. Upload your Short resume</label>
+            <label for="">{{ isWantToRegister? '7' : '1' }}. Upload your Short resume</label>
             <div class="row">
                 <div class="col-lg-12 BR">
                     <el-upload
@@ -151,7 +157,7 @@
                     </el-upload>
                 </div>
             </div>
-            <label for="">{{isWantToRegister? '8' : '2'}}. Upload your Passport copy</label>
+            <label for="">{{ isWantToRegister? '8' : '2' }}. Upload your Passport copy</label>
             <div class="row">
                 <div class="col-lg-12 BR">
                     <el-upload
@@ -169,7 +175,7 @@
                     </el-upload>
                 </div>
             </div>
-            <label for="">{{isWantToRegister? '9' : '3'}}. Upload your Photo</label>
+            <label for="">{{ isWantToRegister? '9' : '3' }}. Upload your Photo</label>
             <div class="row">
                 <div class="col-lg-12 BR">
                     <el-upload

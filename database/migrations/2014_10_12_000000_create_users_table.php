@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('phone');
             $table->string('country_code');
             $table->boolean('newsletter')->default(false);
-            $table->boolean('drafted')->default(true); // false = done/completed
+            $table->boolean('drafted')->default(false); // false = done/completed
             $table->string('drafted_step')->nullable(); // drafted step
             $table->rememberToken();
             $table->timestamps();

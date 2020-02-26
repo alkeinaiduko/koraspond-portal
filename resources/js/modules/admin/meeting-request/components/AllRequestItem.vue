@@ -23,7 +23,7 @@
                         icon="el-icon-check"
                         plain
                         round
-                    >   
+                    >
                         Approved
                     </el-button>
                     <el-button
@@ -53,7 +53,7 @@
                 </div>
                 <div class="project-list__action--bottom">
                     <p>Submitted on : 17/10/2019</p>
-                    <p 
+                    <p
                         v-if="data.status == 'Accepted'"
                     >
                         Priority: <span class="status">High</span>
@@ -88,7 +88,7 @@
                     type="success"
                     size="small"
                     icon="el-icon-check"
-                >   
+                >
                     Approved
                 </el-button>
                 <el-button
@@ -96,7 +96,7 @@
                     type="danger"
                     size="small"
                     icon="el-icon-close"
-                >   
+                >
                     Reject
                 </el-button>
                 <el-button
@@ -104,15 +104,15 @@
                     class="btn--pink"
                     size="small"
                     icon="el-icon-time"
-                >   
+                >
                     Setup Meeting Room
                 </el-button>
-                 <el-button
+                <el-button
                     v-if="data.status == 'Accepted'"
                     type="danger"
                     size="small"
                     icon="el-icon-close"
-                >   
+                >
                     Reject
                 </el-button>
             </div>
