@@ -30,3 +30,19 @@
     &--bottom
       .btn
         width: 40%
+      p
+        font-size: 11px
+        color: gray
+        .status
+          color: $primary
+  &__footer
+    @include flexbox(row, center, space-between)
+    border-top: 1px solid #E8E8E8
+    padding: 1rem
+    &--top
+      display: flex
+      flex: 1
+      justify-content: space-between
+      padding: 1rem
+      .el-tag
+        margin-right: 5px

@@ -7,7 +7,7 @@
             />
         </div>
         <div class="meeting__tabs">
-            <el-tabs 
+            <el-tabs
                 v-model="activeName" 
                 @tab-click="handleClick"
             >
@@ -15,32 +15,7 @@
                     label="All" 
                     name="first"
                 >
-                    <card-container style="padding: 1em">
-                        <div class="meeting__tabs--body">
-                            SAD
-                        </div>
-                        <div class="meeting__tabs--footer">
-                            <el-button 
-                                size="mini"
-                            >
-                                SAD
-                            </el-button>
-                            <div>
-                                <el-button 
-                                    size="mini"
-                                    type="success"
-                                >
-                                    Approve
-                                </el-button>
-                                <el-button 
-                                    size="mini"
-                                    type="danger"
-                                >
-                                    Reject
-                                </el-button>
-                            </div>
-                        </div>
-                    </card-container>
+                    <all-request />
                 </el-tab-pane>
                 <el-tab-pane 
                     label="Approved" 
@@ -65,11 +40,11 @@
     </div>
 </template>
 <script>
-    import CardContainer from '~/common/CardContainer'
+import AllRequest from './AllRequest'
 export default {
     name: 'MeetingRequest',
     components: {
-        CardContainer,
+        AllRequest
     },
     data() {
         return {
