@@ -88,12 +88,14 @@
                 this.step++
             },
             async save() {
+                this.userForm.drafted = 1;
                 const formData = new FormData();
                 formData.append('_method', 'PATCH')
                 Object.keys(this.userForm).forEach(key => formData.append(key, this.userForm[key]));
                 axios.post('/signup/' + this.user.id, formData)
                     .then(response => {
                         console.log(response)
+                        window.location = '/'
                     })
             }
         }
