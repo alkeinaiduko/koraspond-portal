@@ -10,6 +10,13 @@
                 </card-container>
             </li>
         </ul>
+        <div class="meeting__tabs--footer--paginate">
+            <el-pagination
+                background
+                layout="prev, pager, next"
+                :total="1000"
+            />
+        </div>
     </div>
 </template>
 <script>
