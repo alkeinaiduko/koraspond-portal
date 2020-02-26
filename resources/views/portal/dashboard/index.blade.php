@@ -2,5 +2,5 @@
 @section('page_title', 'Dashboard')
 
 @section('content')
-    <dashboard :user="{{ Auth::user() }}" />
+    <portal-dashboard :user="{{ Auth::user() }}" />
 @stop

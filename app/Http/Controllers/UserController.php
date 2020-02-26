@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,6 +19,14 @@ class UserController extends Controller
      */
     public function index()
     {
+        // Get the currently authenticated user
+        $user = Auth::user();
+
+        // check if registration is completed
+        if (!$user->drafted) {
+            // redirect
+            return redirect('/portal/complete-registration');
+        }
         return view('portal.dashboard.index');
     }
 

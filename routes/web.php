@@ -40,8 +40,6 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
     Route::get('/portal/applicant', 'Portal\ApplicantController@index');
 
-    Route::get('/portal/finalregistration', function(){
-        return view('finalregistration.index');
-    });
+    Route::get('/portal/complete-registration', 'SignupController@index');
 });
 

@@ -24,13 +24,13 @@ class SignupController extends Controller
             $user = Auth::user();
 
             // check if registration is completed
-            if (!$user->drafted) {
+            if ($user->drafted) {
                 // redirect
-                return redirect('/');
+                return redirect('/home');
             }
 
             // view
-            return view('signup.detail', compact('user'));
+            return view('portal.complete-registration', compact('user'));
         } else {
 
             // redirect
@@ -103,7 +103,7 @@ class SignupController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find(1);
+        $user = User::find($id);
 
         // prepare arrays
         $basicInfo = [];
@@ -116,19 +116,19 @@ class SignupController extends Controller
         $businessRegistrationColumns = array_keys($user->businessRegistration->getAttributes());
 
         // basic info
-        foreach ($request->input('basic_info') as $key => $info) {
+        foreach (json_decode($request->input('basic_info')) as $key => $info) {
             if (in_array($key, $basicInfoColumns))
                 $basicInfo[$key] = $info;
         }
 
         // arrival detail
-        foreach ($request->input('arrival_detail') as $key => $detail) {
+        foreach (json_decode($request->input('arrival_detail')) as $key => $detail) {
             if (in_array($key, $arrivalDetailColumns))
                 $arrivalDetail[$key] = $detail;
         }
 
         // registration detail
-        foreach ($request->input('business_registration') as $key => $reg) {
+        foreach (json_decode($request->input('business_registration')) as $key => $reg) {
             if (in_array($key, $businessRegistrationColumns))
                 $businessRegistration[$key] = $reg;
         }

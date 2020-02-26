@@ -16,6 +16,9 @@ class CreateUserArrivalDetailsTable extends Migration
         Schema::create('user_arrival_details', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
+            $table->string('contact_number')->nullable();
+            $table->string('email_address')->nullable();
+            $table->string('country_residence')->nullable();
             $table->string('country_departure')->nullable();
             $table->date('arrival_date')->nullable();
             $table->time('arrival_time')->nullable();

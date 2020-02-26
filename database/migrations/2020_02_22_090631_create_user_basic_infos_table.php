@@ -17,7 +17,9 @@ class CreateUserBasicInfosTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('user_id');
             $table->bigInteger('meeting_profile_id')->nullable();
+            $table->string('profile')->nullable();
             $table->string('institution')->nullable();
+            $table->string('name')->nullable();
             $table->string('family_name')->nullable();
             $table->string('profession')->nullable();
             $table->string('passport_number')->nullable();

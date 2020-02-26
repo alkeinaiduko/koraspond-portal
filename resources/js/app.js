@@ -19,12 +19,17 @@ Vue.use(FlagIcon);
 // only import main modules here for blade pages
 const HomePage = () => import('./modules/homepage');
 const AdminLogin = () => import('./modules/portal/dashboard/admin-login');
+const CompleteRegistration = () => import('./modules/portal/complete-registration');
+const PortalDashboard = () => import('./modules/portal/dashboard');
 // layout-components
 const AdminHeader  = () => import('./layout-components/admin/AdminHeader.vue');
 const PortalHeader = () => import('./layout-components/portal/PortalHeader.vue');
 [
     HomePage,
+    // portal
     AdminLogin,
+    CompleteRegistration,
+    PortalDashboard,
     // layout-components
     AdminHeader,
     PortalHeader
