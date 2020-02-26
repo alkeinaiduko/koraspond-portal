@@ -22,12 +22,16 @@ const AdminLogin = () => import('./modules/portal/dashboard/admin-login');
 // layout-components
 const AdminHeader  = () => import('./layout-components/admin/AdminHeader.vue');
 const PortalHeader = () => import('./layout-components/portal/PortalHeader.vue');
+const AdminDashboard = () => import('./modules/admin/dashboard/index.vue');
+const MeetingRequest = () => import('./modules/admin/meeting-request/index.vue');
 [
     HomePage,
     AdminLogin,
     // layout-components
     AdminHeader,
-    PortalHeader
+    PortalHeader,
+    AdminDashboard,
+    MeetingRequest
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 });
