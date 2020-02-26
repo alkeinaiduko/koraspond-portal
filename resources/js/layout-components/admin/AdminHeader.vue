@@ -38,7 +38,7 @@
                 >
                     <a
                         class="nav-link"
-                        href="#"
+                        href="/admin/home"
                     >
                         <vue-fontawesome icon="tachometer-alt" />
                         Dashboard
@@ -50,7 +50,7 @@
                 >
                     <a
                         class="nav-link"
-                        href="#"
+                        href="/admin/meeting-requests"
                     >
                         <vue-fontawesome icon="id-card" />
                         Meeting Request

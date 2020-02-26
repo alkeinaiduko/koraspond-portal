@@ -24,6 +24,8 @@ const PortalDashboard = () => import('./modules/portal/dashboard');
 // layout-components
 const AdminHeader  = () => import('./layout-components/admin/AdminHeader.vue');
 const PortalHeader = () => import('./layout-components/portal/PortalHeader.vue');
+const AdminDashboard = () => import('./modules/admin/dashboard/index.vue');
+const MeetingRequest = () => import('./modules/admin/meeting-request/index.vue');
 [
     HomePage,
     // portal
@@ -32,7 +34,9 @@ const PortalHeader = () => import('./layout-components/portal/PortalHeader.vue')
     PortalDashboard,
     // layout-components
     AdminHeader,
-    PortalHeader
+    PortalHeader,
+    AdminDashboard,
+    MeetingRequest
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 });
