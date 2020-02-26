@@ -16,4 +16,8 @@ class AdminController extends Controller
     {
         return view('admins.dashboard.index');   
     }
+
+    public function meetingRequest(){
+        return view('admins.meetingrequest.index');
+    }
 }
