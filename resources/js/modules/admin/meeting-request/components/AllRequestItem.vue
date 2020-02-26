@@ -107,6 +107,14 @@
                 >   
                     Setup Meeting Room
                 </el-button>
+                 <el-button
+                    v-if="data.status == 'Accepted'"
+                    type="danger"
+                    size="small"
+                    icon="el-icon-close"
+                >   
+                    Reject
+                </el-button>
             </div>
         </div>
     </div>

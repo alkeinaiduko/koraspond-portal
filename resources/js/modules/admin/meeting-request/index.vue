@@ -2,6 +2,7 @@
     <div class="meeting__container">
         <div class="meeting_search">
             <el-input
+                v-model="search"
                 placeholder="Search"
                 prefix-icon="el-icon-search"
             />
@@ -48,7 +49,8 @@ export default {
     },
     data() {
         return {
-            activeName: 'first'
+            activeName: 'first',
+            search: ""
         }
     },
     methods: {

@@ -28,6 +28,7 @@ Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
 Route::get('/admin/meeting-requests', 'Admin\AdminController@meetingRequest')->name('admin.meeting-request');
+Route::get("/meeting-available", "MeetingRequestController@meetingAvailble")->name("meeting-available");
 
 Auth::routes(['verify' => true]);
 Route::post('/login', 'Auth\LoginController@login')->name('user.login');
