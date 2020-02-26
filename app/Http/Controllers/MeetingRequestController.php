@@ -113,4 +113,9 @@ class MeetingRequestController extends Controller
     {
         //
     }
+
+    public function meetingAvailble()
+    {
+        return view("portal.meeting-available.index");
+    }
 }

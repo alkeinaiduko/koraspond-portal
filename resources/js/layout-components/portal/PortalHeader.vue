@@ -44,6 +44,15 @@
                 <li class="nav-item">
                     <a
                         class="nav-link"
+                        href="/meeting-available"
+                    >
+                        <vue-fontawesome icon="id-card" />
+                        Meeting Available
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
                         href="#"
                     >
                         <vue-fontawesome icon="id-card" />
