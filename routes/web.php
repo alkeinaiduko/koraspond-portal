@@ -27,6 +27,9 @@ Route::resource('signup', 'SignupController')->only(['store']);
 Route::resource('user-types', 'UserTypeController');
 Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
+Route::get('/admin/meeting-requests', function(){
+    return view('admins.meetingrequest.index');
+});
 
 Auth::routes(['verify' => true]);
 Route::post('/login', 'Auth\LoginController@login')->name('user.login');

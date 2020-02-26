@@ -57,6 +57,13 @@ mix.js('resources/js/modules/Portal/Dashboard/main.js', 'public/js/modules/dashb
  */
 mix.js('resources/js/modules/Admin/Dashboard/main.js', 'public/js/modules/admin-dashboard')
 
+/*
+ |--------------------------------------------------------------------------
+ | Admin Dashboard modules
+ |--------------------------------------------------------------------------
+ */
+mix.js('resources/js/modules/Admin/MeetingRequest/main.js', 'public/js/modules/meetingrequest')
+
 
 mix.sass('resources/sass/app.sass', 'public/css');
 
