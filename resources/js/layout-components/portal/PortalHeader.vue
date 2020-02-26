@@ -96,7 +96,7 @@
 <script>
     import RoundImage from '~/common/RoundImage'
     export default {
-        name: 'MainHeader',
+        name: 'AppHeader',
         components: {
             RoundImage
         },

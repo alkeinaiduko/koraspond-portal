@@ -19,7 +19,7 @@
 <body>
 
     <div id="app">
-        <main-header></main-header>
+        <portal-header></portal-header>
         <div class="container">
             @yield('content')
         </div>

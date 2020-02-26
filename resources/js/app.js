@@ -4,7 +4,7 @@ import store from './store'
 require('./bootstrap');
 
 // Common resources
-import '~/common/components'
+import './common/components'
 
 // register plugin
 import './plugins'
@@ -19,9 +19,15 @@ Vue.use(FlagIcon);
 // only import main modules here for blade pages
 const HomePage = () => import('./modules/homepage');
 const AdminLogin = () => import('./modules/portal/dashboard/admin-login');
+// layout-components
+const AdminHeader  = () => import('./layout-components/admin/AdminHeader.vue');
+const PortalHeader = () => import('./layout-components/portal/PortalHeader.vue');
 [
     HomePage,
-    AdminLogin
+    AdminLogin,
+    // layout-components
+    AdminHeader,
+    PortalHeader
 ].forEach(Component => {
     Vue.component(Component.name, Component)
 });
