@@ -44,6 +44,8 @@
     import ArrivalDetailsForm from './components/ArrivalDetailsForm'
     import BusinessRegistrationForm from './components/BusinessRegistrationForm'
 
+    import { parseTime } from '~/utils'
+
     export default {
         name: 'FinalRegistration',
         components: {
@@ -68,17 +70,15 @@
         },
         methods: {
             next(objectData) {
-                const date = new Date();
-                const formattedDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
                 if (this.step === 0) {
-                    objectData.valid_until = formattedDate;
-                    objectData.birth_date = formattedDate;
+                    objectData.valid_until = !!objectData.valid_until ? parseTime(objectData.valid_until, '{y}-{m}-{d}') : null;
+                    objectData.birth_date = !!objectData.birth_date ? parseTime(objectData.birth_date, '{y}-{m}-{d}') : null;
                     this.userForm.basic_info = JSON.stringify(objectData)
                 } else if (this.step === 1) {
-                    objectData.arrival_date = formattedDate;
-                    objectData.arrival_time = null;
-                    objectData.departure_date = formattedDate;
-                    objectData.departure_time = null;
+                    objectData.arrival_date = !!objectData.arrival_date ? parseTime(objectData.arrival_date, '{y}-{m}-{d}') : null;
+                    objectData.arrival_time = !!objectData.arrival_time ? parseTime(objectData.arrival_time, '{h}:{i}:{s}') : null;
+                    objectData.departure_date = !!objectData.departure_date ? parseTime(objectData.departure_date, '{y}-{m}-{d}') : null;
+                    objectData.departure_time = !!objectData.departure_time ? parseTime(objectData.departure_time, '{h}:{i}:{s}') : null;
                     this.userForm.arrival_detail = JSON.stringify(objectData)
                 }  else if (this.step === 2) {
                     this.userForm.business_registration = JSON.stringify(objectData)
