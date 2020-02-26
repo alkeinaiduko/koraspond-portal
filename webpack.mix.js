@@ -7,6 +7,9 @@ const config = require('./webpack.config');
  |--------------------------------------------------------------------------
  */
 mix.webpackConfig(config);
+mix.babelConfig({
+   plugins: ['@babel/plugin-syntax-dynamic-import']
+});
 
 /*
  |--------------------------------------------------------------------------
@@ -25,40 +28,7 @@ mix.webpackConfig(config);
  | We need to include this file into .blade so that Buefy markup works correctly
  |--------------------------------------------------------------------------
  */
-mix.js('resources/js/modules/Default/main.js', 'public/js/modules/default/main.js');
-
-/*
- |--------------------------------------------------------------------------
- | Homepage modules
- |--------------------------------------------------------------------------
- */
-mix.js('resources/js/modules/HomePage/main.js', 'public/js/modules/homepage')
-
-/*
- |--------------------------------------------------------------------------
- | Final Registration modules
- |--------------------------------------------------------------------------
- */
-mix.js('resources/js/modules/Portal/FinalRegistration/main.js', 'public/js/modules/finalregistration')
-
-/*
- |--------------------------------------------------------------------------
- | Portal modules
- |--------------------------------------------------------------------------
- */
-// Dashboard Portal Page
-mix.js('resources/js/modules/Portal/Dashboard/main.js', 'public/js/modules/dashboard')
-
-
-/*
- |--------------------------------------------------------------------------
- | Admin Dashboard modules
- |--------------------------------------------------------------------------
- */
-mix.js('resources/js/modules/Admin/Dashboard/main.js', 'public/js/modules/admin-dashboard')
-
-
-mix.sass('resources/sass/app.sass', 'public/css');
-
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/sass/app.sass', 'public/css');
 
 mix.browserSync('http://koraspond.test');

@@ -2,6 +2,10 @@ const path = require('path')
 
 module.exports = {
     // ESLint config
+    output: {
+        filename: 'js/app.js',
+        chunkFilename: 'js/[name].bundle.js'
+    },
     module: {
         rules: [
             {

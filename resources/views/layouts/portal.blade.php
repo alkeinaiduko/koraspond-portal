@@ -19,13 +19,14 @@
 <body>
 
     <div id="app">
-        <main-header></main-header>
+        <portal-header></portal-header>
         <div class="container">
             @yield('content')
         </div>
     </div>
 
-    <script src="{{mix(!empty($vueModulePath) ? $vueModulePath : 'js/modules/default/main.js')}}"></script>
+    <script src="{{mix('js/app.js')}}"></script>
+    {{--<script src="{{mix(!empty($vueModulePath) ? $vueModulePath : 'js/modules/default/main.js')}}"></script>--}}
 
     @stack('scripts')
 
