@@ -68,9 +68,17 @@
         },
         methods: {
             next(objectData) {
+                const date = new Date();
+                const formattedDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
                 if (this.step === 0) {
+                    objectData.valid_until = formattedDate;
+                    objectData.birth_date = formattedDate;
                     this.userForm.basic_info = JSON.stringify(objectData)
                 } else if (this.step === 1) {
+                    objectData.arrival_date = formattedDate;
+                    objectData.arrival_time = null;
+                    objectData.departure_date = formattedDate;
+                    objectData.departure_time = null;
                     this.userForm.arrival_detail = JSON.stringify(objectData)
                 }  else if (this.step === 2) {
                     this.userForm.business_registration = JSON.stringify(objectData)
