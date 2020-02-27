@@ -25,7 +25,9 @@ class UserController extends Controller
         // check if registration is completed
         if (!$user->drafted) {
             // redirect
-            return redirect('/portal/complete-registration');
+            if ($user->drafted_step == null) {
+                return redirect('/portal/complete-registration');
+            }
         }
         return view('portal.dashboard.index');
     }

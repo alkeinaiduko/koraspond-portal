@@ -10,6 +10,12 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _countries__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../countries */ "./resources/js/modules/portal/complete-registration/countries.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -167,6 +173,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    defaultData: Object
+  },
   data: function data() {
     return {
       countries: _countries__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -185,6 +194,11 @@ __webpack_require__.r(__webpack_exports__);
       },
       rules: []
     };
+  },
+  beforeMount: function beforeMount() {
+    if (!!this.defaultData) {
+      this.arrivalDetailsForm = _objectSpread({}, this.defaultData, {}, this.arrivalDetailsForm);
+    }
   }
 });
 
@@ -372,6 +386,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    defaultData: Object
+  },
   data: function data() {
     return {
       profiles: ['Investor', 'Private Sector', 'Expert', 'Business Person', 'Minister', 'Ambassador', 'Public Sector', 'Organizer', 'Others'],
@@ -394,9 +411,11 @@ __webpack_require__.r(__webpack_exports__);
       rules: []
     };
   },
-  methods: {
-    saveInDraft: function saveInDraft() {
-      location.href = '/home';
+  mounted: function mounted() {
+    console.log(this.defaultData);
+
+    if (!!this.defaultData) {
+      this.basicInformationForm = this.defaultData;
     }
   }
 });
@@ -412,6 +431,12 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -628,6 +653,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    defaultData: Object
+  },
   data: function data() {
     return {
       forceCloseRegistrationPrompt: false,
@@ -657,6 +685,11 @@ __webpack_require__.r(__webpack_exports__);
       this.isWantToRegister = true;
       this.forceCloseRegistrationPrompt = true;
     }
+  },
+  beforeMount: function beforeMount() {
+    if (!!this.defaultData) {
+      this.businessRegistrationForm = _objectSpread({}, this.defaultData, {}, this.businessRegistrationForm);
+    }
   }
 });
 
@@ -671,20 +704,18 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_BasicInformationForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/BasicInformationForm */ "./resources/js/modules/portal/complete-registration/components/BasicInformationForm.vue");
-/* harmony import */ var _components_ArrivalDetailsForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ArrivalDetailsForm */ "./resources/js/modules/portal/complete-registration/components/ArrivalDetailsForm.vue");
-/* harmony import */ var _components_BusinessRegistrationForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/BusinessRegistrationForm */ "./resources/js/modules/portal/complete-registration/components/BusinessRegistrationForm.vue");
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ~/utils */ "./resources/js/utils/index.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_BasicInformationForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/BasicInformationForm */ "./resources/js/modules/portal/complete-registration/components/BasicInformationForm.vue");
+/* harmony import */ var _components_ArrivalDetailsForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/ArrivalDetailsForm */ "./resources/js/modules/portal/complete-registration/components/ArrivalDetailsForm.vue");
+/* harmony import */ var _components_BusinessRegistrationForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/BusinessRegistrationForm */ "./resources/js/modules/portal/complete-registration/components/BusinessRegistrationForm.vue");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ~/utils */ "./resources/js/utils/index.js");
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -744,73 +775,102 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'FinalRegistration',
   components: {
-    BasicInformationForm: _components_BasicInformationForm__WEBPACK_IMPORTED_MODULE_2__["default"],
-    ArrivalDetailsForm: _components_ArrivalDetailsForm__WEBPACK_IMPORTED_MODULE_3__["default"],
-    BusinessRegistrationForm: _components_BusinessRegistrationForm__WEBPACK_IMPORTED_MODULE_4__["default"]
+    BasicInformationForm: _components_BasicInformationForm__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ArrivalDetailsForm: _components_ArrivalDetailsForm__WEBPACK_IMPORTED_MODULE_2__["default"],
+    BusinessRegistrationForm: _components_BusinessRegistrationForm__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   props: {
-    fullName: String,
     user: Object
   },
   data: function data() {
     return {
       step: 0,
-      userForm: null
+      userForm: null,
+      fullName: '',
+      defaultBasicInformation: null,
+      defaultArrivalDetails: null,
+      defaultBusinessRegistration: null
     };
   },
-  mounted: function mounted() {
+  beforeMount: function beforeMount() {
+    if (this.user.drafted === 0) {
+      if (!!this.user.drafted_step) {
+        this.step = parseInt(this.user.drafted_step);
+      } else {
+        this.step = 0;
+      }
+    }
+
+    this.defaultBasicInformation = this.user.basic_info;
+    this.defaultArrivalDetails = this.user.arrival_detail;
+    this.defaultBusinessRegistration = this.user.business_registration;
     console.log(this.user);
+  },
+  mounted: function mounted() {
     this.fullName = "".concat(this.user.first_name, " ").concat(this.user.last_name);
     this.userForm = this.user;
   },
   methods: {
-    next: function next(objectData) {
-      if (this.step === 0) {
-        objectData.valid_until = !!objectData.valid_until ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.valid_until, '{y}-{m}-{d}') : null;
-        objectData.birth_date = !!objectData.birth_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.birth_date, '{y}-{m}-{d}') : null;
-        this.userForm.basic_info = JSON.stringify(objectData);
-      } else if (this.step === 1) {
-        objectData.arrival_date = !!objectData.arrival_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.arrival_date, '{y}-{m}-{d}') : null;
-        objectData.arrival_time = !!objectData.arrival_time ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.arrival_time, '{h}:{i}:{s}') : null;
-        objectData.departure_date = !!objectData.departure_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.departure_date, '{y}-{m}-{d}') : null;
-        objectData.departure_time = !!objectData.departure_time ? Object(_utils__WEBPACK_IMPORTED_MODULE_5__["parseTime"])(objectData.departure_time, '{h}:{i}:{s}') : null;
-        this.userForm.arrival_detail = JSON.stringify(objectData);
-      } else if (this.step === 2) {
-        this.userForm.business_registration = JSON.stringify(objectData);
-      } else {// this.step = 0;
+    basicInformationInput: function basicInformationInput(data) {
+      data.valid_until = !!data.valid_until ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.valid_until, '{y}-{m}-{d}') : null;
+      data.birth_date = !!data.birth_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.birth_date, '{y}-{m}-{d}') : null;
+      this.userForm.basic_info = JSON.stringify(data);
+    },
+    arrivalDetailsInput: function arrivalDetailsInput(data) {
+      data.arrival_date = !!data.arrival_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.arrival_date, '{y}-{m}-{d}') : null;
+      data.arrival_time = !!data.arrival_time ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.arrival_time, '{h}:{i}:{s}') : null;
+      data.departure_date = !!data.departure_date ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.departure_date, '{y}-{m}-{d}') : null;
+      data.departure_time = !!data.departure_time ? Object(_utils__WEBPACK_IMPORTED_MODULE_4__["parseTime"])(data.departure_time, '{h}:{i}:{s}') : null;
+      this.userForm.arrival_detail = JSON.stringify(data);
+    },
+    businessRegistrationInput: function businessRegistrationInput(data) {
+      this.userForm.business_registration = JSON.stringify(data);
+    },
+    inputStepHandler: function inputStepHandler(inputData) {
+      var isDrafted = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+
+      if (this.user.drafted === 0) {
+        // stringify default value
+        this.userForm.basic_info = '{}';
+        this.userForm.arrival_detail = '{}';
+        this.userForm.business_registration = '{}';
       }
 
+      if (this.step === 0) {
+        this.basicInformationInput(inputData);
+      } else if (this.step === 1) {
+        this.arrivalDetailsInput(inputData);
+      } else if (this.step === 2) {
+        this.businessRegistrationInput(inputData);
+      } else {// this.step = 0;
+      }
+    },
+    next: function next(objectData) {
+      this.inputStepHandler(objectData);
       this.step++;
     },
-    save: function save() {
+    draft: function draft(objectData) {
+      this.inputStepHandler(objectData, true);
+      this.save(0);
+    },
+    save: function save(draftStatus) {
       var _this = this;
 
-      return _asyncToGenerator(
-      /*#__PURE__*/
-      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var formData;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _this.userForm.drafted = 1;
-                formData = new FormData();
-                formData.append('_method', 'PATCH');
-                Object.keys(_this.userForm).forEach(function (key) {
-                  return formData.append(key, _this.userForm[key]);
-                });
-                axios__WEBPACK_IMPORTED_MODULE_1___default.a.post('/signup/' + _this.user.id, formData).then(function (response) {
-                  console.log(response);
-                  window.location = '/';
-                });
+      this.userForm.drafted = draftStatus;
 
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
+      if (!draftStatus) {
+        this.userForm.drafted_step = this.step;
+      }
+
+      var formData = new FormData();
+      formData.append('_method', 'PATCH');
+      Object.keys(this.userForm).forEach(function (key) {
+        return formData.append(key, _this.userForm[key]);
+      });
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/signup/' + this.user.id, formData).then(function (response) {
+        console.log(response);
+        window.location = '/';
+      });
     }
   }
 });
@@ -829,7 +889,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".portal__content--left > div {\n  position: relative;\n}\n.portal__content--left > div > button {\n  position: absolute;\n  right: 20px;\n}\n.portal__content--left .user-information {\n  padding: 1.2em;\n}\n.user-info__container {\n  border-bottom: 1px solid #E2E2E2;\n  margin-top: 25px;\n}\n.user-info__details div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.user-info__details p {\n  margin: 15px;\n}\n.user-info__name {\n  font-size: 23px;\n  font-family: Graphik-Semibold;\n  margin-top: 10px;\n}\n.user-info__ratings {\n  margin-top: 9px;\n  margin-left: 5px;\n}\n.user-info__ratings svg {\n  margin-top: -1px;\n  margin: -1px 0 0 3px;\n  color: #FFAE53;\n}\n.user-info__email, .user-info__address, .user-info__socials {\n  color: #9498A2;\n  font-size: 14px;\n}\n.user-info__socials {\n  font-size: 18px;\n}\n.user-info__socials svg {\n  margin: 0 8px;\n}\n.user-about__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-about__container h1 {\n  font-weight: bold;\n}\n.user-about__container p {\n  width: 15rem;\n}\n.user-education__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-education__container div {\n  border: 1px solid #E2E2E2;\n  padding: 1rem 0.7rem;\n  border-radius: 5px;\n}\n.user-education__container div p {\n  color: #9C9C9C;\n  margin: 0;\n}\n.user-interest__container {\n  padding: 1rem 0.5rem;\n  width: 250px;\n  word-wrap: break-word;\n}\n.user-interest__container span.el-tag--info {\n  margin: 0.5em;\n  color: #000;\n}\n.portal__content--right .nav-menu {\n  padding: 0 1.2em;\n}\n.portal__content--right .nav-menu > div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.portal__content--right .nav-menu .el-menu-item.is-active {\n  color: #000 !important;\n}\n.portal__content--right .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.portal__content--right .content-list li {\n  margin-top: 1em;\n}\n.portal__content--right .content-list li .project {\n  padding: 1.2em;\n}\n.final-register__container {\n  padding-top: 90px;\n}\n.final-register__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.final-register__greetings p {\n  font-size: 23px;\n  font-family: Graphik;\n  margin-top: 10px;\n}\n.final-register__greetings p span {\n  font-family: Graphik-bold;\n}\n.final-register__progress {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-top: 15px;\n}\n.final-register__label {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n.final-register__label h6 {\n  margin-left: 30px;\n  margin-top: 25px;\n  padding: 0px 30px;\n  text-align: center;\n}\n.register__fields {\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin-top: 25px;\n}\n.register__fields label {\n  font-size: 18px;\n  font-family: Graphik;\n}\n.register__fields .row {\n  padding: 10px 0px;\n}\n.register__fields .register__announcement {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.register__fields .register__announcement h2 {\n  font-family: Graphik-bold;\n}\n.register__fields .register__announcement h5 {\n  text-align: center;\n  line-height: 40px;\n}\n.register__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin: 25px 0px;\n}\n.BI .el-select {\n  display: block;\n}\n.BI .el-date-editor {\n  width: 100%;\n}\n.BI .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.AD .el-select {\n  display: block;\n}\n.AD .el-date-editor {\n  width: 100%;\n}\n.BR .el-upload {\n  display: block;\n}\n.BRF .el-select {\n  display: block;\n}\n.BRF .el-upload {\n  display: block;\n}\n.BRF .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.project-list__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.project-list__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__details h5 {\n  font-weight: bold;\n}\n.project-list__details .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__details .el-tag span {\n  color: #000;\n}\n.project-list__details .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__action {\n  flex: 1;\n  text-align: right;\n}\n.project-list__action--top {\n  margin-bottom: 1em;\n}\n.project-list__action--top .action-editor .el-icon-more {\n  transform: rotate(90deg);\n}\n.project-list__action--bottom .btn {\n  width: 40%;\n}\n.project-list__action--bottom p {\n  font-size: 11px;\n  color: gray;\n}\n.project-list__action--bottom p .status {\n  color: #1c9989;\n}\n.project-list__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 1rem;\n}\n.project-list__footer--top {\n  display: flex;\n  flex: 1;\n  justify-content: space-between;\n  padding: 1rem;\n}\n.project-list__footer--top .el-tag {\n  margin-right: 5px;\n}\n.project-modal .modal-container {\n  padding: 0;\n  border-radius: 5px;\n}\n.project-modal .modal-container .modal__header {\n  padding: 0.8em;\n  text-align: left;\n  background-color: #006A55;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: initial;\n}\n.project-modal .modal-container .modal__header .custom-modal-header {\n  width: 100%;\n}\n.project-modal .modal-container .modal__body {\n  padding: 0 1.8em;\n}\n.project-modal .modal-container .modal__body .project-title {\n  font-size: 18px;\n  font-weight: bold;\n}\n.project-modal .modal-container .modal__body .detail__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left, .project-modal .modal-container .modal__body .detail__container--right {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: initial;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left .el-tag span {\n  color: #000;\n}\n.project-modal .modal-container .modal__body .detail__container--left p {\n  margin-top: 1.2rem;\n  margin-bottom: 0;\n}\n.project-modal .modal-container .modal__body .project__tags {\n  padding: 1em 0;\n  border-top: 1px solid #EBEBEB;\n  border-bottom: 1px solid #EBEBEB;\n  margin-top: 1em;\n}\n.project-modal .modal-container .modal__body .project__tags .el-tag {\n  margin-right: 10px;\n}\n.project-modal .modal-container .modal__body .project__description {\n  padding: 1em 0;\n  border-bottom: 1px solid #EBEBEB;\n}\n.project-modal .project__attachments {\n  padding: 1em;\n}\n.meeting-request {\n  display: flex;\n}\n.meeting-request__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.meeting-request__image {\n  position: relative;\n}\n.meeting-request__image .status {\n  position: absolute;\n  margin-left: -15px;\n  margin-top: 25px;\n}\n.meeting-request__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.meeting-request__details strong {\n  font-weight: 20px;\n}\n.meeting-request__actions {\n  flex: 1;\n  text-align: right;\n}\n.meeting {\n  display: flex;\n}\n.meeting__container {\n  padding: 7.2em;\n}\n.meeting__tabs .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.meeting__tabs .content-list li {\n  margin-top: 1rem;\n}\n.meeting__tabs .el-pagination.is-background .btn-prev:disabled, .meeting__tabs .el-pagination.is-background .btn-next:disabled, .meeting__tabs .el-pagination.is-background .el-pager li {\n  background-color: #fff;\n  color: #606266;\n  border-radius: 20px;\n}\n.meeting__tabs .el-pagination.is-background .btn-next, .meeting__tabs .el-pagination.is-background .btn-prev, .meeting__tabs .el-pagination.is-background .el-pager li:not(.disabled).active {\n  background-color: #E6A23C;\n  border-radius: 20px;\n  color: #a86705;\n}\n.meeting__tabs .el-tabs__item.is-active {\n  color: #000;\n}\n.meeting__tabs .el-tabs__active-bar {\n  background-color: #006A55;\n}\n.meeting__tabs--footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 15px 0px;\n}\n.meeting__tabs--footer--paginate {\n  display: flex;\n  flex: 1;\n  justify-content: center;\n  padding: 1rem;\n}\n.meeting-available {\n  display: flex;\n}\n.meeting-available__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 7.2em;\n}", ""]);
+exports.push([module.i, ".portal__content--left > div {\n  position: relative;\n}\n.portal__content--left > div > button {\n  position: absolute;\n  right: 20px;\n}\n.portal__content--left .user-information {\n  padding: 1.2em;\n}\n.user-info__container {\n  border-bottom: 1px solid #E2E2E2;\n  margin-top: 25px;\n}\n.user-info__details div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.user-info__details p {\n  margin: 15px;\n}\n.user-info__name {\n  font-size: 23px;\n  font-family: Graphik-Semibold;\n  margin-top: 10px;\n}\n.user-info__ratings {\n  margin-top: 9px;\n  margin-left: 5px;\n}\n.user-info__ratings svg {\n  margin-top: -1px;\n  margin: -1px 0 0 3px;\n  color: #FFAE53;\n}\n.user-info__email, .user-info__address, .user-info__socials {\n  color: #9498A2;\n  font-size: 14px;\n}\n.user-info__socials {\n  font-size: 18px;\n}\n.user-info__socials svg {\n  margin: 0 8px;\n}\n.user-about__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-about__container h1 {\n  font-weight: bold;\n}\n.user-about__container p {\n  width: 15rem;\n}\n.user-education__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-education__container div {\n  border: 1px solid #E2E2E2;\n  padding: 1rem 0.7rem;\n  border-radius: 5px;\n}\n.user-education__container div p {\n  color: #9C9C9C;\n  margin: 0;\n}\n.user-interest__container {\n  padding: 1rem 0.5rem;\n  width: 250px;\n  word-wrap: break-word;\n}\n.user-interest__container span.el-tag--info {\n  margin: 0.5em;\n  color: #000;\n}\n.portal__content--right .nav-menu {\n  padding: 0 1.2em;\n}\n.portal__content--right .nav-menu > div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.portal__content--right .nav-menu .el-menu-item.is-active {\n  color: #000 !important;\n}\n.portal__content--right .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.portal__content--right .content-list li {\n  margin-top: 1em;\n}\n.portal__content--right .content-list li .project {\n  padding: 1.2em;\n}\n.final-register__container {\n  padding-top: 90px;\n}\n.final-register__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.final-register__greetings p {\n  font-size: 23px;\n  font-family: Graphik;\n  margin-top: 10px;\n}\n.final-register__greetings p span {\n  font-family: Graphik-bold;\n}\n.final-register__progress {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-top: 15px;\n}\n.final-register__label {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n.final-register__label h6 {\n  margin-left: 30px;\n  margin-top: 25px;\n  padding: 0px 30px;\n  text-align: center;\n}\n.register__fields {\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin-top: 25px;\n}\n.register__fields label {\n  font-size: 18px;\n  font-family: Graphik;\n}\n.register__fields .row {\n  padding: 10px 0px;\n}\n.register__fields .register__announcement {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.register__fields .register__announcement h2 {\n  font-family: Graphik-bold;\n}\n.register__fields .register__announcement h5 {\n  text-align: center;\n  line-height: 40px;\n}\n.register__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin: 25px 0px;\n}\n.BI .el-select {\n  display: block;\n}\n.BI .el-date-editor {\n  width: 100%;\n}\n.BI .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.AD .el-select {\n  display: block;\n}\n.AD .el-date-editor {\n  width: 100%;\n}\n.BR .el-upload {\n  display: block;\n}\n.BRF .el-select {\n  display: block;\n}\n.BRF .el-upload {\n  display: block;\n}\n.BRF .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.project-list__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.project-list__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__details h5 {\n  font-weight: bold;\n}\n.project-list__details .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__details .el-tag span {\n  color: #000;\n}\n.project-list__details .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings {\n  flex: 2;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__meetings h5 {\n  font-weight: bold;\n}\n.project-list__meetings .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__meetings .el-tag span {\n  color: #000;\n}\n.project-list__meetings .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings .scope-tags .el-tag {\n  margin-right: 8px;\n}\n.project-list__action {\n  flex: 1;\n  text-align: right;\n}\n.project-list__action--top {\n  margin-bottom: 1em;\n}\n.project-list__action--top .action-editor .el-icon-more {\n  transform: rotate(90deg);\n}\n.project-list__action__meeting--top {\n  margin-bottom: 4em;\n}\n.project-list__action--bottom .btn {\n  width: 40%;\n}\n.project-list__action--bottom p {\n  font-size: 11px;\n  color: gray;\n}\n.project-list__action--bottom p .status {\n  color: #1c9989;\n}\n.project-list__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 1rem;\n}\n.project-modal .modal-container {\n  padding: 0;\n  border-radius: 5px;\n}\n.project-modal .modal-container .modal__header {\n  padding: 0.8em;\n  text-align: left;\n  background-color: #006A55;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: initial;\n}\n.project-modal .modal-container .modal__header .custom-modal-header {\n  width: 100%;\n}\n.project-modal .modal-container .modal__body {\n  padding: 0 1.8em;\n}\n.project-modal .modal-container .modal__body .project-title {\n  font-size: 18px;\n  font-weight: bold;\n}\n.project-modal .modal-container .modal__body .detail__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left, .project-modal .modal-container .modal__body .detail__container--right {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: initial;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left .el-tag span {\n  color: #000;\n}\n.project-modal .modal-container .modal__body .detail__container--left p {\n  margin-top: 1.2rem;\n  margin-bottom: 0;\n}\n.project-modal .modal-container .modal__body .project__tags {\n  padding: 1em 0;\n  border-top: 1px solid #EBEBEB;\n  border-bottom: 1px solid #EBEBEB;\n  margin-top: 1em;\n}\n.project-modal .modal-container .modal__body .project__tags .el-tag {\n  margin-right: 10px;\n}\n.project-modal .modal-container .modal__body .project__description {\n  padding: 1em 0;\n  border-bottom: 1px solid #EBEBEB;\n}\n.project-modal .project__attachments {\n  padding: 1em;\n}\n.meeting-request {\n  display: flex;\n}\n.meeting-request__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.meeting-request__image {\n  position: relative;\n}\n.meeting-request__image .status {\n  position: absolute;\n  margin-left: -15px;\n  margin-top: 25px;\n}\n.meeting-request__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.meeting-request__details strong {\n  font-weight: 20px;\n}\n.meeting-request__actions {\n  flex: 1;\n  text-align: right;\n}\n.meeting {\n  display: flex;\n}\n.meeting__container {\n  padding: 7.2em;\n}\n.meeting__tabs .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.meeting__tabs .content-list li {\n  margin-top: 1rem;\n}\n.meeting__tabs .el-pagination.is-background .btn-prev:disabled, .meeting__tabs .el-pagination.is-background .btn-next:disabled, .meeting__tabs .el-pagination.is-background .el-pager li {\n  background-color: #fff;\n  color: #606266;\n  border-radius: 20px;\n}\n.meeting__tabs .el-pagination.is-background .btn-next, .meeting__tabs .el-pagination.is-background .btn-prev, .meeting__tabs .el-pagination.is-background .el-pager li:not(.disabled).active {\n  background-color: #E6A23C;\n  border-radius: 20px;\n  color: #a86705;\n}\n.meeting__tabs .el-tabs__item.is-active {\n  color: #000;\n}\n.meeting__tabs .el-tabs__active-bar {\n  background-color: #006A55;\n}\n.meeting__tabs--footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 15px 0px;\n}\n.meeting__tabs--footer--paginate {\n  display: flex;\n  flex: 1;\n  justify-content: center;\n  padding: 1rem;\n}\n.meeting-available {\n  display: flex;\n}\n.meeting-available__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 7.2em;\n}", ""]);
 
 // exports
 
@@ -1216,7 +1276,17 @@ var render = function() {
         _c(
           "div",
           [
-            _c("el-button", [_vm._v("Save in Draft")]),
+            _c(
+              "el-button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.$emit("draft", _vm.arrivalDetailsForm)
+                  }
+                }
+              },
+              [_vm._v("Save in Draft")]
+            ),
             _vm._v(" "),
             _c(
               "el-button",
@@ -1626,9 +1696,17 @@ var render = function() {
         _c(
           "div",
           [
-            _c("el-button", { on: { click: _vm.saveInDraft } }, [
-              _vm._v("\n                Save in Draft\n            ")
-            ]),
+            _c(
+              "el-button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.$emit("draft", _vm.basicInformationForm)
+                  }
+                }
+              },
+              [_vm._v("\n                Save in Draft\n            ")]
+            ),
             _vm._v(" "),
             _c(
               "el-button",
@@ -2174,7 +2252,17 @@ var render = function() {
         _c(
           "div",
           [
-            _c("el-button", [_vm._v("Save in Draft")]),
+            _c(
+              "el-button",
+              {
+                on: {
+                  click: function($event) {
+                    return _vm.$emit("draft", _vm.businessRegistrationForm)
+                  }
+                }
+              },
+              [_vm._v("Save in Draft")]
+            ),
             _vm._v(" "),
             _c(
               "el-button",
@@ -2285,15 +2373,24 @@ var render = function() {
       ),
       _vm._v(" "),
       _vm.step === 0
-        ? _c("basic-information-form", { on: { next: _vm.next } })
+        ? _c("basic-information-form", {
+            attrs: { "default-data": _vm.defaultBasicInformation },
+            on: { draft: _vm.draft, next: _vm.next }
+          })
         : _vm._e(),
       _vm._v(" "),
       _vm.step === 1
-        ? _c("arrival-details-form", { on: { next: _vm.next } })
+        ? _c("arrival-details-form", {
+            attrs: { "default-data": _vm.defaultArrivalDetails },
+            on: { draft: _vm.draft, next: _vm.next }
+          })
         : _vm._e(),
       _vm._v(" "),
       _vm.step === 2
-        ? _c("business-registration-form", { on: { next: _vm.next } })
+        ? _c("business-registration-form", {
+            attrs: { "default-data": _vm.defaultBusinessRegistration },
+            on: { draft: _vm.draft, next: _vm.next }
+          })
         : _vm._e(),
       _vm._v(" "),
       _vm.step === 3
@@ -2313,13 +2410,19 @@ var render = function() {
                 _c(
                   "div",
                   [
-                    _c("el-button", [_vm._v("Save in Draft")]),
+                    _c("el-button", { on: { click: _vm.draft } }, [
+                      _vm._v("Save in Draft")
+                    ]),
                     _vm._v(" "),
                     _c(
                       "el-button",
                       {
                         staticClass: "primary--plain--reverse",
-                        on: { click: _vm.save }
+                        on: {
+                          click: function($event) {
+                            return _vm.save(1)
+                          }
+                        }
                       },
                       [_vm._v("\n                    Save\n                ")]
                     )

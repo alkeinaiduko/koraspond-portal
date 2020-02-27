@@ -141,7 +141,7 @@
                 Cancel
             </el-button>
             <div>
-                <el-button>Save in Draft</el-button>
+                <el-button @click="$emit('draft', arrivalDetailsForm)">Save in Draft</el-button>
                 <el-button
                     class="primary--plain--reverse"
                     @click="$emit('next', arrivalDetailsForm)"
@@ -156,6 +156,9 @@
 <script>
     import countries from '../countries'
     export default {
+        props: {
+            defaultData: Object
+        },
         data() {
             return {
                 countries: countries,
@@ -173,6 +176,11 @@
                     departure_flight_number: '',
                 },
                 rules: []
+            }
+        },
+        beforeMount() {
+            if (!!this.defaultData) {
+                this.arrivalDetailsForm = {...this.defaultData, ...this.arrivalDetailsForm};
             }
         }
     }

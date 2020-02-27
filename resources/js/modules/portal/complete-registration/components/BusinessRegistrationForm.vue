@@ -201,7 +201,7 @@
                 Cancel
             </el-button>
             <div>
-                <el-button>Save in Draft</el-button>
+                <el-button @click="$emit('draft', businessRegistrationForm)">Save in Draft</el-button>
                 <el-button
                     class="primary--plain--reverse"
                     @click="$emit('next', businessRegistrationForm)"
@@ -215,6 +215,9 @@
 
 <script>
     export default {
+        props: {
+            defaultData: Object
+        },
         data() {
             return {
                 forceCloseRegistrationPrompt: false,
@@ -255,6 +258,11 @@
             handleInterested() {
                 this.isWantToRegister = true;
                 this.forceCloseRegistrationPrompt = true
+            }
+        },
+        beforeMount() {
+            if (!!this.defaultData) {
+                this.businessRegistrationForm = {...this.defaultData, ...this.businessRegistrationForm};
             }
         }
     }

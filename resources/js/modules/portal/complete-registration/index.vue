@@ -15,14 +15,20 @@
         </el-steps>
         <basic-information-form
             v-if="step === 0"
+            :default-data="defaultBasicInformation"
+            @draft="draft"
             @next="next"
         />
         <arrival-details-form
             v-if="step === 1"
+            :default-data="defaultArrivalDetails"
+            @draft="draft"
             @next="next"
         />
         <business-registration-form
             v-if="step === 2"
+            :default-data="defaultBusinessRegistration"
+            @draft="draft"
             @next="next"
         />
         <div v-if="step === 3">
@@ -36,10 +42,10 @@
                     Cancel
                 </el-button>
                 <div>
-                    <el-button>Save in Draft</el-button>
+                    <el-button @click="draft">Save in Draft</el-button>
                     <el-button
                         class="primary--plain--reverse"
-                        @click="save"
+                        @click="save(1)"
                     >
                         Save
                     </el-button>
@@ -66,41 +72,81 @@
             BusinessRegistrationForm
         },
         props: {
-            fullName: String,
             user: Object
         },
         data() {
             return {
                 step: 0,
-                userForm: null
+                userForm: null,
+                fullName: '',
+                defaultBasicInformation: null,
+                defaultArrivalDetails: null,
+                defaultBusinessRegistration: null,
             }
         },
+        beforeMount() {
+            if (this.user.drafted === 0) {
+                if (!!this.user.drafted_step) {
+                    this.step = parseInt(this.user.drafted_step)
+                } else {
+                    this.step = 0;
+                }
+            }
+            this.defaultBasicInformation = this.user.basic_info;
+            this.defaultArrivalDetails = this.user.arrival_detail;
+            this.defaultBusinessRegistration = this.user.business_registration;
+            console.log(this.user)
+        },
         mounted() {
-            console.log(this.user);
-            this.fullName = `${this.user.first_name} ${this.user.last_name}`
+            this.fullName = `${this.user.first_name} ${this.user.last_name}`;
             this.userForm = this.user
         },
         methods: {
-            next(objectData) {
+            basicInformationInput(data) {
+                data.valid_until = !!data.valid_until ? parseTime(data.valid_until, '{y}-{m}-{d}') : null;
+                data.birth_date = !!data.birth_date ? parseTime(data.birth_date, '{y}-{m}-{d}') : null;
+                this.userForm.basic_info = JSON.stringify(data)
+            },
+            arrivalDetailsInput(data) {
+                data.arrival_date = !!data.arrival_date ? parseTime(data.arrival_date, '{y}-{m}-{d}') : null;
+                data.arrival_time = !!data.arrival_time ? parseTime(data.arrival_time, '{h}:{i}:{s}') : null;
+                data.departure_date = !!data.departure_date ? parseTime(data.departure_date, '{y}-{m}-{d}') : null;
+                data.departure_time = !!data.departure_time ? parseTime(data.departure_time, '{h}:{i}:{s}') : null;
+                this.userForm.arrival_detail = JSON.stringify(data)
+            },
+            businessRegistrationInput(data) {
+                this.userForm.business_registration = JSON.stringify(data)
+            },
+            inputStepHandler(inputData, isDrafted = false) {
+                if (this.user.drafted === 0) {
+                    // stringify default value
+                    this.userForm.basic_info = '{}';
+                    this.userForm.arrival_detail = '{}';
+                    this.userForm.business_registration = '{}'
+                }
                 if (this.step === 0) {
-                    objectData.valid_until = !!objectData.valid_until ? parseTime(objectData.valid_until, '{y}-{m}-{d}') : null;
-                    objectData.birth_date = !!objectData.birth_date ? parseTime(objectData.birth_date, '{y}-{m}-{d}') : null;
-                    this.userForm.basic_info = JSON.stringify(objectData)
+                    this.basicInformationInput(inputData)
                 } else if (this.step === 1) {
-                    objectData.arrival_date = !!objectData.arrival_date ? parseTime(objectData.arrival_date, '{y}-{m}-{d}') : null;
-                    objectData.arrival_time = !!objectData.arrival_time ? parseTime(objectData.arrival_time, '{h}:{i}:{s}') : null;
-                    objectData.departure_date = !!objectData.departure_date ? parseTime(objectData.departure_date, '{y}-{m}-{d}') : null;
-                    objectData.departure_time = !!objectData.departure_time ? parseTime(objectData.departure_time, '{h}:{i}:{s}') : null;
-                    this.userForm.arrival_detail = JSON.stringify(objectData)
+                    this.arrivalDetailsInput(inputData)
                 }  else if (this.step === 2) {
-                    this.userForm.business_registration = JSON.stringify(objectData)
+                    this.businessRegistrationInput(inputData)
                 } else {
                     // this.step = 0;
                 }
+            },
+            next(objectData) {
+                this.inputStepHandler(objectData);
                 this.step++
             },
-            async save() {
-                this.userForm.drafted = 1;
+            draft(objectData) {
+                this.inputStepHandler(objectData, true);
+                this.save(0)
+            },
+            save(draftStatus) {
+                this.userForm.drafted = draftStatus;
+                if (!draftStatus) {
+                    this.userForm.drafted_step = this.step
+                }
                 const formData = new FormData();
                 formData.append('_method', 'PATCH')
                 Object.keys(this.userForm).forEach(key => formData.append(key, this.userForm[key]));

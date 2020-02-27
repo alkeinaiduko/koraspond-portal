@@ -154,7 +154,7 @@
                 Cancel
             </el-button>
             <div>
-                <el-button @click="saveInDraft">
+                <el-button @click="$emit('draft', basicInformationForm)">
                     Save in Draft
                 </el-button>
                 <el-button
@@ -171,6 +171,9 @@
 <script>
     import countries from '../countries'
     export default {
+        props: {
+            defaultData: Object
+        },
         data() {
             return {
                 profiles: [
@@ -208,9 +211,11 @@
                 rules: []
             }
         },
-        methods: {
-            saveInDraft() {
-                location.href='/home'
+        mounted() {
+            console.log(this.defaultData)
+            if (!!this.defaultData) {
+
+                this.basicInformationForm = this.defaultData;
             }
         }
     }
