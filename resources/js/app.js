@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import store from './store'
-
+import 'vueperslides/dist/vueperslides.css'
 require('./bootstrap');
 
 // Common resources

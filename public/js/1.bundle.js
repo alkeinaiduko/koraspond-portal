@@ -57,7 +57,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _common_Modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/common/Modal */ "./resources/js/common/Modal.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_Modal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/common/Modal */ "./resources/js/common/Modal.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -179,9 +198,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
-    Modal: _common_Modal__WEBPACK_IMPORTED_MODULE_0__["default"]
+    Modal: _common_Modal__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   props: {
     show: {
@@ -196,8 +216,9 @@ __webpack_require__.r(__webpack_exports__);
         projectDescription: '',
         proposalDocument: '',
         projectDomain: '',
-        proposalTags: ''
-      }
+        proposalTags: []
+      },
+      tags: []
     };
   },
   computed: {
@@ -210,9 +231,79 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   },
+  created: function created() {
+    var _this = this;
+
+    return _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _ref, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get('/tags');
+
+            case 2:
+              _ref = _context.sent;
+              data = _ref.data;
+              _this.tags = data.data;
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
   methods: {
     save: function save() {
-      alert('saved!');
+      var _this2 = this;
+
+      return _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var params, res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                params = {
+                  title: _this2.form.title,
+                  description: _this2.form.projectDescription,
+                  file: _this2.form.proposalDocument,
+                  domain: _this2.form.projectDomain,
+                  tags: _this2.form.proposalTags.toString(),
+                  status: "pending"
+                };
+                _context2.next = 4;
+                return axios.post('/projects', params);
+
+              case 4:
+                res = _context2.sent;
+
+                _this2.$emit('closeModal');
+
+                location.replace('/home');
+                _context2.next = 12;
+                break;
+
+              case 9:
+                _context2.prev = 9;
+                _context2.t0 = _context2["catch"](0);
+                console.log(_context2.t0);
+
+              case 12:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[0, 9]]);
+      }))();
     }
   }
 });
@@ -536,28 +627,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -582,8 +651,17 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _common_CardContainer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ~/common/CardContainer */ "./resources/js/common/CardContainer.vue");
-/* harmony import */ var _ProjectListItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProjectListItem */ "./resources/js/modules/portal/dashboard/components/ProjectListItem.vue");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_CardContainer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ~/common/CardContainer */ "./resources/js/common/CardContainer.vue");
+/* harmony import */ var _ProjectListItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProjectListItem */ "./resources/js/modules/portal/dashboard/components/ProjectListItem.vue");
+/* harmony import */ var _ProjectDetails__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProjectDetails */ "./resources/js/modules/portal/dashboard/components/ProjectDetails.vue");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -598,54 +676,71 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'ProjectList',
   components: {
-    CardContainer: _common_CardContainer__WEBPACK_IMPORTED_MODULE_0__["default"],
-    ProjectListItem: _ProjectListItem__WEBPACK_IMPORTED_MODULE_1__["default"]
+    CardContainer: _common_CardContainer__WEBPACK_IMPORTED_MODULE_1__["default"],
+    ProjectListItem: _ProjectListItem__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ProjectDetails: _ProjectDetails__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   data: function data() {
     return {
-      projects: [{
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Rejected',
-        views: 177
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Pending',
-        views: 177
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Accepted',
-        views: 177
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Rejected',
-        views: 177
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Pending',
-        views: 177
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Accepted',
-        views: 177
-      }]
+      projects: [],
+      empty: false,
+      projectDetailModal: false,
+      selectedProject: null
     };
+  },
+  created: function created() {
+    var _this = this;
+
+    return _asyncToGenerator(
+    /*#__PURE__*/
+    _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+      var _ref, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios.get('/projects');
+
+            case 2:
+              _ref = _context.sent;
+              data = _ref.data;
+              _this.projects = data.data;
+
+            case 5:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }))();
+  },
+  methods: {
+    openProjectDetails: function openProjectDetails(data) {
+      this.selectedProject = data;
+      this.projectDetailModal = true;
+    }
   }
 });
 
@@ -746,12 +841,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     data: {
       type: Object,
       required: true
     }
+  },
+  created: function created() {
+    console.log('@propsdata', this.data);
   }
 });
 
@@ -1036,49 +1141,8 @@ __webpack_require__.r(__webpack_exports__);
     return {
       openProjectDetails: false,
       projectDetail: {},
-      projects: [{
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Rejected',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Pending',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Accepted',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Rejected',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Pending',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }, {
-        title: 'There are many variations of passages',
-        industry: 'Artificial Intelligence',
-        date_submitted: '17/10/2019',
-        status: 'Accepted',
-        views: 177,
-        description: 'It is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established. Fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable contentIt is a long established fact that a reader will be distracted by the readable content It is a long established fact that a reader will be distracted by the readable content'
-      }],
+      test: [],
+      projects: [],
       activeIndex: '1',
       activeIndex2: '1',
       currentTab: "project-list",
@@ -1121,7 +1185,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules/c
 
 
 // module
-exports.push([module.i, ".portal__content--left > div {\n  position: relative;\n}\n.portal__content--left > div > button {\n  position: absolute;\n  right: 20px;\n}\n.portal__content--left .user-information {\n  padding: 1.2em;\n}\n.user-info__container {\n  border-bottom: 1px solid #E2E2E2;\n  margin-top: 25px;\n}\n.user-info__details div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.user-info__details p {\n  margin: 15px;\n}\n.user-info__name {\n  font-size: 23px;\n  font-family: Graphik-Semibold;\n  margin-top: 10px;\n}\n.user-info__ratings {\n  margin-top: 9px;\n  margin-left: 5px;\n}\n.user-info__ratings svg {\n  margin-top: -1px;\n  margin: -1px 0 0 3px;\n  color: #FFAE53;\n}\n.user-info__email, .user-info__address, .user-info__socials {\n  color: #9498A2;\n  font-size: 14px;\n}\n.user-info__socials {\n  font-size: 18px;\n}\n.user-info__socials svg {\n  margin: 0 8px;\n}\n.user-about__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-about__container h1 {\n  font-weight: bold;\n}\n.user-about__container p {\n  width: 15rem;\n}\n.user-education__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-education__container div {\n  border: 1px solid #E2E2E2;\n  padding: 1rem 0.7rem;\n  border-radius: 5px;\n}\n.user-education__container div p {\n  color: #9C9C9C;\n  margin: 0;\n}\n.user-interest__container {\n  padding: 1rem 0.5rem;\n  width: 250px;\n  word-wrap: break-word;\n}\n.user-interest__container span.el-tag--info {\n  margin: 0.5em;\n  color: #000;\n}\n.portal__content--right .nav-menu {\n  padding: 0 1.2em;\n}\n.portal__content--right .nav-menu > div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.portal__content--right .nav-menu .el-menu-item.is-active {\n  color: #000 !important;\n}\n.portal__content--right .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.portal__content--right .content-list li {\n  margin-top: 1em;\n}\n.portal__content--right .content-list li .project {\n  padding: 1.2em;\n}\n.final-register__container {\n  padding-top: 90px;\n}\n.final-register__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.final-register__greetings p {\n  font-size: 23px;\n  font-family: Graphik;\n  margin-top: 10px;\n}\n.final-register__greetings p span {\n  font-family: Graphik-bold;\n}\n.final-register__progress {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-top: 15px;\n}\n.final-register__label {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n.final-register__label h6 {\n  margin-left: 30px;\n  margin-top: 25px;\n  padding: 0px 30px;\n  text-align: center;\n}\n.register__fields {\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin-top: 25px;\n}\n.register__fields label {\n  font-size: 18px;\n  font-family: Graphik;\n}\n.register__fields .row {\n  padding: 10px 0px;\n}\n.register__fields .register__announcement {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.register__fields .register__announcement h2 {\n  font-family: Graphik-bold;\n}\n.register__fields .register__announcement h5 {\n  text-align: center;\n  line-height: 40px;\n}\n.register__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin: 25px 0px;\n}\n.BI .el-select {\n  display: block;\n}\n.BI .el-date-editor {\n  width: 100%;\n}\n.BI .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.AD .el-select {\n  display: block;\n}\n.AD .el-date-editor {\n  width: 100%;\n}\n.BR .el-upload {\n  display: block;\n}\n.BRF .el-select {\n  display: block;\n}\n.BRF .el-upload {\n  display: block;\n}\n.BRF .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.project-list__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.project-list__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__details h5 {\n  font-weight: bold;\n}\n.project-list__details .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__details .el-tag span {\n  color: #000;\n}\n.project-list__details .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings {\n  flex: 2;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__meetings h5 {\n  font-weight: bold;\n}\n.project-list__meetings .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__meetings .el-tag span {\n  color: #000;\n}\n.project-list__meetings .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings .scope-tags .el-tag {\n  margin-right: 8px;\n}\n.project-list__action {\n  flex: 1;\n  text-align: right;\n}\n.project-list__action--top {\n  margin-bottom: 1em;\n}\n.project-list__action--top .action-editor .el-icon-more {\n  transform: rotate(90deg);\n}\n.project-list__action__meeting--top {\n  margin-bottom: 4em;\n}\n.project-list__action--bottom .btn {\n  width: 40%;\n}\n.project-list__action--bottom p {\n  font-size: 11px;\n  color: gray;\n}\n.project-list__action--bottom p .status {\n  color: #1c9989;\n}\n.project-list__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 1rem;\n}\n.project-modal .modal-container {\n  padding: 0;\n  border-radius: 5px;\n}\n.project-modal .modal-container .modal__header {\n  padding: 0.8em;\n  text-align: left;\n  background-color: #006A55;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: initial;\n}\n.project-modal .modal-container .modal__header .custom-modal-header {\n  width: 100%;\n}\n.project-modal .modal-container .modal__body {\n  padding: 0 1.8em;\n}\n.project-modal .modal-container .modal__body .project-title {\n  font-size: 18px;\n  font-weight: bold;\n}\n.project-modal .modal-container .modal__body .detail__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left, .project-modal .modal-container .modal__body .detail__container--right {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: initial;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left .el-tag span {\n  color: #000;\n}\n.project-modal .modal-container .modal__body .detail__container--left p {\n  margin-top: 1.2rem;\n  margin-bottom: 0;\n}\n.project-modal .modal-container .modal__body .project__tags {\n  padding: 1em 0;\n  border-top: 1px solid #EBEBEB;\n  border-bottom: 1px solid #EBEBEB;\n  margin-top: 1em;\n}\n.project-modal .modal-container .modal__body .project__tags .el-tag {\n  margin-right: 10px;\n}\n.project-modal .modal-container .modal__body .project__description {\n  padding: 1em 0;\n  border-bottom: 1px solid #EBEBEB;\n}\n.project-modal .project__attachments {\n  padding: 1em;\n}\n.meeting-request {\n  display: flex;\n}\n.meeting-request__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.meeting-request__image {\n  position: relative;\n}\n.meeting-request__image .status {\n  position: absolute;\n  margin-left: -15px;\n  margin-top: 25px;\n}\n.meeting-request__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.meeting-request__details strong {\n  font-weight: 20px;\n}\n.meeting-request__actions {\n  flex: 1;\n  text-align: right;\n}\n.meeting {\n  display: flex;\n}\n.meeting__container {\n  padding: 7.2em;\n}\n.meeting__tabs .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.meeting__tabs .content-list li {\n  margin-top: 1rem;\n}\n.meeting__tabs .el-pagination.is-background .btn-prev:disabled, .meeting__tabs .el-pagination.is-background .btn-next:disabled, .meeting__tabs .el-pagination.is-background .el-pager li {\n  background-color: #fff;\n  color: #606266;\n  border-radius: 20px;\n}\n.meeting__tabs .el-pagination.is-background .btn-next, .meeting__tabs .el-pagination.is-background .btn-prev, .meeting__tabs .el-pagination.is-background .el-pager li:not(.disabled).active {\n  background-color: #E6A23C;\n  border-radius: 20px;\n  color: #a86705;\n}\n.meeting__tabs .el-tabs__item.is-active {\n  color: #000;\n}\n.meeting__tabs .el-tabs__active-bar {\n  background-color: #006A55;\n}\n.meeting__tabs--footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 15px 0px;\n}\n.meeting__tabs--footer--paginate {\n  display: flex;\n  flex: 1;\n  justify-content: center;\n  padding: 1rem;\n}\n.meeting-available {\n  display: flex;\n}\n.meeting-available__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 7.2em;\n}", ""]);
+exports.push([module.i, ".portal__content--left > div {\n  position: relative;\n}\n.portal__content--left > div > button {\n  position: absolute;\n  right: 20px;\n}\n.portal__content--left .user-information {\n  padding: 1.2em;\n}\n.user-info__container {\n  border-bottom: 1px solid #E2E2E2;\n  margin-top: 25px;\n}\n.user-info__details div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.user-info__details p {\n  margin: 15px;\n}\n.user-info__name {\n  font-size: 23px;\n  font-family: Graphik-Semibold;\n  margin-top: 10px;\n}\n.user-info__ratings {\n  margin-top: 9px;\n  margin-left: 5px;\n}\n.user-info__ratings svg {\n  margin-top: -1px;\n  margin: -1px 0 0 3px;\n  color: #FFAE53;\n}\n.user-info__email, .user-info__address, .user-info__socials {\n  color: #9498A2;\n  font-size: 14px;\n}\n.user-info__socials {\n  font-size: 18px;\n}\n.user-info__socials svg {\n  margin: 0 8px;\n}\n.user-about__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-about__container h1 {\n  font-weight: bold;\n}\n.user-about__container p {\n  width: 15rem;\n}\n.user-education__container {\n  padding: 1rem 0.5rem;\n  border-bottom: 1px solid #E2E2E2;\n}\n.user-education__container div {\n  border: 1px solid #E2E2E2;\n  padding: 1rem 0.7rem;\n  border-radius: 5px;\n}\n.user-education__container div p {\n  color: #9C9C9C;\n  margin: 0;\n}\n.user-interest__container {\n  padding: 1rem 0.5rem;\n  width: 250px;\n  word-wrap: break-word;\n}\n.user-interest__container span.el-tag--info {\n  margin: 0.5em;\n  color: #000;\n}\n.portal__content--right .nav-menu {\n  padding: 0 1.2em;\n}\n.portal__content--right .nav-menu > div {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.portal__content--right .nav-menu .el-menu-item.is-active {\n  color: #000 !important;\n}\n.portal__content--right .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.portal__content--right .content-list li {\n  margin-top: 1em;\n}\n.portal__content--right .content-list li .project {\n  padding: 1.2em;\n}\n.final-register__container {\n  padding-top: 90px;\n}\n.final-register__content {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n}\n.final-register__greetings p {\n  font-size: 23px;\n  font-family: Graphik;\n  margin-top: 10px;\n}\n.final-register__greetings p span {\n  font-family: Graphik-bold;\n}\n.final-register__progress {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  margin-top: 15px;\n}\n.final-register__label {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-around;\n}\n.final-register__label h6 {\n  margin-left: 30px;\n  margin-top: 25px;\n  padding: 0px 30px;\n  text-align: center;\n}\n.register__fields {\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin-top: 25px;\n}\n.register__fields label {\n  font-size: 18px;\n  font-family: Graphik;\n}\n.register__fields .row {\n  padding: 10px 0px;\n}\n.register__fields .register__announcement {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n}\n.register__fields .register__announcement h2 {\n  font-family: Graphik-bold;\n}\n.register__fields .register__announcement h5 {\n  text-align: center;\n  line-height: 40px;\n}\n.register__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding-top: 25px;\n  margin: 25px 0px;\n}\n.BI .el-select {\n  display: block;\n}\n.BI .el-date-editor {\n  width: 100%;\n}\n.BI .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.AD .el-select {\n  display: block;\n}\n.AD .el-date-editor {\n  width: 100%;\n}\n.BR .el-upload {\n  display: block;\n}\n.BRF .el-select {\n  display: block;\n}\n.BRF .el-upload {\n  display: block;\n}\n.BRF .el-radio__input.is-checked .el-radio__inner {\n  border-color: #F4BA58;\n  background: #F3B142;\n}\n.project-list__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.project-list__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__details h5 {\n  font-weight: bold;\n}\n.project-list__details .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__details .el-tag span {\n  color: #000;\n}\n.project-list__details .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings {\n  flex: 2;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.project-list__meetings h5 {\n  font-weight: bold;\n}\n.project-list__meetings .el-tag {\n  margin-bottom: 1em;\n}\n.project-list__meetings .el-tag span {\n  color: #000;\n}\n.project-list__meetings .project-submitted {\n  color: #909399;\n  font-size: 12px;\n}\n.project-list__meetings .scope-tags .el-tag {\n  margin-right: 8px;\n}\n.project-list__action {\n  flex: 1;\n  text-align: right;\n}\n.project-list__action--top {\n  margin-bottom: 1em;\n}\n.project-list__action--top .action-editor .el-icon-more {\n  transform: rotate(90deg);\n}\n.project-list__action__meeting--top {\n  margin-bottom: 4em;\n}\n.project-list__action--bottom .btn {\n  width: 40%;\n}\n.project-list__action--bottom p {\n  font-size: 11px;\n  color: gray;\n}\n.project-list__action--bottom p .status {\n  color: #1c9989;\n}\n.project-list__footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 1rem;\n}\n.project-modal .modal-container {\n  padding: 0;\n  border-radius: 5px;\n}\n.project-modal .modal-container .modal__header {\n  padding: 0.8em;\n  text-align: left;\n  background-color: #006A55;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: initial;\n}\n.project-modal .modal-container .modal__header .custom-modal-header {\n  width: 100%;\n}\n.project-modal .modal-container .modal__body {\n  padding: 0 1.8em;\n}\n.project-modal .modal-container .modal__body .project-title {\n  font-size: 18px;\n  font-weight: bold;\n}\n.project-modal .modal-container .modal__body .detail__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left, .project-modal .modal-container .modal__body .detail__container--right {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: initial;\n  justify-content: space-between;\n}\n.project-modal .modal-container .modal__body .detail__container--left .el-tag span {\n  color: #000;\n}\n.project-modal .modal-container .modal__body .detail__container--left p {\n  margin-top: 1.2rem;\n  margin-bottom: 0;\n}\n.project-modal .modal-container .modal__body .project__tags {\n  padding: 1em 0;\n  border-top: 1px solid #EBEBEB;\n  border-bottom: 1px solid #EBEBEB;\n  margin-top: 1em;\n}\n.project-modal .modal-container .modal__body .project__tags .el-tag {\n  margin-right: 10px;\n}\n.project-modal .modal-container .modal__body .project__description {\n  padding: 1em 0;\n  border-bottom: 1px solid #EBEBEB;\n}\n.project-modal .project__attachments {\n  padding: 1em;\n}\n.create-project-modal .modal-container .el-form-item .el-select {\n  width: 100%;\n}\n.meeting-request {\n  display: flex;\n}\n.meeting-request__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 1.2em;\n}\n.meeting-request__image {\n  position: relative;\n}\n.meeting-request__image .status {\n  position: absolute;\n  margin-left: -15px;\n  margin-top: 25px;\n}\n.meeting-request__details {\n  flex: 1;\n  margin-left: 20px;\n  padding-top: 10px;\n}\n.meeting-request__details strong {\n  font-weight: 20px;\n}\n.meeting-request__actions {\n  flex: 1;\n  text-align: right;\n}\n.meeting {\n  display: flex;\n}\n.meeting__container {\n  padding: 7.2em;\n}\n.meeting__tabs .content-list {\n  list-style-type: none;\n  padding: 0;\n  margin: 0;\n}\n.meeting__tabs .content-list li {\n  margin-top: 1rem;\n}\n.meeting__tabs .el-pagination.is-background .btn-prev:disabled, .meeting__tabs .el-pagination.is-background .btn-next:disabled, .meeting__tabs .el-pagination.is-background .el-pager li {\n  background-color: #fff;\n  color: #606266;\n  border-radius: 20px;\n}\n.meeting__tabs .el-pagination.is-background .btn-next, .meeting__tabs .el-pagination.is-background .btn-prev, .meeting__tabs .el-pagination.is-background .el-pager li:not(.disabled).active {\n  background-color: #E6A23C;\n  border-radius: 20px;\n  color: #a86705;\n}\n.meeting__tabs .el-tabs__item.is-active {\n  color: #000;\n}\n.meeting__tabs .el-tabs__active-bar {\n  background-color: #006A55;\n}\n.meeting__tabs--footer {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  border-top: 1px solid #E8E8E8;\n  padding: 15px 0px;\n}\n.meeting__tabs--footer--paginate {\n  display: flex;\n  flex: 1;\n  justify-content: center;\n  padding: 1rem;\n}\n.meeting-available {\n  display: flex;\n}\n.meeting-available__container {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: space-between;\n  padding: 7.2em;\n}", ""]);
 
 // exports
 
@@ -1441,19 +1505,30 @@ var render = function() {
                             "el-form-item",
                             { attrs: { label: "Add Tags to your proposal" } },
                             [
-                              _c("el-input", {
-                                attrs: {
-                                  placeholder:
-                                    "Add relevant Tags to make it more visible to appropriate audience"
-                                },
-                                model: {
-                                  value: _vm.form.proposalTags,
-                                  callback: function($$v) {
-                                    _vm.$set(_vm.form, "proposalTags", $$v)
+                              _c(
+                                "el-select",
+                                {
+                                  staticClass: "tags",
+                                  attrs: {
+                                    multiple: "",
+                                    placeholder: "Select"
                                   },
-                                  expression: "form.proposalTags"
-                                }
-                              })
+                                  model: {
+                                    value: _vm.form.proposalTags,
+                                    callback: function($$v) {
+                                      _vm.$set(_vm.form, "proposalTags", $$v)
+                                    },
+                                    expression: "form.proposalTags"
+                                  }
+                                },
+                                _vm._l(_vm.tags, function(item) {
+                                  return _c("el-option", {
+                                    key: item.id,
+                                    attrs: { label: item.name, value: item.id }
+                                  })
+                                }),
+                                1
+                              )
                             ],
                             1
                           )
@@ -1877,27 +1952,19 @@ var render = function() {
         [
           _c("span", [_vm._v("Tags: ")]),
           _vm._v(" "),
-          _c("el-tag", { attrs: { type: "info", size: "large" } }, [
-            _vm._v("\n                Animation\n            ")
-          ]),
-          _vm._v(" "),
-          _c("el-tag", { attrs: { type: "info", size: "large" } }, [
-            _vm._v("\n                Engineering\n            ")
-          ]),
-          _vm._v(" "),
-          _c("el-tag", { attrs: { type: "info", size: "large" } }, [
-            _vm._v("\n                Artificial Intelligence\n            ")
-          ]),
-          _vm._v(" "),
-          _c("el-tag", { attrs: { type: "info", size: "large" } }, [
-            _vm._v("\n                Software\n            ")
-          ]),
-          _vm._v(" "),
-          _c("el-tag", { attrs: { type: "info", size: "large" } }, [
-            _vm._v("\n                Science\n            ")
-          ])
+          _vm._l(_vm.data.tag, function(tag, key) {
+            return _c(
+              "el-tag",
+              { key: key, attrs: { type: "info", size: "large" } },
+              [
+                _vm._v(
+                  "\n                " + _vm._s(tag.name) + "\n            "
+                )
+              ]
+            )
+          })
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c("div", { staticClass: "project__description" }, [
@@ -1940,27 +2007,53 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "ul",
-      { staticClass: "content-list" },
-      _vm._l(_vm.projects, function(project, key) {
-        return _c(
-          "li",
-          { key: key },
-          [
-            _c(
-              "card-container",
-              [_c("project-list-item", { attrs: { data: project } })],
-              1
-            )
-          ],
-          1
-        )
-      }),
-      0
-    )
-  ])
+  return _c(
+    "div",
+    [
+      _vm.projects.length
+        ? _c(
+            "ul",
+            { staticClass: "content-list" },
+            _vm._l(_vm.projects, function(project, key) {
+              return _c(
+                "li",
+                { key: key },
+                [
+                  _c(
+                    "card-container",
+                    [
+                      _c("project-list-item", {
+                        attrs: { data: project },
+                        on: {
+                          "open-details": function($event) {
+                            return _vm.openProjectDetails(project)
+                          }
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            }),
+            0
+          )
+        : _c("div", [_vm._v("\n        Nothing to show.\n    ")]),
+      _vm._v(" "),
+      _vm.projectDetailModal
+        ? _c("project-details", {
+            attrs: { data: _vm.selectedProject },
+            on: {
+              close: function($event) {
+                _vm.projectDetailModal = false
+              }
+            }
+          })
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1993,14 +2086,28 @@ var render = function() {
       [
         _c("h5", [_vm._v(_vm._s(_vm.data.title))]),
         _vm._v(" "),
-        _c("el-tag", { attrs: { type: "info", size: "medium" } }, [
-          _vm._v("\n            Industry:  "),
-          _c("span", [_vm._v(_vm._s(_vm.data.industry))])
-        ]),
+        _c(
+          "el-tag",
+          { attrs: { type: "info", size: "medium" } },
+          [
+            _vm._v("\n            Industry:\n            "),
+            _vm._l(_vm.data.tag, function(tag, key) {
+              return _c("span", { key: key }, [
+                _vm._v(
+                  "\n                " + _vm._s(tag.name) + "\n                "
+                ),
+                key != _vm.data.tag.length - 1
+                  ? _c("span", [_vm._v(",")])
+                  : _vm._e()
+              ])
+            })
+          ],
+          2
+        ),
         _vm._v(" "),
         _c("p", { staticClass: "project-submitted" }, [
           _c("span", [_vm._v("Submitted on: ")]),
-          _vm._v(_vm._s(_vm.data.submitted_date) + "\n        ")
+          _vm._v(_vm._s(_vm.data.created_at) + "\n        ")
         ])
       ],
       1
@@ -2011,7 +2118,7 @@ var render = function() {
         "div",
         { staticClass: "project-list__action--top" },
         [
-          _vm.data.status == "Rejected"
+          _vm.data.status == "rejected"
             ? _c(
                 "el-button",
                 {
@@ -2025,7 +2132,7 @@ var render = function() {
                   )
                 ]
               )
-            : _vm.data.status == "Pending"
+            : _vm.data.status == "pending"
             ? _c(
                 "el-button",
                 {
@@ -2044,7 +2151,7 @@ var render = function() {
                   )
                 ]
               )
-            : _vm.data.status == "Accepted"
+            : _vm.data.status == "accepted"
             ? _c(
                 "el-button",
                 {

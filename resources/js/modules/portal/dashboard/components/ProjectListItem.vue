@@ -10,7 +10,7 @@
                 type="info"
                 size="medium"
             >
-                Industry:  
+                Industry:
                 <span
                     v-for="(tag, key) in data.tag"
                     :key="key"
@@ -99,6 +99,9 @@
                 type: Object,
                 required: true
             }
+        },
+        created() {
+            console.log('@propsdata', this.data)
         }
     }
 </script>

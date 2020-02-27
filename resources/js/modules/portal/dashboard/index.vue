@@ -126,7 +126,7 @@
             }
         },
         computed: {
-            currentTabComponent: function(){
+            currentTabComponent(){
                 return this.currentTab.toLowerCase();
             }
         },

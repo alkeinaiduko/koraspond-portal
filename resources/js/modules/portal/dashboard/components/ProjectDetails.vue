@@ -66,34 +66,12 @@
             <div class="project__tags">
                 <span>Tags: </span>
                 <el-tag
+                    v-for="(tag, key) in data.tag"
+                    :key="key"
                     type="info"
                     size="large"
                 >
-                    Animation
-                </el-tag>
-                <el-tag
-                    type="info"
-                    size="large"
-                >
-                    Engineering
-                </el-tag>
-                <el-tag
-                    type="info"
-                    size="large"
-                >
-                    Artificial Intelligence
-                </el-tag>
-                <el-tag
-                    type="info"
-                    size="large"
-                >
-                    Software
-                </el-tag>
-                <el-tag
-                    type="info"
-                    size="large"
-                >
-                    Science
+                    {{ tag.name }}
                 </el-tag>
             </div>
             <div class="project__description">
