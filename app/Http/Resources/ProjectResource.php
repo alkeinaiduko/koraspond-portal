@@ -20,6 +20,7 @@ class ProjectResource extends JsonResource
             'description' => $this->description,
             'domain' => $this->domain,
             'tag' => TagResource::collection($this->whenLoaded('tag')),
+            'status' => $this->status,
             'created_at' => $this->created_at->format('Y-m-d H:i:s'),
             'updated_at' => $this->updated_at->format('Y-m-d H:i:s')
         ];

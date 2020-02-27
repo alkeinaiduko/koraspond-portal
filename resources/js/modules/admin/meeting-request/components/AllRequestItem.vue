@@ -83,23 +83,6 @@
             </div>
             <div class="project-list__footer__actions">
                 <el-button
-                    v-if="data.status != 'Accepted'"
-                    type="success"
-                    size="small"
-                    icon="el-icon-check"
-                >
-                    Approved
-                </el-button>
-                <el-button
-                    v-if="data.status != 'Accepted'"
-                    type="danger"
-                    size="small"
-                    icon="el-icon-close"
-                >
-                    Reject
-                </el-button>
-                <el-button
-                    v-if="data.status == 'Accepted'"
                     class="btn--pink"
                     size="small"
                     icon="el-icon-time"
@@ -107,8 +90,7 @@
                     Setup Meeting Room
                 </el-button>
                 <el-button
-                    v-if="data.status == 'Accepted'"
-                    type="warning"
+                    type="danger"
                     size="small"
                     icon="el-icon-close"
                 >

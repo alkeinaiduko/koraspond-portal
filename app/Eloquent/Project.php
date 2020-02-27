@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['title', 'description', 'file', 'domain'];
+    protected $fillable = ['title', 'description', 'file', 'domain', 'status'];
 
     public $timestamps = ['created_at', 'updated_at'];
 

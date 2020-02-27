@@ -90,10 +90,19 @@
                             <el-form-item
                                 label="Add Tags to your proposal"
                             >
-                                <el-input 
+                                <el-select 
                                     v-model="form.proposalTags" 
-                                    placeholder="Add relevant Tags to make it more visible to appropriate audience"
-                                />
+                                    multiple 
+                                    placeholder="Select"
+                                    class="tags"
+                                >
+                                    <el-option
+                                        v-for="item in tags"
+                                        :key="item.id"
+                                        :label="item.name"
+                                        :value="item.id" 
+                                    />
+                                </el-select>
                             </el-form-item>
                         </div>
                     </div>
@@ -120,6 +129,7 @@
 </template>
 <script>
     import Modal from "~/common/Modal"
+import Axios from 'axios'
 export default {
     components: {
         Modal
@@ -137,8 +147,9 @@ export default {
                 projectDescription: '',
                 proposalDocument: '',
                 projectDomain: '',
-                proposalTags: ''
-            }
+                proposalTags: [],
+            },
+            tags: []
         }
     },
     computed: {
@@ -151,10 +162,29 @@ export default {
             }
         }
     },
+    async created(){
+        let { data } = await axios.get('/tags')
+        this.tags = data.data
+    },
     methods: {
-        save() {
-            alert('saved!')
-        }
+        async save() {
+            try {
+                let params = {
+                    title: this.form.title,
+                    description: this.form.projectDescription,
+                    file: this.form.proposalDocument,
+                    domain: this.form.projectDomain,
+                    tags: this.form.proposalTags.toString(),
+                    status: "pending"
+                }
+
+                let res = await axios.post('/projects', params)
+                this.$emit('closeModal')
+                location.replace('/home')
+            }catch(error){
+                console.log(error)
+            }
+        },
     }
 }
 </script>
