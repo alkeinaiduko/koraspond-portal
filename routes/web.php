@@ -21,12 +21,12 @@ Route::post('/admin/login', 'Admin\AdminLoginController@login')->name('admin.log
 Route::get('/admin/home', 'Admin\AdminController@index')->name('admin.index');
 Route::post('/admin/logout', 'Admin\AdminLoginController@logout');
 
-
-
 Route::resource('signup', 'SignupController');
+Route::resource('projects', 'ProjectController');
 Route::resource('user-types', 'UserTypeController');
-Route::resource('meeting-profiles', 'MeetingProfileController');
 Route::resource('meeting-request', 'MeetingRequestController');
+Route::resource('meeting-profiles', 'MeetingProfileController');
+
 Route::get('/admin/meeting-requests', 'Admin\AdminController@meetingRequest')->name('admin.meeting-request');
 
 Auth::routes(['verify' => true]);
