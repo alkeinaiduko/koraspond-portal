@@ -5,7 +5,7 @@
                 src="/images/project-pic.png"
                 alt=""
             >
-            <div class="project-list__details">
+            <div class="project-list__meetings">
                 <h5>{{ data.title }}</h5>
                 <el-tag
                     type="info"
