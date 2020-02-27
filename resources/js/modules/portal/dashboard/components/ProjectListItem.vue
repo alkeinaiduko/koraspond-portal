@@ -10,16 +10,23 @@
                 type="info"
                 size="medium"
             >
-                Industry:  <span>{{ data.industry }}</span>
+                Industry:  
+                <span
+                    v-for="(tag, key) in data.tag"
+                    :key="key"
+                >
+                    {{ tag.name }}
+                    <span v-if="key != data.tag.length - 1">,</span>
+                </span>
             </el-tag>
             <p class="project-submitted">
-                <span>Submitted on: </span>{{ data.submitted_date }}
+                <span>Submitted on: </span>{{ data.created_at }}
             </p>
         </div>
         <div class="project-list__action">
             <div class="project-list__action--top">
                 <el-button
-                    v-if="data.status == 'Rejected'"
+                    v-if="data.status == 'rejected'"
                     type="danger"
                     round
                     plain
@@ -28,7 +35,7 @@
                     {{ data.status }}
                 </el-button>
                 <el-button
-                    v-else-if="data.status == 'Pending'"
+                    v-else-if="data.status == 'pending'"
                     type="warning"
                     round
                     plain
@@ -37,7 +44,7 @@
                     {{ data.status }}
                 </el-button>
                 <el-button
-                    v-else-if="data.status == 'Accepted'"
+                    v-else-if="data.status == 'accepted'"
                     type="success"
                     round
                     plain

@@ -1,6 +1,9 @@
 <template>
     <div>
-        <ul class="content-list">
+        <ul 
+            v-if="projects.length"
+            class="content-list"
+        >
             <li
                 v-for="(project, key) in projects"
                 :key="key"
@@ -10,6 +13,9 @@
                 </card-container>
             </li>
         </ul>
+        <div v-else>
+            Nothing to show.
+        </div>
     </div>
 </template>
 <script>
@@ -23,51 +29,13 @@ export default {
     },
     data(){
         return {
-            projects: [
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Rejected',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Pending',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Accepted',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Rejected',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Pending',
-                        views: 177
-                    },
-                    {
-                        title: 'There are many variations of passages',
-                        industry: 'Artificial Intelligence',
-                        date_submitted: '17/10/2019',
-                        status: 'Accepted',
-                        views: 177
-                    },
-                ]
+            projects: [],
+            empty: false
         }
-    }
+    },
+    async created(){
+        let { data } = await axios.get('/projects')
+        this.projects = data.data
+    },
 }
 </script>
