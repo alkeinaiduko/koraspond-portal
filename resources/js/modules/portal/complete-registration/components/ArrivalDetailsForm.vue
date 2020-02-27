@@ -180,7 +180,7 @@
         },
         beforeMount() {
             if (!!this.defaultData) {
-                this.arrivalDetailsForm = {...this.defaultData, ...this.arrivalDetailsForm};
+                this.arrivalDetailsForm = this.defaultData;
             }
         }
     }

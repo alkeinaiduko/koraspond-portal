@@ -262,7 +262,7 @@
         },
         beforeMount() {
             if (!!this.defaultData) {
-                this.businessRegistrationForm = {...this.defaultData, ...this.businessRegistrationForm};
+                this.businessRegistrationForm = this.defaultData;
             }
         }
     }
