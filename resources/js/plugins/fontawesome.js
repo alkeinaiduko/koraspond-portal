@@ -7,7 +7,8 @@ import {
     faMapMarkerAlt,
     faEye,
     faArrowRight,
-    faEllipsisV
+    faEllipsisV,
+    faShare
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -26,7 +27,8 @@ library.add(
     faLinkedin,
     faEye,
     faArrowRight,
-    faEllipsisV
+    faEllipsisV,
+    faShare
 );
 
 Vue.component('vue-fontawesome', FontAwesomeIcon);

@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="project-list__action">
-            <div class="project-list__action--top">
+            <div class="project-list__action__meeting--top">
                 <el-dropdown trigger="click">
                     <el-button
                         type="info"
@@ -36,12 +36,10 @@
                 </el-dropdown>
             </div>
             <div class="project-list__action--bottom">
-                <el-button
-                    type="warning"
-                    size="small"
+                <el-button 
+                    type="warning" 
                 >
-                    Request Meeting
-                    <vue-fontawesome icon="arrow-right" />
+                    <vue-fontawesome icon="share" /> Request Meeting
                 </el-button>
             </div>
         </div>
