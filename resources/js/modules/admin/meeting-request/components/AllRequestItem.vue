@@ -13,6 +13,17 @@
                 >
                     Industry:  <span>{{ data.industry }}</span>
                 </el-tag>
+
+                <div class="scope-tags">
+                    <el-tag
+                        v-for="(scope, key) in scopes"
+                        :key="key"
+                        type="info"
+                        size="medium"
+                    >
+                        <span>{{ scope }}</span>
+                    </el-tag>
+                </div>
             </div>
             <div class="project-list__action">
                 <div class="project-list__action--top">
@@ -61,18 +72,6 @@
                 </div>
             </div>
         </div>
-        <div class="project-list__footer--top">
-            <div class="tags">
-                <el-tag
-                    v-for="(scope, key) in scopes"
-                    :key="key"
-                    type="info"
-                    size="medium"
-                >
-                    <span>{{ scope }}</span>
-                </el-tag>
-            </div>
-        </div>
         <div class="project-list__footer">
             <round-image
                 class="user-info__avatar"
@@ -109,7 +108,7 @@
                 </el-button>
                 <el-button
                     v-if="data.status == 'Accepted'"
-                    type="danger"
+                    type="warning"
                     size="small"
                     icon="el-icon-close"
                 >
