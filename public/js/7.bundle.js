@@ -303,7 +303,7 @@ var render = function() {
               "li",
               {
                 staticClass: "nav-item",
-                class: { active: _vm.uri == "admin/meeting-request" }
+                class: { active: _vm.uri == "admin/meeting-requests" }
               },
               [
                 _c(

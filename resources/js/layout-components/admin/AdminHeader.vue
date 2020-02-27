@@ -46,7 +46,7 @@
                 </li>
                 <li
                     class="nav-item"
-                    :class="{ 'active': uri == 'admin/meeting-request' }"
+                    :class="{ 'active': uri == 'admin/meeting-requests' }"
                 >
                     <a
                         class="nav-link"

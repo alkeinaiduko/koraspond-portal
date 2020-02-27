@@ -201,7 +201,9 @@
                 Cancel
             </el-button>
             <div>
-                <el-button @click="$emit('draft', businessRegistrationForm)">Save in Draft</el-button>
+                <el-button @click="$emit('draft', businessRegistrationForm)">
+                    Save in Draft
+                </el-button>
                 <el-button
                     class="primary--plain--reverse"
                     @click="$emit('next', businessRegistrationForm)"
@@ -250,6 +252,11 @@
                 rules: []
             }
         },
+        beforeMount() {
+            if (!!this.defaultData) {
+                this.businessRegistrationForm = this.defaultData;
+            }
+        },
         methods: {
             handleNotInterested() {
                 this.isWantToRegister = false;
@@ -258,11 +265,6 @@
             handleInterested() {
                 this.isWantToRegister = true;
                 this.forceCloseRegistrationPrompt = true
-            }
-        },
-        beforeMount() {
-            if (!!this.defaultData) {
-                this.businessRegistrationForm = this.defaultData;
             }
         }
     }

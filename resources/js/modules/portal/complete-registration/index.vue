@@ -42,7 +42,9 @@
                     Cancel
                 </el-button>
                 <div>
-                    <el-button @click="draft">Save in Draft</el-button>
+                    <el-button @click="draft">
+                        Save in Draft
+                    </el-button>
                     <el-button
                         class="primary--plain--reverse"
                         @click="save(1)"

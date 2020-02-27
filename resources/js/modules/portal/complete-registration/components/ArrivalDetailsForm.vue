@@ -141,7 +141,9 @@
                 Cancel
             </el-button>
             <div>
-                <el-button @click="$emit('draft', arrivalDetailsForm)">Save in Draft</el-button>
+                <el-button @click="$emit('draft', arrivalDetailsForm)">
+                    Save in Draft
+                </el-button>
                 <el-button
                     class="primary--plain--reverse"
                     @click="$emit('next', arrivalDetailsForm)"
